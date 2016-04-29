@@ -1,0 +1,13 @@
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\*\shell\vim]
+@="&Vim"
+[HKEY_CLASSES_ROOT\*\shell\vim\command]
+@="c:\Program Files\Vim\gvim.exe" "%1"
+
+
+[HKEY_CLASSES_ROOT\Folder\shell\VimHere]
+@="&Vim"
+
+[HKEY_CLASSES_ROOT\Folder\shell\VimHere\command]
+@="C:\Program Files\Vim\gvim.exe" "%1"

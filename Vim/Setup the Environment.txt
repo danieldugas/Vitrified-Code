@@ -1,0 +1,20 @@
+HOW TO SETUP MY CUSTOM VIM ENVIRONMENT FROM SCRATCH
+
+1: copy _vimrc to the appropriate user location (default is $HOME\_vimrc, type :version into vim to make sure)
+2: copy vimfiles directory to $HOME (command window in %HOME: mklink /J vimfiles SkyDrive\vimfiles)
+3: copy twilight to vim/colors
+
+
+More information (In case you forgot):
+
+_vimrc 	   	  : It contains the instructions vim executes when it is started, and calls for vimrc_example to also be executed.
+vimrc_example.vim : called by _vimrc, it contains other instructions to be executed when vim is started.
+pathogen          : a .vim file which once copied to $HOME\vimfiles\ takes care of installing NERDTree properly.
+NERDTree	  : an improvement, installed by copying the nerdtree-master folder to $HOME\bundles\
+twilight	  : a color scheme, installed by copying the twilight.vim file to the $VIM\colors\ folder
+
+
+at the time of writing this help document:
+
+$HOME\ is the same as C:\Users\daniel\
+$VIM\  is the same as C:\Program Files (x86)\Vim\vim74\colors

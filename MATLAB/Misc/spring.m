@@ -1,0 +1,11 @@
+e = -4:0.01:4  ;
+d = 3.5*sin(2*pi*41/720):0.01:3.5*sin(2*pi*141/720)  ;
+Pe = 122.5.*e./( 3.5.*sqrt(1-(e/3.5).^2) )  ;
+P = 122.5.*d./( 3.5.*sqrt(1-(d/3.5).^2) )  ;
+plot_e = plot(e, Pe)  ;
+hold all  ;
+plot_d = plot(d, P)  ;
+set(plot_e,'Color','blue','LineWidth',2) ;
+set(plot_d,'Color','red','LineWidth',3) ;
+xlabel('Distance between wheels');
+ylabel('Required Spring Force');

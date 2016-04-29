@@ -1,0 +1,53 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\begin{document}
+
+
+\section{Task 1}
+
+\section{Task 2}
+
+\section{Task 3}
+
+For small oscillations, we obtain the equations of movement for both masses:
+
+$$ M\ddot{X} = ( x - X ) k_2 + ( \dot{x} - \dot{X} ) c $$
+$$ m\ddot{x} = ( h - x ) k_1 + ( X - x ) k_2 + ( \dot{X} - \dot{x} ) c $$
+
+which can be re-written in matrix form
+
+$$
+\begin{bmatrix} M & 0 \\ 0 & m \end{bmatrix} \ddot{\mathbf{x}}
+= \begin{bmatrix} c & -c \\ -c & c \end{bmatrix} \dot{\mathbf{x}}
++ \begin{bmatrix} k_2 & -k_2 \\ -(k_1+k_2) & k_2 \end{bmatrix} \mathbf{x}
++ \begin{bmatrix} 0 \\ 1 \end{bmatrix} D_0 cos(\omega t)
+$$
+
+Defining 
+$ \mathbf{x} = Re\left( \begin{bmatrix} \hat{X}_1 \\ \hat{X}_2 \end{bmatrix} e^{i\omega t} \right) $
+, the equation can be further simplified to:
+
+$$
+\omega ^2 \begin{bmatrix} M & 0 \\ 0 & m \end{bmatrix} \begin{bmatrix} \hat{X}_1 \\ \hat{X}_2 \end{bmatrix}
++ i\omega c \begin{bmatrix} 1 & -1 \\ -1 & 1 \end{bmatrix} \begin{bmatrix} \hat{X}_1 \\ \hat{X}_2 \end{bmatrix}
++ \begin{bmatrix} k_2 & -k_2 \\ -(k_1+k_2) & k_2 \end{bmatrix} \begin{bmatrix} \hat{X}_1 \\ \hat{X}_2 \end{bmatrix}
+= -\begin{bmatrix} 0 \\ 1 \end{bmatrix} D_0
+$$
+
+and reduced to:
+
+$$
+\begin{bmatrix} 
+    M\omega ^2 + i\omega c + k_2 & -i\omega c -k_2  \\
+    - i\omega c -(k_1 + k_2)  & m\omega ^2 + i\omega c + k_2 
+\end{bmatrix} \begin{bmatrix} \hat{X}_1 \\ \hat{X}_2 \end{bmatrix}
+= -\begin{bmatrix} 0 \\ 1 \end{bmatrix} D_0
+$$
+
+
+\end{document}

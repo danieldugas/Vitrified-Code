@@ -1,0 +1,2 @@
+square lattice:
+./nbody_omp_cells 1.0 1024 0.05 5.0 1e-7 1000000 1000 square_lattice 1e3
