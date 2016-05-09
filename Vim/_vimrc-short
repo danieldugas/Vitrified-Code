@@ -19,7 +19,9 @@ set backup
 set backupdir=~/vimfiles/backup,./.backup
 set undofile
 set undodir=~/vimfiles/backup,./.backup
+set dir=~/vimfiles/swap
 behave xterm
+set backspace=indent,eol,start
 set fdm=marker
 set tabstop=2
 set shiftwidth=2
@@ -51,8 +53,9 @@ color twilight
 let g:sessionfontsize=8
 set guifont=Consolas:h8:cANSI "remember to also change the font keymaps!
 set guioptions=eg
-set listchars=trail:·,precedes:«,extends:»,tab:▸\ ,eol:▾
 endif
+syntax on
+set listchars=trail:·,precedes:«,extends:»,tab:▸\ ,eol:▾
 set whichwrap+=<,>,[,]
 set nu
 set rnu
@@ -113,7 +116,9 @@ noremap <Leader>ya magg"+yG`a
 noremap <F2>		:echo ToggleDocType()<CR>
 noremap <F11>		:echo ToggleFullscreen()<CR>
 nnoremap <M-Down> :cd %:p:h<CR>
-nnoremap <M-Down> :cd %:p:h:h<CR>
+nnoremap <M-Up> :cd %:p:h:h<CR>
+nnoremap <Leader><Down> :cd %:p:h<CR>
+nnoremap <Leader><Up> :cd %:p:h:h<CR>
 " Alt-+ Alt-- zoom in and out TODO: do this better, add L and H support
 nnoremap <silent> <leader><M-->
             \ :set guifont=Consolas:h2:cANSI<CR>

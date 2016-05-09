@@ -27,7 +27,7 @@ if has("gui_running")
   endif
 endif
 
-"" Encoding
+"" Encoding -- Again? I don't know, it doesn't work otherwise
 scriptencoding utf-8
 set encoding=utf-8
 
@@ -41,6 +41,7 @@ set backupdir=$HOME\\vimfiles\\backups,c:/tmp,c:/temp
 set undofile
 set undodir=$HOME\\vimfiles\\backups,c:/tmp,c:/temp
 behave xterm
+set backspace=indent,eol,start
 set fdm=marker
 set tabstop=2
 set shiftwidth=2
@@ -72,8 +73,9 @@ color twilight
 let g:sessionfontsize=8
 set guifont=Consolas:h8:cANSI "remember to also change the font keymaps!
 set guioptions=eg
-set listchars=trail:·,precedes:«,extends:»,tab:▸\ ,eol:▾
 endif
+syntax on
+set listchars=trail:·,precedes:«,extends:»,tab:▸\ ,eol:▾
 set whichwrap+=<,>,[,]
 set nu
 set rnu
@@ -133,9 +135,6 @@ noremap <Leader>w <C-W>
 noremap <Leader>ya magg"+yG`a
 noremap <F2>		:echo ToggleDocType()<CR>
 noremap <F11>		:echo ToggleFullscreen()<CR>
-noremap <F3>		:silent NERDTreeToggle <CR>:wincmd p<CR>
-" Alt-up and Alt-down to change cwd
-" NOTE: wincmd p instead of c keeps tree open
 noremap <M-Up>		:silent NERDTree ..\<CR>:setl nolist<CR>:wincmd c<CR>
             \:cd<CR>
 noremap <M-Down>	:silent NERDTree %:p<CR>:setl nolist<CR>:wincmd c<CR>
@@ -143,6 +142,9 @@ noremap <M-Down>	:silent NERDTree %:p<CR>:setl nolist<CR>:wincmd c<CR>
 noremap <leader><M-Down>
             \       :!start explorer /select,%:p<CR>
 " CTRL-Z is Undo; not in cmdline though
+noremap <F3>		:silent NERDTreeToggle <CR>:wincmd p<CR>
+" Alt-up and Alt-down to change cwd
+" NOTE: wincmd p instead of c keeps tree open
 " Alt-+ Alt-- zoom in and out TODO: do this better, add L and H support
 nnoremap <silent> <leader><M-->
             \ :set guifont=Consolas:h2:cANSI<CR>

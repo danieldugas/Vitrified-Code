@@ -40,6 +40,7 @@ set backup
 set backupdir=~/vimfiles/backup,./.backup
 set undofile
 set undodir=~/vimfiles/backup,./.backup
+set dir=~/vimfiles/swap
 behave xterm
 set backspace=indent,eol,start
 set fdm=marker
