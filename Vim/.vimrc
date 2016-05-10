@@ -24,7 +24,7 @@ filetype plugin indent on    " required
 "" ----------------------------- /VUNDLE
 
 "" ----------- YCM STUFF ------
-nnoremap <C-]> <C-]>:YcmCompleter GoTo<CR>
+nnoremap <C-]> :YcmCompleter GoTo<CR>
 "" ---------------------------- /YCM
 
 "" Unicode Support
