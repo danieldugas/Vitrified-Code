@@ -174,6 +174,8 @@ nnoremap <Leader>n :set rnu!<CR>:set rnu?<CR>
 nnoremap <M-*> *:exec "vim // ".escape(expand("%:p:h"),' ')."/*.*"<CR>
 nnoremap <M-n> :cnext<CR>
 nnoremap <M-N> :cprev<CR>
+nnoremap <Leader>n :cnext<CR>
+nnoremap <Leader>N :cprev<CR>
 " In the help window: Tab and shift-Tab switch between searched topics
 " SECTION: Help functions {{{1
 function! NextHelp()
