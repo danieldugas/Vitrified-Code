@@ -17,6 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'octref/RootIgnore'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -82,7 +83,7 @@ set nu
 set rnu
 set list
 set display +=lastline
-autocmd FileType c,cpp,java,scala set colorcolumn=80
+autocmd FileType c,cpp,java,scala set colorcolumn=100
 autocmd FileType vim              set colorcolumn=80
 autocmd FileType text             set colorcolumn=0
 hi ColorColumn ctermbg=darkgrey guibg=#333333
@@ -174,8 +175,11 @@ nnoremap <Leader>n :set rnu!<CR>:set rnu?<CR>
 nnoremap <M-*> *:exec "vim // ".escape(expand("%:p:h"),' ')."/*.*"<CR>
 nnoremap <M-n> :cnext<CR>
 nnoremap <M-N> :cprev<CR>
-nnoremap <Leader>n :cnext<CR>
-nnoremap <Leader>N :cprev<CR>
+nnoremap <Leader>* *N:vim // ./**<CR>
+nnoremap <Leader>n :cnext<CR>zz
+nnoremap <Leader>N :cprev<CR>zz
+nnoremap <Leader><Tab> :bnext<CR>
+nnoremap <Leader><S-Tab> :bprev<CR>
 " In the help window: Tab and shift-Tab switch between searched topics
 " SECTION: Help functions {{{1
 function! NextHelp()
