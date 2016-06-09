@@ -3,6 +3,27 @@
 "" Vim settings, rather than Vi settings (must be first)
 set nocompatible
 
+"" SECTION: Plugins {{{1
+"" -------- VUNDLE STUFF -----------
+set nocompatible
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'octref/RootIgnore'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+"" ------- /VUNDLE STUFF -----------
+" Plugin Mappings
+nnoremap <C-]> :YcmCompleter GoTo<CR>
+" }}}1
+
 "" Unicode Support
 scriptencoding utf-8
 set encoding=utf-8
