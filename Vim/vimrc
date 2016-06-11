@@ -75,7 +75,9 @@ autocmd FileType text             set colorcolumn=0
 hi ColorColumn ctermbg=darkgrey guibg=#333333
 
 "" Source project .vimrc if in directory
-source ./.vimrc
+if filereadable("./.vimrc")
+  source ./.vimrc
+endif
 
 "" GUI
 if has("gui_running")
