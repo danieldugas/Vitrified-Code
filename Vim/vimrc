@@ -20,8 +20,10 @@ Plugin 'octref/RootIgnore'
 call vundle#end()            " required
 filetype plugin indent on    " required
 "" ------- /VUNDLE STUFF -----------
-" Plugin Mappings
+" YCM Options
 nnoremap <C-]> :YcmCompleter GoTo<CR>
+let g:ycm_warning_symbol='w'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " }}}1
 
 "" Unicode Support
@@ -75,8 +77,8 @@ autocmd FileType text             set colorcolumn=0
 hi ColorColumn ctermbg=darkgrey guibg=#333333
 
 "" Source project .vimrc if in directory
-if filereadable("./.vimrc")
-  source ./.vimrc
+if filereadable("./.project_vimrc")
+  source ./.project_vimrc
 endif
 
 "" GUI

@@ -131,6 +131,7 @@ alias mapper="cd ~/Documents/roslaunch && roslaunch ~/Documents/catkin_ws/src/la
 alias matcher="cd ~/Documents/roslaunch && roslaunch matcher.launch"
 alias segmenter="cd ~/Documents/roslaunch && roslaunch segmenter.launch"
 alias niftibuild="cd ~/Documents/catkin_ws && catkin build velodyne_assembler laser_mapper segment_matcher_ros -DCMAKE_BUILD_TYPE=Release -j2"
+alias load_two_runs="rosservice call load_and_match_two_runs '/home/daniel/Documents/playground/python/database' '!!str 2016-06-15T12:00:20.572166' '!!str 2016-06-15T12:07:10.688385'"
 
 # cling
 #export PATH="~/Documents/cling/build/bin/:$PATH"
@@ -142,15 +143,16 @@ PATH=${CUDA_HOME}/bin:${PATH}
 export PATH
 
 # Functions to jump straight to a workspace
-workonvelodyne_assembler() {
-  . ~/Documents/scripts/velodyne_assembler.sh
+workondirectory() {
+  cd $1
+  git fetch &
+  tree
+  git status
 }
-workonsegment_matcher() {
-  . ~/Documents/scripts/segment_matcher.sh
-}
-workonlaser_slam() {
-  . ~/Documents/scripts/laser_slam.sh
-}
+alias workonvelodyne_assembler="workondirectory ~/Documents/catkin_ws/src/laser_slam/sensor_drivers/velodyne_assembler/ "
+alias workonsegment_matcher="workondirectory ~/Documents/catkin_ws/src/3d_segment_matching/ "
+alias workonlaser_slam="workondirectory ~/Documents/catkin_ws/src/laser_slam/ "
+alias workonpython_matcher="workondirectory ~/Documents/playground/python/ "
 
 # Recursively remove swap files
 rmswap() {
@@ -164,3 +166,6 @@ rmswap() {
 
 # added by Anaconda2 4.0.0 installer
 export PATH="/home/daniel/anaconda2/bin:$PATH"
+
+# early out of memory killer
+alias earlyoom="~/Documents/earlyoom/earlyoom"
