@@ -130,7 +130,7 @@ source ~/Documents/catkin_ws/devel/setup.bash
 alias mapper="cd ~/Documents/roslaunch && roslaunch ~/Documents/catkin_ws/src/laser_slam/laser_slam_ros/laser_mapper/launch/nifti_velodyne/nifti_velodyne_outdoor.launch"
 alias matcher="cd ~/Documents/roslaunch && roslaunch matcher.launch"
 alias segmenter="cd ~/Documents/roslaunch && roslaunch segmenter.launch"
-alias niftibuild="cd ~/Documents/catkin_ws && catkin build velodyne_assembler laser_mapper segment_matcher_ros -DCMAKE_BUILD_TYPE=Release -j2"
+alias niftibuild="cd ~/Documents/catkin_ws && catkin build velodyne_assembler laser_mapper segment_matcher segment_matcher_ros -DCMAKE_BUILD_TYPE=Release -j2"
 alias load_two_runs="rosservice call load_and_match_two_runs '/home/daniel/Documents/playground/python/database' '!!str 2016-06-15T12:00:20.572166' '!!str 2016-06-15T12:07:10.688385'"
 
 # cling
