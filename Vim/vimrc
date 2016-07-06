@@ -26,6 +26,43 @@ let g:ycm_warning_symbol='w'
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " }}}1
 
+"" Invoke the behaviour whenever a swapfile is detected {{{1
+"" (from: vim-autoswap plugin)
+augroup AutoSwap
+  autocmd!
+  autocmd SwapExists *  call AS_HandleSwapfile(expand('<afile>:p'), v:swapname)
+augroup END
+" The automatic behaviour...
+function! AS_HandleSwapfile (filename, swapname)
+  " If swapfile is older than file itself, just get rid of it...
+  if getftime(v:swapname) < getftime(a:filename)
+    call AS_DelayedMsg('Old swapfile detected... and deleted')
+    call delete(v:swapname)
+    let v:swapchoice = 'e'
+  " Otherwise, open file read-only...
+  else
+    call AS_DelayedMsg('Swapfile detected, opening read-only')
+    let v:swapchoice = 'o'
+  endif
+endfunction
+" Print a message after the autocommand completes
+" (so you can see it, but don't have to hit <ENTER> to continue)...
+function! AS_DelayedMsg (msg)
+  " A sneaky way of injecting a message when swapping into the new buffer...
+  augroup AutoSwap_Msg
+    autocmd!
+    " Print the message on finally entering the buffer...
+    autocmd BufWinEnter *  echohl WarningMsg
+  exec 'autocmd BufWinEnter *  echon "\r'.printf("%-60s", a:msg).'"'
+    autocmd BufWinEnter *  echohl NONE
+
+    " And then remove these autocmds, so it's a "one-shot" deal...
+    autocmd BufWinEnter *  augroup AutoSwap_Msg
+    autocmd BufWinEnter *  autocmd!
+    autocmd BufWinEnter *  augroup END
+  augroup END
+endfunction " }}}1
+
 "" Unicode Support
 scriptencoding utf-8
 set encoding=utf-8
@@ -88,7 +125,6 @@ set lines=45
 set columns=112
 color twilight
 let g:sessionfontsize=8
-exec "set guifont=Consolas:h" . g:sessionfontsize . ":cANSI"
 set guioptions=eg
 " SECTION: Toggle Fullscreen {{{1
 function! ToggleFullscreen()
