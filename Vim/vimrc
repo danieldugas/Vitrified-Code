@@ -22,7 +22,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 "" ------- /VUNDLE STUFF -----------
 " YCM Options
-if exists(':YcmDiags')
+if exists(':YcmDiags') == 2
   nnoremap <C-]> :YcmCompleter GoTo<CR>
   let g:ycm_warning_symbol='w'
   let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
@@ -209,6 +209,8 @@ imap <left>  <nop>
 imap <right> <nop>
 " Alt-n and N for :cnext :cprev
 nnoremap <Leader>* *N:vim // ./**<CR>
+vnoremap <Leader>/ y/<C-r>0<CR>:vim // ./**<CR>
+nnoremap <Leader>/ :vim // ./**<CR>
 nnoremap <Leader>n :cnext<CR>zz
 nnoremap <Leader>N :cprev<CR>zz
 nnoremap <Leader><Tab> :bnext<CR>
