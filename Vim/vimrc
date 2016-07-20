@@ -145,21 +145,21 @@ let g:sessionfontsize=8
 set guioptions=eg
 " SECTION: Toggle Fullscreen {{{1
 function! ToggleFullscreen()
-	if matchstr(&guioptions,"m")!=""
-		set guioptions -=b
-		set guioptions -=m
-		set guioptions -=r
-		set guioptions -=L
-		return "Fullscreen On"
-	else
-		set guioptions +=b
-		set guioptions +=m
-		set guioptions +=r
-		set guioptions +=L
-		return "Fullscreen Off"
-	endif
+  if matchstr(&guioptions,"m")!=""
+    set guioptions -=b
+    set guioptions -=m
+    set guioptions -=r
+    set guioptions -=L
+    return "Fullscreen On"
+  else
+    set guioptions +=b
+    set guioptions +=m
+    set guioptions +=r
+    set guioptions +=L
+    return "Fullscreen Off"
+  endif
 endfunction
-noremap <F11>		:echo ToggleFullscreen()<CR>
+noremap <F11>    :echo ToggleFullscreen()<CR>
 " }}}1
 " SECTION: Inc/Decrement font size {{{1
 function! IncrementFontSize()
@@ -215,6 +215,17 @@ nnoremap <Leader>n :cnext<CR>zz
 nnoremap <Leader>N :cprev<CR>zz
 nnoremap <Leader><Tab> :bnext<CR>
 nnoremap <Leader><S-Tab> :bprev<CR>
+nnoremap <Leader>h :silent echo SwitchToOrFromHeader()<CR>
+" SECTION: Switch To/From Header {{{1
+function! SwitchToOrFromHeader()
+  if expand('%:t')[-4:] == '.cpp'
+    exec "normal :e ./**/". expand('%:t')[:-5] . ".hpp\<TAB>\<CR>"
+  elseif expand('%:t')[-4:] == '.hpp'
+    exec "normal :e ./**/". expand('%:t')[:-5] . ".cpp\<TAB>\<CR>"
+  endif
+endfunction
+noremap <F11>    :echo ToggleFullscreen()<CR>
+" }}}1
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,scala let b:comment_leader = '//'
 autocmd FileType sh,ruby,python   let b:comment_leader = '#'
@@ -242,23 +253,23 @@ nnoremap <silent> L :silent if winline() != winheight(winnr())<CR>
 " Toggle the document type
 " SECTION: F2 to toggle the document type {{{1
 function! ToggleDocType()
-	if &l:wrap
-		setl nowrap
-		setl nu
+  if &l:wrap
+    setl nowrap
+    setl nu
         setl rnu
-		setl list
+    setl list
         setl textwidth=78
-		return "Code Document"
-	else
-		setl wrap
-		setl nonu
+    return "Code Document"
+  else
+    setl wrap
+    setl nonu
         setl nornu
-		setl nolist
+    setl nolist
         setl textwidth=0
-		return "Text Document"
-	endif
+    return "Text Document"
+  endif
 endfunction
-noremap <F2>		:echo ToggleDocType()<CR>
+noremap <F2>    :echo ToggleDocType()<CR>
 " }}}1
 " In the help window: Tab and shift-Tab switch between searched topics
 " SECTION: Help functions {{{1
