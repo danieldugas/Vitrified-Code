@@ -213,6 +213,7 @@ vnoremap <Leader>/ y/<C-r>0<CR>:vim // ./**<CR>
 nnoremap <Leader>/ :vim // ./**<CR>
 nnoremap <Leader>n :cnext<CR>zz
 nnoremap <Leader>N :cprev<CR>zz
+nnoremap <Leader>q :bd<CR>
 nnoremap <Leader><Tab> :bnext<CR>
 nnoremap <Leader><S-Tab> :bprev<CR>
 nnoremap <Leader>h :silent echo SwitchToOrFromHeader()<CR>
