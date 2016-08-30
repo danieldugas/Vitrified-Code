@@ -234,6 +234,7 @@ autocmd FileType conf,fstab       let b:comment_leader = '#'
 autocmd FileType tex              let b:comment_leader = '%'
 autocmd FileType mail             let b:comment_leader = '>'
 autocmd FileType vim              let b:comment_leader = '"'
+autocmd FileType yaml             let b:comment_leader = '#'
 vnoremap <Leader>c :s:^:<C-R>=b:comment_leader<CR> 
             \:<CR>:silent!'<,'>s:^<C-R>=b:comment_leader<CR> <C-R>=b:comment_leader<CR> 
             \:<CR>:noh<CR>`<v`>
