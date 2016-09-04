@@ -92,6 +92,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias jpnb="jupyter notebook"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -148,7 +149,7 @@ alias workonvelodyne_assembler="workondirectory ~/Documents/catkin_ws/src/laser_
 alias workonsegment_matcher="workondirectory ~/Documents/catkin_ws/src/3d_segment_matching/ "
 alias workonlaser_slam="workondirectory ~/Documents/catkin_ws/src/laser_slam/ "
 alias workonpython_matcher="workondirectory ~/Documents/playground/python/ "
-alias workonbrain_waves="workondirectory ~/Documents/brain-waves/ "
+alias workonbrain_waves="source activate ml && workondirectory ~/Documents/brain-waves/ "
 
 # Recursively remove swap files
 rmswap() {
