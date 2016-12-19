@@ -127,7 +127,7 @@ echo "source ROS setup"
 source /opt/ros/indigo/setup.bash
 source ~/Documents/catkin_ws/devel/setup.bash
 # Personal ROS aliases
-alias niftibuild="reset && cd ~/Documents/catkin_ws && catkin build velodyne_assembler custom_msgs laser_mapper segment_matcher segment_matcher_ros -DCMAKE_BUILD_TYPE=Release -j2"
+alias niftibuild="reset && cd ~/Documents/catkin_ws && catkin build segmatch_ros laser_mapper -DCMAKE_BUILD_TYPE=Release -j2"
 
 # cling
 #export PATH="~/Documents/cling/build/bin/:$PATH"
