@@ -170,3 +170,6 @@ export PATH="/home/daniel/anaconda2/bin:$PATH"
 
 # early out of memory killer
 alias earlyoom="~/Documents/earlyoom/earlyoom"
+
+# Run this only once if application windows don't get foregrounded when you launch the application:
+# dconf write /org/compiz/profiles/unity/plugins/core/focus-prevention-level 0
