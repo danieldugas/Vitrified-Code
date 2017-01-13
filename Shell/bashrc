@@ -146,7 +146,7 @@ workondirectory() {
   git status
 }
 alias workonvelodyne_assembler="workondirectory ~/Documents/catkin_ws/src/laser_slam/sensor_drivers/velodyne_assembler/ "
-alias workonsegment_matcher="source activate ml3 && workondirectory ~/Documents/catkin_ws/src/3d_segment_matching/ "
+alias workonsegment_matcher="source activate ml3 && workondirectory ~/Documents/catkin_ws/src/segmatch/ "
 alias workonlaser_slam="workondirectory ~/Documents/catkin_ws/src/laser_slam/ "
 alias workonpython_matcher="workondirectory ~/Documents/playground/python/ "
 alias workonbrain_waves="source activate ml3 && workondirectory ~/Documents/brain-waves/ "
