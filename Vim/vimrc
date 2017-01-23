@@ -14,9 +14,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'octref/RootIgnore'
 Plugin 'stephpy/vim-yaml'
+Plugin 'machakann/vim-columnmove'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -197,6 +198,10 @@ nnoremap <M-Down> :cd %:p:h<CR>
 nnoremap <M-Up> :cd %:p:h:h<CR>
 nnoremap <Leader><Down> :cd %:p:h<CR>
 nnoremap <Leader><Up> :cd %:p:h:h<CR>
+" Think vertical
+nnoremap <Leader>j :<C-U>call columnmove#W('n', '')<CR>
+nnoremap <Leader>k :<C-U>call columnmove#B('n', '')<CR>
+nnoremap <Leader>ve :<C-U>call columnmove#E('n', '')<CR>
 " force yourself to stop using the arrow keys:
 map <up>    <nop>
 map <down>  <nop>
