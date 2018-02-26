@@ -145,12 +145,7 @@ workondirectory() {
   tree
   git status
 }
-alias workonvelodyne_assembler="workondirectory ~/Documents/catkin_ws/src/laser_slam/sensor_drivers/velodyne_assembler/ "
-alias workonsegment_matcher="source activate ml3 && workondirectory ~/Documents/catkin_ws/src/segmatch/ "
-alias workonlaser_slam="workondirectory ~/Documents/catkin_ws/src/laser_slam/ "
-alias workonpython_matcher="workondirectory ~/Documents/playground/python/ "
-alias workonbrain_waves="source activate ml3 && workondirectory ~/Documents/brain-waves/ "
-alias workongray_matter="source activate ml3 && workondirectory ~/Documents/gray-matter/ "
+alias wovisual_predict="source activate ml3 && workondirectory ~/Documents/visual_predict/ "
 
 alias easytensorboard="source activate ml3 && tensorboard --logdir=tensorboard"
 alias grep="echo HEY DANIEL TRY RG INSTEAD && grep"
@@ -170,6 +165,10 @@ export PATH="/home/daniel/anaconda2/bin:$PATH"
 
 # early out of memory killer
 alias earlyoom="~/Documents/earlyoom/earlyoom"
+
+export EDITOR=vim
+export VISUAL=gvim
+export PYTHONPATH="/home/daniel/Documents/pyniel:$PYTHONPATH" 
 
 # Run this only once if application windows don't get foregrounded when you launch the application:
 # dconf write /org/compiz/profiles/unity/plugins/core/focus-prevention-level 0
