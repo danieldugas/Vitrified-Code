@@ -119,15 +119,10 @@ if ! shopt -oq posix; then
 fi
 
 
-# Gitview (Pretty Git Log)
-alias gitview="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
-
 # ROS Setup
 echo "source ROS setup"
 source /opt/ros/indigo/setup.bash
 source ~/Documents/catkin_ws/devel/setup.bash
-# Personal ROS aliases
-alias niftibuild="reset && cd ~/Documents/catkin_ws && catkin build segmatch_ros laser_mapper -DCMAKE_BUILD_TYPE=Release -j2"
 
 # cling
 #export PATH="~/Documents/cling/build/bin/:$PATH"
@@ -138,6 +133,19 @@ export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:${LD_LIBRARY_PATH}
 PATH=${CUDA_HOME}/bin:${PATH} 
 export PATH
 
+
+### ------------- PERSONAL PREFERENCE --------------###
+
+# Gitview (Pretty Git Log)
+alias gitview="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+
+# Default editors
+export EDITOR=vim
+export VISUAL=vim
+
+# Source my personal python packages
+export PYTHONPATH="/home/daniel/Documents/pyniel:$PYTHONPATH"
+
 # Functions to jump straight to a workspace
 workondirectory() {
   cd $1
@@ -145,30 +153,34 @@ workondirectory() {
   tree
   git status
 }
-alias wovisual_predict="source activate ml3 && workondirectory ~/Documents/visual_predict/ "
-
-alias easytensorboard="source activate ml3 && tensorboard --logdir=tensorboard"
-alias grep="echo HEY DANIEL TRY RG INSTEAD && grep"
-alias rg="~/Documents/ripgrep/rg"
-# Recursively remove swap files
-rmswap() {
-  rm -i ./*~
-  rm -i ./*/*~
-  rm -i ./*/*/*~
-  rm -i ./*/*/*/*~
-  rm -i ./*/*/*/*/*~
-  rm -i ./*/*/*/*/*/*~
-}
-
-# added by Anaconda2 4.0.0 installer
-export PATH="/home/daniel/anaconda2/bin:$PATH"
-
-# early out of memory killer
-alias earlyoom="~/Documents/earlyoom/earlyoom"
-
-export EDITOR=vim
-export VISUAL=gvim
-export PYTHONPATH="/home/daniel/Documents/pyniel:$PYTHONPATH" 
 
 # Run this only once if application windows don't get foregrounded when you launch the application:
 # dconf write /org/compiz/profiles/unity/plugins/core/focus-prevention-level 0
+
+# Replace the PS1 setup lines with this in code above to enable git branch display
+# Show git branch
+# function parse_git_branch () {
+#   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+# }
+# if [ "$color_prompt" = yes ]; then
+#     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $(parse_git_branch)\$ '
+# else
+#     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w $(parse_git_branch)\$ '
+# fi
+
+### ------------- COMPUTER SPECIFIC  --------------###
+
+###     oceanus
+alias ml3env="source activate ml3"
+# early out of memory killer
+alias earlyoom="~/Documents/earlyoom/earlyoom"
+# added by Anaconda2 4.0.0 installer
+export PATH="/home/daniel/anaconda2/bin:$PATH"
+# Personal ROS aliases
+alias niftibuild="reset && cd ~/Documents/catkin_ws && catkin build segmatch_ros laser_mapper -DCMAKE_BUILD_TYPE=Release -j2"
+
+###     prometheus
+# alias ml3env="source ~/ml3/bin/activate"
+
+alias wovisual_predict="ml3env && workondirectory ~/Documents/visual_predict/ "
+alias easytensorboard="ml3env && tensorboard --logdir=tensorboard"

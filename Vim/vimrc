@@ -190,6 +190,8 @@ nnoremap <silent> <leader><M-=>
 endif
 
 "" Keymaps
+nnoremap y "+y
+vnoremap y "+y
 inoremap jj <Esc>
 let mapleader = "\<Space>"
 noremap <Leader>w <C-W>
