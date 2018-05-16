@@ -181,6 +181,11 @@ alias niftibuild="reset && cd ~/Documents/catkin_ws && catkin build segmatch_ros
 
 ###     prometheus
 # alias ml3env="source ~/ml3/bin/activate"
-
 alias wovisual_predict="ml3env && workondirectory ~/Documents/visual_predict/ "
 alias easytensorboard="ml3env && tensorboard --logdir=tensorboard"
+
+###     Pepper
+alias rospyenv="source ~/rospyenv/bin/activate"
+alias woaslpepper="cd ~/Documents/pepper_ws/src/asl_pepper/ && git status"
+export PYTHONPATH="$PYTHONPATH:/home/pepper/Documents/pynaoqi-python2.7-2.5.5.5-linux64/lib/python2.7/site-packages"
+
