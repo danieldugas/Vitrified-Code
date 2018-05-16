@@ -185,6 +185,8 @@ alias wovisual_predict="ml3env && workondirectory ~/Documents/visual_predict/ "
 alias easytensorboard="ml3env && tensorboard --logdir=tensorboard"
 
 ###     Pepper
+source /opt/ros/kinetic/setup.sh
+source ~/Documents/pepper_ws/devel/setup.bash
 alias rospyenv="source ~/rospyenv/bin/activate"
 alias woaslpepper="cd ~/Documents/pepper_ws/src/asl_pepper/ && git status"
 export PYTHONPATH="$PYTHONPATH:/home/pepper/Documents/pynaoqi-python2.7-2.5.5.5-linux64/lib/python2.7/site-packages"
