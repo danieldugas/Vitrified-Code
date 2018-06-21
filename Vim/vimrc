@@ -204,6 +204,8 @@ nnoremap <Leader><Up> :cd %:p:h:h<CR>
 nnoremap <Leader>j :<C-U>call columnmove#W('n', '')<CR>
 nnoremap <Leader>k :<C-U>call columnmove#B('n', '')<CR>
 nnoremap <Leader>ve :<C-U>call columnmove#E('n', '')<CR>
+" unlearn ZZ in favor of ZQ
+nnoremap ZZ <nop>
 " force yourself to stop using the arrow keys:
 map <up>    <nop>
 map <down>  <nop>

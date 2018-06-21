@@ -1,5 +1,6 @@
 # git config
 git config --global user.email "exodaniel@gmail.com"
+git config --global push.default simple
 
 # git clone git@github.com:danieldugas/Vitrified-Code.git
 git clone https://github.com/danieldugas/pyniel.git ~/Documents/pyniel

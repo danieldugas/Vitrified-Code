@@ -21,6 +21,7 @@ alias ml3env="source ~/ml3/bin/activate"
 alias rospyenv="source ~/rospyenv/bin/activate"
 alias woaslpepper="workondirectory ~/Documents/pepper_ws/src/asl_pepper && source ./.bashrc"
 alias easytensorboard="source ~/ml3/bin/activate && tensorboard --logdir=/tmp/tf/tensorboard"
+alias swim="nautilus ."
 
 # Quick mathematical python
 alias py="ml3env && ipython --pylab"
@@ -49,6 +50,9 @@ if [ $MACHINE_NAME = prometheus ]; then
   # Pepper ros project
   source ~/Documents/pepper_ws/devel/setup.bash
   export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.5.5-linux64/lib/python2.7/site-packages"
+  # Segmap ros project
+  alias source_segmap="source ~/Documents/segmatch_ws/devel/setup.bash"
+  alias wosegmap="source_segmap && roscd segmapper && cd .."
   # Group share
   mountgroupshare() {
     mkdir -p /media/groupserver
