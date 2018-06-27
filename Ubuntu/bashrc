@@ -17,12 +17,15 @@ export VISUAL=vim
 
 # Source my personal python packages
 export PYTHONPATH="/home/daniel/Documents/pyniel:$PYTHONPATH"
+
+# Aliases
 alias ml3env="source ~/ml3/bin/activate"
 alias rospyenv="source ~/rospyenv/bin/activate"
 alias woaslpepper="workondirectory ~/Documents/pepper_ws/src/asl_pepper && source ./.bashrc"
 alias easytensorboard="source ~/ml3/bin/activate && tensorboard --logdir=/tmp/tf/tensorboard"
 alias swim="nautilus ."
 
+export PATH="$HOME/Documents/simple-sync:$PATH"
 # Quick mathematical python
 alias py="ml3env && ipython --pylab"
 
@@ -34,6 +37,11 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 
 # Run this only once if application windows don't get foregrounded when you launch the application:
 # dconf write /org/compiz/profiles/unity/plugins/core/focus-prevention-level 0
+
+cd ~/Documents/Vitrified-Code/
+git pull -q &
+cd ~
+
 
 ### ------------- COMPUTER SPECIFIC  --------------###
 
