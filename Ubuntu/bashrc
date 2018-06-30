@@ -24,6 +24,15 @@ alias rospyenv="source ~/rospyenv/bin/activate"
 alias woaslpepper="workondirectory ~/Documents/pepper_ws/src/asl_pepper && source ./.bashrc"
 alias easytensorboard="source ~/ml3/bin/activate && tensorboard --logdir=/tmp/tf/tensorboard"
 alias swim="nautilus ."
+rm() {
+    if [[ $@ == "-rf ~" ]]; then
+        echo "HELL NO"
+    elif [[ $@ == "-rf /" ]]; then
+        echo "OH HELL NO"
+    else
+        command rm "$@"
+    fi
+}
 
 export PATH="$HOME/Documents/simple-sync:$PATH"
 # Quick mathematical python

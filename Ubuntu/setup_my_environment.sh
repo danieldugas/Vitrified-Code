@@ -25,19 +25,18 @@ fi
 
 ## Ubuntu GUI
 # compiz config settings manager
-# sudo apt install compizconfig-settings-manager python-compizconfig -y
-# python ~/Documents/Vitrified-Code/Ubuntu/import_compiz_settings.py ~/Documents/Vitrified-Code/Ubuntu/compiz.profile
+sudo apt install compizconfig-settings-manager python-compizconfig -y
+python ~/Documents/Vitrified-Code/Ubuntu/import_compiz_settings.py ~/Documents/Vitrified-Code/Ubuntu/compiz.profile
 # Enable workspaces
-# gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
-# gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
+gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
+gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
 # Gnome Extensions (TODO)
 # Keybindings
-gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "['<Primary><Super>h']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "['<Primary><Super>;']"
+# gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "['<Primary><Super>h']"
+# gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "['<Primary><Super>;']"
 # Behavior
-gsettings set org.gnome.shell.overrides workspaces-only-on-primary false
+# gsettings set org.gnome.shell.overrides workspaces-only-on-primary false
 
 # Oneclick extract
 sudo apt install p7zip-full
 sudo cp ~/Documents/Vitrified-Code/Ubuntu/oneclickextract.desktop /usr/share/applications/
-# TODO ctrl+windows+uiojklm,. for moving windows
