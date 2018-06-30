@@ -236,6 +236,19 @@ function! SwitchToOrFromHeader()
 endfunction
 noremap <F11>    :echo ToggleFullscreen()<CR>
 " }}}1
+" Tab for Ctrl-N autocomplete TODO: add Ctrl-X Ctrl-F filename completion
+" SECTION: Tab_Or_Complete() {{{1
+"Use TAB to complete when typing words, else inserts TABs as usual.
+"See help completion for source,
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+" }}}1
+inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,scala let b:comment_leader = '//'
 autocmd FileType sh,ruby,python   let b:comment_leader = '#'
