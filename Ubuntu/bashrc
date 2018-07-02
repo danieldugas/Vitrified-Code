@@ -3,6 +3,9 @@
 # Gitview (Pretty Git Log)
 alias gitview="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 
+# git_watch
+export PATH="$HOME/Documents/git-watch:$PATH"
+
 # Functions to jump straight to a workspace
 workondirectory() {
   cd $1
@@ -16,7 +19,7 @@ export EDITOR=vim
 export VISUAL=vim
 
 # Source my personal python packages
-export PYTHONPATH="/home/daniel/Documents/pyniel:$PYTHONPATH"
+export PYTHONPATH="$HOME/Documents/pyniel:$PYTHONPATH"
 
 # Aliases
 alias ml3env="source ~/ml3/bin/activate"
@@ -47,9 +50,8 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 # Run this only once if application windows don't get foregrounded when you launch the application:
 # dconf write /org/compiz/profiles/unity/plugins/core/focus-prevention-level 0
 
-cd ~/Documents/Vitrified-Code/
-git pull -q &
-cd ~
+git-watch --quiet &
+git-watch --no-fetch
 
 
 ### ------------- COMPUTER SPECIFIC  --------------###
@@ -57,7 +59,7 @@ cd ~
 ###     oceanus
 if [ $MACHINE_NAME = oceanus ]; then
 # added by Anaconda2 4.0.0 installer
-  export PATH="/home/daniel/anaconda2/bin:$PATH"
+  export PATH="$HOME/anaconda2/bin:$PATH"
 fi
 
 ###     prometheus

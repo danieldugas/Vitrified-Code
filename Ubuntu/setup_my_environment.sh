@@ -4,6 +4,10 @@ git config --global push.default simple
 
 # git clone git@github.com:danieldugas/Vitrified-Code.git
 git clone https://github.com/danieldugas/pyniel.git ~/Documents/pyniel
+# git-watch
+git clone https://github.com/danieldugas/git-watch.git ~/Documents/git-watch
+echo "~/Documents/Vitrified-Code" >> ~/git_repos_to_watch.txt
+echo "~/Documents/pyniel" >> ~/git_repos_to_watch.txt
 
 # Vim
 sudo apt install vim-gtk3 -y
