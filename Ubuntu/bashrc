@@ -85,6 +85,6 @@ fi
 if [ $MACHINE_NAME = pepper_laptop ]; then
   source /opt/ros/kinetic/setup.sh
   source ~/Documents/pepper_ws/devel/setup.bash
-  export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.5.5-linux64/lib/python2.7/site-packages"
+  export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
 fi
 
