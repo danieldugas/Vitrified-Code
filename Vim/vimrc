@@ -229,10 +229,10 @@ nnoremap <Leader><S-Tab> :bprev<CR>
 nnoremap <Leader>h :silent echo SwitchToOrFromHeader()<CR>
 " SECTION: Switch To/From Header {{{1
 function! SwitchToOrFromHeader()
-  if expand('%:t')[-4:] == '.cpp'
-    exec "normal :e ./**/". expand('%:t')[:-5] . ".hpp\<TAB>\<CR>"
-  elseif expand('%:t')[-4:] == '.hpp'
-    exec "normal :e ./**/". expand('%:t')[:-5] . ".cpp\<TAB>\<CR>"
+  if expand('%:t:e') == 'cpp'
+    exec "normal :e ./**/". expand('%:t:r') . ".h*\<TAB>\<CR>"
+  elseif expand('%:t:e') == 'h' || expand('%:t:e') == 'hpp'
+    exec "normal :e ./**/". expand('%:t:r') . ".cpp\<TAB>\<CR>"
   endif
 endfunction
 noremap <F11>    :echo ToggleFullscreen()<CR>
