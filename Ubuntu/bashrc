@@ -51,8 +51,11 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 # dconf write /org/compiz/profiles/unity/plugins/core/focus-prevention-level 0
 
 git-watch --quiet &
-git-watch --no-fetch
+git-watch --bad-only --no-fetch
 
+# Create personal man pages
+umedit() { mkdir -p ~/man; vim ~/man/"$1.txt"; }
+um() { less ~/man/"$1.txt"; }
 
 ### ------------- COMPUTER SPECIFIC  --------------###
 
