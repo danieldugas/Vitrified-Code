@@ -3,6 +3,7 @@
 
 # Compiled Binaries #
 #####################
+__pycache__/
 build/
 *.com
 *.class
@@ -35,6 +36,7 @@ build/
 *.bak
 *.swp
 *.swo
+.ipynb_checkpoints/
 
 # Vim Tags #
 ############
