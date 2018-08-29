@@ -11,14 +11,14 @@ echo "~/Documents/pyniel" >> ~/git_repos_to_watch.txt
 
 # Vim
 sudo apt install vim-gtk3 -y
-ln ~/Documents/Vitrified-Code/Vim/vimrc ~/.vimrc
+ln ~/Documents/Vitrified-Code/Vim/vimrc ~/.vimrc -s
 mkdir ~/.vim/colors
 cp ~/Documents/Vitrified-Code/Vim/twilight.vim ~/.vim/colors/
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 
 # bashrc
-ln ~/Documents/Vitrified-Code/Ubuntu/bashrc ~/.bashrc_ext
+ln ~/Documents/Vitrified-Code/Ubuntu/bashrc ~/.bashrc_ext -s
 if [ -z "$MACHINE_NAME" ]; then
   echo "Name of this machine: "
   read machine_name
