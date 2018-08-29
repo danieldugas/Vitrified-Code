@@ -1,0 +1,24 @@
+EXAMPLES
+  Adding a new startup mount rule
+    sudo blkid -c /dev/null
+    # note the UUID for the relevant partition
+    sudo vim /etc/fstab
+    # Add the following line, replacing as appropriate
+    # UUID=19106113-2fd3-4441-a0a7-ff30ab5cdc85  /media/storage1  ext4  defaults  0       0
+          # This mounts the partition at /media/storage
+          # see "Permissions"
+
+  Unmounting a partition
+    sudo umount /media/storage1
+
+  Remounting all the partitions according to /etc/fstab
+    sudo mount -a
+
+  Permissions
+          # fstab options for ntfs, (fat?) allow to set uid=daniel,
+          # gid=users,umask=022
+          # umask being 777 minus octal permissions (see ~/man/chmod.txt)
+          # for ext4, option user=daniel exists, but doesn't seem to work.
+          # What works (it only needs to be done once):
+    sudo chown daniel:users -R /media/storage1
+    sudo chmod 744 /media/storage1

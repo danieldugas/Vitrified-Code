@@ -1,0 +1,13 @@
+MODE
+        one mode number per category (user, group, others)
+
+        each mode number is the decimal representation
+        of three-bit binary for read, write, execute
+
+        user group others binary       -> mode
+        rwx  rwx   rwx    111 111 111  -> 777
+        rw-  r-x   r--    110 101 100  -> 654
+
+EXAMPLES
+  Set myfile permissions to rwxr-xr--
+    chmod 754 myfile

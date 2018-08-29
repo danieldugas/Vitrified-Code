@@ -1,0 +1,10 @@
+EXAMPLES
+  Create your key (in ~/.ssh/)
+    ssh-keygen
+
+  Copy public key to server for authentification
+    ssh-copy-id user@serverip
+
+  Enable/disable incoming password authentificated ssh
+    sudo vim /etc/ssh/sshd_config
+    # change PasswordAuthentification from yes to no

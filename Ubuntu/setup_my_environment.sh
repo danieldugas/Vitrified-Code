@@ -11,14 +11,14 @@ echo "~/Documents/pyniel" >> ~/git_repos_to_watch.txt
 
 # Vim
 sudo apt install vim-gtk3 -y
-ln ~/Documents/Vitrified-Code/Vim/vimrc ~/.vimrc -s
+ln -s ~/Documents/Vitrified-Code/Vim/vimrc ~/.vimrc
 mkdir ~/.vim/colors
 cp ~/Documents/Vitrified-Code/Vim/twilight.vim ~/.vim/colors/
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 
 # bashrc
-ln ~/Documents/Vitrified-Code/Ubuntu/bashrc ~/.bashrc_ext -s
+ln -s ~/Documents/Vitrified-Code/Ubuntu/bashrc ~/.bashrc_ext
 if [ -z "$MACHINE_NAME" ]; then
   echo "Name of this machine: "
   read machine_name
@@ -26,6 +26,9 @@ if [ -z "$MACHINE_NAME" ]; then
   echo "export MACHINE_NAME=$machine_name" >> ~/.bashrc
   echo "source ~/.bashrc_ext" >> ~/.bashrc
 fi
+
+#umedit
+ln -s ~/Documents/Vitrified-Code/Ubuntu/man ~/man
 
 ## Ubuntu GUI
 # compiz config settings manager
