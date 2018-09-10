@@ -1,0 +1,6 @@
+Debug tools
+
+EXAMPLES
+  Debug a segfault
+    gdb --ex run --args /opt/ros/kinetic/lib/gmapping/slam_gmapping
+    # type 'bt<ENTER>' to get backtrace information
