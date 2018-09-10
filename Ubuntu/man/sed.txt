@@ -1,0 +1,6 @@
+Useful for transforming text with REGEXP
+
+EXAMPLES
+  Remove all occurences of ".txt" from a stream
+    ls ./ | sed -e 's/\.txt//g'
+        # -e preceeds the REGEXP script to be executed

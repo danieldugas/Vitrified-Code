@@ -56,7 +56,14 @@ git-watch --bad-only --no-fetch
 
 # Create personal man pages
 umedit() { mkdir -p ~/man; vim ~/man/"$1.txt"; }
-um() { less ~/man/"$1.txt"; }
+um() { 
+  if [ -z "$1" ]; then
+    echo "Manuals for the following functions are available: "
+    ls ~/man | sed -e 's/\.txt//g'
+  else
+    less ~/man/"$1.txt"
+  fi
+}
 
 ### ------------- COMPUTER SPECIFIC  --------------###
 
