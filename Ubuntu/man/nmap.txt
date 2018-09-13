@@ -1,0 +1,3 @@
+EXAMPLE
+  Scan local network
+    nmap -T5 -sP 10.42.0.0-255

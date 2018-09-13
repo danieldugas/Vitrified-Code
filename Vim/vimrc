@@ -73,9 +73,7 @@ syntax on
 set listchars=trail:·,precedes:«,extends:»,tab:▸\ ,eol:▾
 set whichwrap+=<,>,[,]
 set nu
-nnoremap 1 :set rnu<CR>1
-autocmd CursorHold * set nu
-" set rnu
+set rnu
 set list
 set display+=lastline
 autocmd FileType c,cpp,java,scala set colorcolumn=100
