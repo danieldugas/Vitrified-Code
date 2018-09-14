@@ -7,3 +7,23 @@ EXAMPLES
           # -resize is useful for reducing filesize
           # -delay [N] with [N] = 100/fps
           # -loop 0 to loop forever
+
+  Scale a video
+    ffmpeg -i input.avi -vf scale=852:480 output.avi
+          # scale=852:-1   to preserve the aspect ratio
+
+  Rotate a video
+    ffmpeg -i in.mov -vf "transpose=1" out.mov
+          # transpose:
+          #   0 = 90CounterCLockwise and Vertical Flip (default)
+          #   1 = 90Clockwise
+          #   2 = 90CounterClockwise
+          #   3 = 90Clockwise and Vertical Flip
+
+NOTES
+  Experimental codecs
+    # Getting this kind of error?
+    #   "The encoder 'aac' is experimental but experimental codecs
+    #    are not enabled, add '-strict -2' if you want to use it."
+    # -strict -2 needs to be added right before the last parameter
+    ffmpeg -i infile -strict -2 outfile
