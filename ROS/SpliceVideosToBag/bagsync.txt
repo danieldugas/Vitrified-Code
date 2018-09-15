@@ -1,0 +1,5 @@
+                    Key Moment          Equivalent in bag time
+camera_fixed_koze:    0:54               54
+camera_fixed_north:   0:22               22
+camera_follow:        0:00               00
+demo2.bag:      1536923857.229687        50.17/411.86
