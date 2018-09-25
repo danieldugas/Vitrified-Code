@@ -20,6 +20,13 @@ EXAMPLES
           #   2 = 90CounterClockwise
           #   3 = 90Clockwise and Vertical Flip
 
+  Speed up / Slow down a video
+    ffmpeg -i input.mkv -filter:v "setpts=0.5*PTS" -an output.mkv
+          #      this multiplies all timestamps by 0.5, making the video
+          #      2x as fast, without interpolation.
+          #      frames are skipped in order to keep framerate.
+          # -an  disables the audio stream 
+
 NOTES
   Experimental codecs
     # Getting this kind of error?

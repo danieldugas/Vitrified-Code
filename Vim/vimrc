@@ -207,6 +207,8 @@ nnoremap <Leader>k :<C-U>call columnmove#B('n', '')<CR>
 nnoremap <Leader>ve :<C-U>call columnmove#E('n', '')<CR>
 " unlearn ZZ in favor of ZQ
 nnoremap ZZ <nop>
+" Remove ex mode (accidental triggers)
+nnoremap Q <nop>
 " force yourself to stop using the arrow keys:
 map <up>    <nop>
 map <down>  <nop>
