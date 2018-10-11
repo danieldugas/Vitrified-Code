@@ -1,0 +1,8 @@
+EXAMPLES
+  Download all files and subfolders in ddd directory
+    wget -r -np -nH --cut-dirs=3 -R index.html http://hostname/aaa/bbb/ccc/ddd/
+          # -r : recursively
+          # -np : not going to upper directories, like ccc/…
+          # -nH : not saving files to hostname folder
+          # --cut-dirs=3 : but saving it to ddd by omitting first 3 folders aaa, bbb, ccc
+          # -R index.html : excluding index.html files
