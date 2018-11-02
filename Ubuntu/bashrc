@@ -23,6 +23,7 @@ export PYTHONPATH="$HOME/Documents/pyniel:$PYTHONPATH"
 
 # Aliases
 alias ml3env="source ~/ml3/bin/activate"
+alias segmappyenv="source ~/segmappyenv/bin/activate"
 alias rospyenv="source ~/rospyenv/bin/activate"
 alias wopepper="workondirectory ~/Documents/pepper_ws/src/asl_pepper && source ./.bashrc"
 alias woaslslam="workondirectory ~/Documents/pepper_ws/src/asl_pepper/asl_slam && source ~/Documents/pepper_ws/devel/setup.bash"
