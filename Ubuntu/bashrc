@@ -26,6 +26,7 @@ alias ml3env="source ~/ml3/bin/activate"
 alias segmappyenv="source ~/segmappyenv/bin/activate"
 alias rospyenv="source ~/rospyenv/bin/activate"
 alias wopepper="workondirectory ~/Documents/pepper_ws/src/asl_pepper && source ./.bashrc"
+alias wosegmap="source_segmap && roscd segmapper && cd .."
 alias woaslslam="workondirectory ~/Documents/pepper_ws/src/asl_pepper/asl_slam && source ~/Documents/pepper_ws/devel/setup.bash"
 alias easytensorboard="source ~/ml3/bin/activate && tensorboard --logdir=/tmp/tf/tensorboard"
 alias swim="nautilus ."
@@ -99,6 +100,7 @@ if [ $MACHINE_NAME = pepper_laptop ]; then
   source ~/Documents/pepper_ws/devel/setup.bash
   export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
   alias activateboostmode1000="sudo ethtool -s enp0s31f6 speed 1000 duplex full"
+  alias source_segmap="source ~/Documents/segmap_ws/devel/setup.bash"
   export PATH="$PATH:$HOME/Documents/gotop"
 fi
 
