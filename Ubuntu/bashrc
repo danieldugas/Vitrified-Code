@@ -66,6 +66,14 @@ um() {
     less ~/man/"$1.txt"
   fi
 }
+template() {
+  if [ -z "$1" ]; then
+    echo "Available templates: "
+    tree ~/templates
+  else
+    less ~/templates/"$1.*"
+  fi
+}
 
 ### ------------- COMPUTER SPECIFIC  --------------###
 
