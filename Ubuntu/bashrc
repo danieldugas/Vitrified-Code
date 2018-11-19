@@ -71,7 +71,7 @@ template() {
     echo "Available templates: "
     tree ~/templates
   else
-    less ~/templates/"$1.*"
+    vim ~/templates/"$1".*
   fi
 }
 

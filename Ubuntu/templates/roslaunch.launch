@@ -1,0 +1,17 @@
+<!-- .launch file template -->
+<?xml version="1.0"?>
+<launch>
+  <arg name="enable_debugging" default="false" />
+  <arg name="launch_prefix" value="xterm -e gdb --args" if="$(arg enable_debugging)"/> 
+  <arg name="launch_prefix" value="" unless="$(arg enable_debugging)"/>
+
+  <node pkg="PACKAGE_NAME" type="NODE_TYPE" name="ARBITRARY_NAME"
+    args="$(find SOME_ROS_PACKAGE)/scripts/office_full.yaml" /> 
+
+  <node pkg="PACKAGE_NAME" type="NODE_TYPE" name="ARBITRARY_NAME"
+        respawn="false" output="screen" launch-prefix="$(arg launch_prefix)">
+    <param name="PARAM_NAME" type="string" value="base_link" />
+    <param name="PARAM_NAME" type="double" value="1.0" />
+    <remap from="ORIGINAL_TOPIC" to="NEW_REPLACEMENT_TOPIC" />
+  </node>
+</launch>

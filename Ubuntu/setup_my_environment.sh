@@ -29,6 +29,7 @@ fi
 
 #umedit
 ln -s ~/Documents/Vitrified-Code/Ubuntu/man ~/man
+ln -s ~/Documents/Vitrified-Code/Ubuntu/templates ~/templates
 
 ## Ubuntu GUI
 # compiz config settings manager
