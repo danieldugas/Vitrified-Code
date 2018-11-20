@@ -75,6 +75,11 @@ template() {
   fi
 }
 
+# Find which wallpaper based on watermark
+whichwallpaper() {
+  ls "$HOME/Pictures/Wallpapers/Earthview Wallpapers" | grep "$1"
+}
+
 ### ------------- COMPUTER SPECIFIC  --------------###
 
 ###     oceanus
