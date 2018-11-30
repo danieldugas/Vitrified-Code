@@ -1,5 +1,5 @@
-<!-- .launch file template -->
 <?xml version="1.0"?>
+<!-- .launch file template -->
 <launch>
   <arg name="enable_debugging" default="false" />
   <arg name="launch_prefix" value="xterm -e gdb --args" if="$(arg enable_debugging)"/> 

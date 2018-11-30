@@ -1,0 +1,2 @@
+Locate just finds the library files you're looking for, and quickly.
+use it.

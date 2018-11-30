@@ -26,8 +26,8 @@ alias ml3env="source ~/ml3/bin/activate"
 alias segmappyenv="source ~/segmappyenv/bin/activate"
 alias rospyenv="source ~/rospyenv/bin/activate"
 alias wopepper="workondirectory ~/Documents/pepper_ws/src/asl_pepper && source ./.bashrc && cd asl_pepper_motion_planning"
-alias wosegmap="source_segmap && roscd segmapper && cd .."
-alias wocarto="source ~/Documents/cartographer_ws/devel/setup.bash && cd ~/Documents/cartographer_ws"
+alias wosegmap="source_segmap && segmappyenv && roscd segmapper && cd .."
+alias wocarto="source ~/Documents/cartographer_ws/devel/setup.bash && cd ~/Documents/pepper_ws/src/asl_pepper/asl_pepper_cartographer"
 alias woaslslam="workondirectory ~/Documents/pepper_ws/src/asl_pepper/asl_slam && source ~/Documents/pepper_ws/devel/setup.bash"
 alias easytensorboard="source ~/ml3/bin/activate && tensorboard --logdir=/tmp/tf/tensorboard"
 alias swim="nautilus ."
@@ -42,6 +42,7 @@ rm() {
 }
 
 export PATH="$HOME/Documents/simple-sync:$PATH"
+export PATH="$HOME/Documents/SageMath:$PATH"
 # Quick mathematical python
 alias py="ml3env && ipython --pylab"
 
