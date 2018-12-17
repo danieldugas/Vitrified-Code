@@ -25,13 +25,19 @@ Plugin 'jceb/vim-hier' " highlight errors from quickfix
 call vundle#end()            " required
 filetype plugin indent on    " required
 "" ------- /VUNDLE STUFF -----------
-" YCM Options
-" if exists(':YcmDiags')==2
+" }}}1
+
+"" YouCompleteMe
+" if exists(":YcmDiags")
+" Quick guide: 
+" add CMAKE_EXPORT_COMPILE_COMMANDS compile flag
+" copy ~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py
+" to your project root.
+" in .ycm_extra_conf.py, set compilation_database_folder to
+" '/home/USERNAME/YOUR_ROS_WS/build/YOUR_PROJECT_NAME'
 nnoremap <C-]> :YcmCompleter GoTo<CR>
 let g:ycm_warning_symbol='w' " the symbol in the gutter for warnings
 let g:ycm_confirm_extra_conf=0 " stop asking about .ycm_extra_conf
-" endif
-" }}}1
 
 "" Unicode Support
 scriptencoding utf-8
