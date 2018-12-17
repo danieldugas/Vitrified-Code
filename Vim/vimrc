@@ -14,21 +14,23 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-" Plugin 'Valloric/YouCompleteMe'
-Plugin 'octref/RootIgnore'
-Plugin 'stephpy/vim-yaml'
+Plugin 'Valloric/YouCompleteMe' " fuzzy completion
+Plugin 'octref/RootIgnore' " skip files in .gitignore
+Plugin 'stephpy/vim-yaml' " syntax highlighting for yaml files
 Plugin 'machakann/vim-columnmove'
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'taketwo/vim-ros' " :make builds with catkin
+Plugin 'jceb/vim-hier' " highlight errors from quickfix
+" Plugin 'davidhalter/jedi-vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 "" ------- /VUNDLE STUFF -----------
 " YCM Options
-if exists(':YcmDiags') == 2
-  nnoremap <C-]> :YcmCompleter GoTo<CR>
-  let g:ycm_warning_symbol='w'
-  let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-endif
+" if exists(':YcmDiags')==2
+nnoremap <C-]> :YcmCompleter GoTo<CR>
+let g:ycm_warning_symbol='w' " the symbol in the gutter for warnings
+let g:ycm_confirm_extra_conf=0 " stop asking about .ycm_extra_conf
+" endif
 " }}}1
 
 "" Unicode Support
@@ -251,7 +253,7 @@ function! Tab_Or_Complete()
   endif
 endfunction
 " }}}1
-inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+" inoremap <Tab> <C-R>=Tab_Or_Complete()<CR> " No longer needed since YCM
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,scala let b:comment_leader = '//'
 autocmd FileType sh,ruby,python   let b:comment_leader = '#'
