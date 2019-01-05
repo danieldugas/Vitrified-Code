@@ -32,6 +32,7 @@ alias wocarto="source ~/Documents/cartographer_ws/devel/setup.bash && cd ~/Docum
 alias woaslslam="workondirectory ~/Documents/pepper_ws/src/asl_pepper/asl_slam && source ~/Documents/pepper_ws/devel/setup.bash"
 alias easytensorboard="source ~/ml3/bin/activate && tensorboard --logdir=/tmp/tf/tensorboard"
 alias swim="nautilus ."
+alias jpnb="jupyter notebook"
 rm() {
     if [[ $@ == "-rf ~" ]]; then
         echo "HELL NO"

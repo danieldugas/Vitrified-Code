@@ -45,9 +45,9 @@ let g:ycm_confirm_extra_conf=0 " stop asking about .ycm_extra_conf
 " Syntastic
 " Disable everything except python syntax checking
 let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "active_filetypes": ["python"],
-    \ "passive_filetypes": [] }
+    \ "mode": "passive",
+    \ "active_filetypes": [],
+    \ "passive_filetypes": ["python"] }
 
 "" Unicode Support
 scriptencoding utf-8
