@@ -1,0 +1,3 @@
+Repeat a command every 10 seconds
+
+watch -n 10 command
