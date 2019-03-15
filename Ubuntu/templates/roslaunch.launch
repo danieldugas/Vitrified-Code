@@ -5,6 +5,10 @@
   <arg name="launch_prefix" value="xterm -e gdb --args" if="$(arg enable_debugging)"/> 
   <arg name="launch_prefix" value="" unless="$(arg enable_debugging)"/>
 
+  <node pkg="tf" type="static_transform_publisher" name="my_static_tf_pub"
+    args="x y z y p r frame_id child_frame_id period_ms" />
+  <!-- or args="x y z qx qy qz qw frame_id child_frame_id period_ms" /> -->
+
   <node pkg="PACKAGE_NAME" type="NODE_TYPE" name="ARBITRARY_NAME"
     args="$(find SOME_ROS_PACKAGE)/scripts/office_full.yaml" /> 
 

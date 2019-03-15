@@ -84,6 +84,9 @@ template() {
     vim ~/templates/"$1".*
   fi
 }
+logbook() {
+  vim ~/logbook/$(date +'%Y%m%d.txt')
+}
 
 # Find which wallpaper based on watermark
 whichwallpaper() {
