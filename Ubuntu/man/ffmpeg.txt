@@ -8,6 +8,9 @@ EXAMPLES
           # -delay [N] with [N] = 100/fps
           # -loop 0 to loop forever
 
+  Converting frames to video
+    ffmpeg -framerate 30 -pattern_type glob -i 'frames/*.jpg' -c:v libx264 -pix_fmt yuv420p out.mp4
+
   Scale a video
     ffmpeg -i input.avi -vf scale=852:480 output.avi
           # scale=852:-1   to preserve the aspect ratio
