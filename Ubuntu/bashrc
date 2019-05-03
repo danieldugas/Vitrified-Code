@@ -135,8 +135,10 @@ if [ $MACHINE_NAME = pepper_laptop ]; then
 fi
 
 if [ $MACHINE_NAME = leonhard ]; then
-  echo "How to install arbitrary python modules in a gpu node"
-  echo "1.) bsub -Is -W 4:00 -R \"rusage[ngpus_excl_p=1, mem=4096]\" bash"
-  echo "2.) module load eth_proxy python_gpu/3.6.4"
-  echo "3.) pip install --user tensorflow_gpu==1.12.0"
+  # put this in .bash_profile instead
+  # echo "How to install arbitrary python modules in a gpu node"
+  # echo "1.) bsub -Is -W 4:00 -R \"rusage[ngpus_excl_p=1, mem=4096]\" bash"
+  # echo "2.) module load eth_proxy python_gpu/3.6.4"
+  # echo "3.) pip install --user tensorflow_gpu==1.12.0"
+  alias interactivejob="bsub -Is -W 4:00 -R \"rusage[ngpus_excl_p=1, mem=4096]\" bash"
 fi
