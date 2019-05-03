@@ -126,8 +126,8 @@ fi
 if [ $MACHINE_NAME = pepper_laptop ]; then
   git-watch --quiet &
   git-watch --bad-only --no-fetch
-  source /opt/ros/kinetic/setup.sh
-  source ~/Documents/pepper_ws/devel/setup.bash
+#   source /opt/ros/kinetic/setup.sh
+#   source ~/Documents/pepper_ws/devel/setup.bash
   export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
   alias activateboostmode1000="sudo ethtool -s enp0s31f6 speed 1000 duplex full"
   alias source_segmap="source ~/Documents/segmap_ws/devel/setup.bash"
