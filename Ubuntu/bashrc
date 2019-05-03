@@ -63,9 +63,6 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 # Run this only once if application windows don't get foregrounded when you launch the application:
 # dconf write /org/compiz/profiles/unity/plugins/core/focus-prevention-level 0
 
-git-watch --quiet &
-git-watch --bad-only --no-fetch
-
 # Create personal man pages
 umedit() { mkdir -p ~/man; vim ~/man/"$1.txt"; }
 um() { 
@@ -97,12 +94,17 @@ whichwallpaper() {
 
 ###     oceanus
 if [ $MACHINE_NAME = oceanus ]; then
+  git-watch --quiet &
+  git-watch --bad-only --no-fetch
 # added by Anaconda2 4.0.0 installer
   export PATH="$HOME/anaconda2/bin:$PATH"
 fi
 
 ###     prometheus
 if [ $MACHINE_NAME = prometheus ]; then
+
+  git-watch --quiet &
+  git-watch --bad-only --no-fetch
   # Matlab
   alias matlab="/usr/local/MATLAB/R2018a/bin/matlab"
   # Pepper ros project
@@ -122,6 +124,8 @@ fi
 
 ###     Pepper laptop
 if [ $MACHINE_NAME = pepper_laptop ]; then
+  git-watch --quiet &
+  git-watch --bad-only --no-fetch
   source /opt/ros/kinetic/setup.sh
   source ~/Documents/pepper_ws/devel/setup.bash
   export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
@@ -130,3 +134,9 @@ if [ $MACHINE_NAME = pepper_laptop ]; then
   export PATH="$PATH:$HOME/Documents/gotop"
 fi
 
+if [ $MACHINE_NAME = leonhard ]; then
+  echo "How to install arbitrary python modules in a gpu node"
+  echo "1.) bsub -Is -W 4:00 -R \"rusage[ngpus_excl_p=1, mem=4096]\" bash"
+  echo "2.) module load eth_proxy python_gpu/3.6.4"
+  echo "3.) pip install --user tensorflow_gpu==1.12.0"
+fi
