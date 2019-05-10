@@ -33,6 +33,7 @@ alias segmappyenv="source ~/segmappyenv/bin/activate"
 alias rospyenv="source ~/rospyenv/bin/activate"
 alias wopyniel="workondirectory ~/Documents/pyniel/pyniel"
 alias wopepper="workondirectory ~/Documents/pepper_ws/src/asl_pepper && source ./.bashrc && cd asl_pepper_motion_planning"
+alias cdpepper="cd ~/Documents/pepper_ws/src/asl_pepper/asl_pepper_motion_planning/"
 alias wosegmap="source_segmap && segmappyenv && roscd segmapper && cd .."
 alias wocarto="source ~/Documents/cartographer_ws/devel/setup.bash && cd ~/Documents/pepper_ws/src/asl_pepper/asl_pepper_cartographer"
 alias woaslslam="workondirectory ~/Documents/pepper_ws/src/asl_pepper/asl_slam && source ~/Documents/pepper_ws/devel/setup.bash"
@@ -108,8 +109,8 @@ if [ $MACHINE_NAME = prometheus ]; then
   # Matlab
   alias matlab="/usr/local/MATLAB/R2018a/bin/matlab"
   # Pepper ros project
-  source ~/Documents/pepper_ws/devel/setup.bash
-  export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.5.5-linux64/lib/python2.7/site-packages"
+#   source ~/Documents/pepper_ws/devel/setup.bash
+#   export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.5.5-linux64/lib/python2.7/site-packages"
   # Segmap ros project
   alias source_segmap="source ~/Documents/segmatch_ws/devel/setup.bash"
   alias wosegmap="source_segmap && roscd segmapper && cd .."

@@ -272,6 +272,7 @@ endfunction
 " inoremap <Tab> <C-R>=Tab_Or_Complete()<CR> " No longer needed since YCM
 " Treat .launch (ROS) files as XML
 autocmd BufEnter *.launch :setlocal filetype=xml
+autocmd BufEnter *.pyx :setlocal filetype=python
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,scala let b:comment_leader = '//'
 autocmd FileType sh,ruby,python   let b:comment_leader = '#'
