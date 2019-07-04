@@ -1,4 +1,8 @@
 ### ------------- PERSONAL PREFERENCE --------------###
+# immediately append commands to bash history. Very cool and very legal.
+shopt -s histappend # set filemode to append (is this needed?)
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
 # To show real-time log while booting and shutting down, edit
 # /etc/default/grub
 # change
