@@ -79,6 +79,8 @@ set backspace=indent,eol,start
 set fdm=marker
 set tabstop=2
 set shiftwidth=2
+set textwidth=0
+set colorcolumn=100
 set autoindent
 set expandtab
 set linebreak
@@ -305,7 +307,7 @@ function! ToggleDocType()
     setl nu
         setl rnu
     setl list
-        setl textwidth=78
+        setl textwidth=0
     return "Code Document"
   else
     setl wrap
