@@ -1,4 +1,9 @@
 EXAMPLES
+  Converting a video to images
+    mkdir frames
+    ffmpeg -i video.mp4 'frames/frame-%03d.jpg'
+          # change %03 to %0N for N digits in the filename
+
   Converting a video to a .gif
     mkdir frames
     ffmpeg -i video.mp4 -r 20 'frames/frame-%03d.jpg'
