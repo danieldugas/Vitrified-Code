@@ -23,6 +23,7 @@ Plugin 'vim-syntastic/syntastic' " python syntax checker (ycm doesn't)
 Plugin 'octref/RootIgnore' " skip files in .gitignore
 Plugin 'stephpy/vim-yaml' " syntax highlighting for yaml files
 Plugin 'machakann/vim-columnmove'
+Plugin 'tmhedberg/SimpylFold' " python syntax folding
 " Plugin 'taketwo/vim-ros' " :make builds with catkin
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
