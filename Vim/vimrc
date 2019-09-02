@@ -160,9 +160,10 @@ if filereadable("./.project_vimrc")
 endif
 
 "" GUI
-color twilight
+colorscheme ron
 hi ColorColumn ctermbg=darkgrey guibg=darkgrey
 if has("gui_running")
+color twilight
 set laststatus=2
 set lines=45
 set columns=112
