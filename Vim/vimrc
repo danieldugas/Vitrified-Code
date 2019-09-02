@@ -78,6 +78,8 @@ endif
 behave xterm
 set backspace=indent,eol,start
 set fdm=marker
+" set foldlevel=99 " requires pressing zm 99 times to fold...
+au BufRead * normal zR
 set tabstop=2
 set shiftwidth=2
 set textwidth=0
@@ -158,11 +160,12 @@ if filereadable("./.project_vimrc")
 endif
 
 "" GUI
+color twilight
+hi ColorColumn ctermbg=darkgrey guibg=darkgrey
 if has("gui_running")
 set laststatus=2
 set lines=45
 set columns=112
-color twilight
 let g:sessionfontsize=8
 set guioptions=eg
 " SECTION: Toggle Fullscreen {{{1
@@ -363,5 +366,6 @@ endfunction
 autocmd BufEnter * silent exec "normal :if &bt=='help'\<CR>nnoremap <buffer> <Tab> :silent echo NextHelp()<CR>\<CR>endif\<CR>"
 autocmd BufEnter * silent exec "normal :if &bt=='help'\<CR>nnoremap <buffer> <s-Tab> :silent echo PrevHelp()<CR>\<CR>endif\<CR>"
 " }}}1
+
 
 "" vim: set fdm=marker:
