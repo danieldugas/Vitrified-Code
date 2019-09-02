@@ -32,6 +32,8 @@ ln -s ~/Documents/Vitrified-Code/Ubuntu/man ~/man
 ln -s ~/Documents/Vitrified-Code/Ubuntu/templates ~/templates
 
 ## Ubuntu GUI
+# Load gnome terminal profile (replace load with dump and < with > to save)
+dconf load /org/gnome/terminal/ < ~/Documents/Vitrified-Code/Ubuntu/gnome-terminal-profiles.txt
 # compiz config settings manager
 sudo apt install compizconfig-settings-manager python-compizconfig -y
 python ~/Documents/Vitrified-Code/Ubuntu/import_compiz_settings.py ~/Documents/Vitrified-Code/Ubuntu/compiz.profile
