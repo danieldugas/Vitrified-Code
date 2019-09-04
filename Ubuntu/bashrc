@@ -117,7 +117,6 @@ fi
 ###     prometheus
 if [ $MACHINE_NAME = prometheus ]; then
 
-  alias vim="nvim"
   git-watch --quiet &
   git-watch --bad-only --no-fetch
   # Matlab
