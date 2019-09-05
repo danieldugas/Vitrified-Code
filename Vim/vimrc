@@ -4,7 +4,7 @@
 set nocompatible
 
 "" SECTION: Plugins {{{1
-"" VUNDLE STUFF ----------- {{{2
+" VUNDLE STUFF ----------- {{{2
 " HOWTO Guide
   " After changing plugins in this list, run
   " :VundleClean
@@ -32,7 +32,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 "" ------- /VUNDLE STUFF -----------
 
-"" YouCompleteMe {{{2
+" YouCompleteMe {{{2
 " if exists(":YcmDiags")
 " Quick HOWTO guide for ROS projects:
   " catkin config -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
@@ -168,6 +168,20 @@ endfunction " }}}2
 colorscheme ron
 hi ColorColumn ctermbg=darkgrey guibg=darkgrey
 highlight Folded ctermbg=None ctermfg=blue
+" foldtext
+function! NeatFoldText() "{{{2
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*', '', 'g') . ' '
+  let line = substitute(line, '{{' . '{[0-9]*\s*$', '', 'g')
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = ' ' . printf("%s", lines_count . '') . ' '
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('+' . repeat(foldchar, (v:foldlevel-1)*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+" }}}2
+set foldtext=NeatFoldText()
 if has("gui_running") " {{{2
 color twilight
 set laststatus=2
@@ -175,8 +189,7 @@ set lines=45
 set columns=112
 let g:sessionfontsize=8
 set guioptions=eg
-" FUNCTION: Toggle Fullscreen {{{3
-function! ToggleFullscreen()
+function! ToggleFullscreen() " {{{3
   if matchstr(&guioptions,"m")!=""
     set guioptions -=b
     set guioptions -=m
@@ -193,8 +206,7 @@ function! ToggleFullscreen()
 endfunction
 noremap <F11>    :echo ToggleFullscreen()<CR>
 " }}}3
-" FUNCTION: Inc/Decrement font size {{{3
-function! IncrementFontSize()
+function! IncrementFontSize() " {{{3
     let g:sessionfontsize+=1
     exec "set guifont=Consolas:h" . g:sessionfontsize . ":cANSI"
 endfunction
@@ -259,8 +271,7 @@ nnoremap <Leader>q :bd<CR>
 nnoremap <Leader><Tab> :bnext<CR>
 nnoremap <Leader><S-Tab> :bprev<CR>
 nnoremap <Leader>h :silent echo SwitchToOrFromHeader()<CR>
-" FUNCTION: Switch To/From Header {{{2
-function! SwitchToOrFromHeader()
+function! SwitchToOrFromHeader() " {{{2
   if expand('%:t:e') == 'cpp'
     exec "normal :e ./**/". expand('%:t:r') . ".h*\<TAB>\<CR>"
   elseif expand('%:t:e') == 'h' || expand('%:t:e') == 'hpp'
@@ -270,10 +281,9 @@ endfunction
 noremap <F11>    :echo ToggleFullscreen()<CR>
 " }}}2
 " Tab for Ctrl-N autocomplete - No longer needed since YCM
-" FUNCTION: Tab_Or_Complete() {{{2
 "Use TAB to complete when typing words, else inserts TABs as usual.
 "See help completion for source,
-function! Tab_Or_Complete()
+function! Tab_Or_Complete() " {{{2
   if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
     return "\<C-N>"
   else
@@ -323,8 +333,8 @@ nnoremap <silent> L :silent if winline() != winheight(winnr())<CR>
             \"zz"<CR>
             \end<CR><CR>
 " Toggle the document type
-" FUNCTION: F2 to toggle the document type {{{2
-function! ToggleDocType()
+function! ToggleDocType() " {{{2
+  " toggles between code and text document
   if &l:wrap
     setl nowrap
     setl nu
@@ -344,8 +354,7 @@ endfunction
 noremap <F2>    :echo ToggleDocType()<CR>
 " }}}2
 " In the help window: Tab and shift-Tab switch between searched topics
-" FUNCTION: Help functions {{{2
-function! NextHelp()
+function! NextHelp() " {{{2
     exec "normal :h\<Up>\<CR>"
     if !exists("w:count_help")
         let w:count_help=1
