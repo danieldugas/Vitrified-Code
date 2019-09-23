@@ -18,4 +18,8 @@
     <param name="PARAM_NAME" type="double" value="1.0" />
     <remap from="ORIGINAL_TOPIC" to="NEW_REPLACEMENT_TOPIC" />
   </node>
+
+  <include file="$(find PACKAGE_NAME)/launch/LAUNCH_FILE.launch">
+    <arg name="ARG_NAME" value="ARG_VALUE"/>
+  </include>
 </launch>
