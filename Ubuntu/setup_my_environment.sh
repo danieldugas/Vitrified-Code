@@ -16,6 +16,10 @@ mkdir ~/.vim/colors
 cp ~/Documents/Vitrified-Code/Vim/twilight.vim ~/.vim/colors/
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+# better ctrl-r search
+sudo add-apt-repository ppa:ultradvorka/ppa -y
+sudo apt-get update
+sudo apt-get install hstr -y
 
 # bashrc
 ln -s ~/Documents/Vitrified-Code/Ubuntu/bashrc ~/.bashrc_ext

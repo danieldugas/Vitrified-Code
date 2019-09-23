@@ -3,6 +3,17 @@
 shopt -s histappend # set filemode to append (is this needed?)
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND" # "The -a immediately writes the current/new lines to the history file."
 
+# Better ctrl-r history search
+alias hh=hstr                    # hh to be alias for hstr
+export HSTR_CONFIG=hicolor       # get more colors
+export HISTCONTROL=ignorespace   # leading space hides commands from history
+export HISTFILESIZE=10000        # increase history file size (default is 500)
+export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
+# if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
+if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
+# if this is interactive shell, then bind 'kill last command' to Ctrl-x k
+if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
+
 # To show real-time log while booting and shutting down, edit
 # /etc/default/grub
 # change
