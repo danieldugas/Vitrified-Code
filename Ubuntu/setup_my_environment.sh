@@ -1,3 +1,4 @@
+sudo apt install git
 # git config
 git config --global user.email "exodaniel@gmail.com"
 git config --global push.default simple

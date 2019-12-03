@@ -163,6 +163,18 @@ if [ $MACHINE_NAME = pepper_laptop ]; then
   export PATH="$PATH:$HOME/Documents/gotop"
 fi
 
+###     Cronus (T420)
+if [ $MACHINE_NAME = cronus ]; then
+# Disable trackpad kinetic scrolling - Moved to .gnomerc
+#   synclient CoastingSpeed=10000
+#   synclient CoastingFriction=10000
+  git-watch --quiet &
+  git-watch --bad-only --no-fetch
+#   source /opt/ros/kinetic/setup.sh
+#   source ~/Documents/pepper_ws/devel/setup.bash
+fi
+
+# Cluster
 if [ $MACHINE_NAME = leonhard ]; then
   # put this in .bash_profile instead
   # echo "How to install arbitrary python modules in a gpu node"
