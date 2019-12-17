@@ -241,7 +241,8 @@ vnoremap y "+y
 inoremap jj <Esc>
 let mapleader = "\<Space>"
 noremap <Leader>w <C-W>
-noremap <Leader>ya magg"+yG`a
+nnoremap <Leader>ya magg"+yG`a
+nnoremap <Leader>va ggvG$
 nnoremap <M-Down> :cd %:p:h<CR>
 nnoremap <M-Up> :cd %:p:h:h<CR>
 nnoremap <Leader><Down> :cd %:p:h<CR>
