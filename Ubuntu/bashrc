@@ -53,6 +53,7 @@ alias woros="source /opt/ros/kinetic/setup.bash"
 alias cdpepper="cd ~/Documents/pepper_ws/src/asl_pepper/asl_pepper_motion_planning/"
 alias swim="nautilus ."
 alias jpnb="jupyter notebook"
+alias pythoncprofile="python -m cProfile -o program.prof"
 rm() {
     if [[ $@ == "-rf ~" ]]; then
         echo "HELL NO"
