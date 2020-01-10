@@ -9,6 +9,11 @@ if [ -z "$MACHINE_NAME" ]; then
   echo "source ~/.bashrc_ext" >> ~/.bashrc
 fi
 
+echo "------- SETTING UP I3 / COMPTON DOTFILES ------------"
+mkdir -p ~/.config/i3
+ln -s ~/Documents/Vitrified-Code/Ubuntu/i3_config ~/.config/i3/config
+ln -s ~/Documents/Vitrified-Code/Ubuntu/compton_config ~/.config/compton.conf
+
 echo "------- SETTING UP GIT ------------"
 sudo apt install git
 # git config
