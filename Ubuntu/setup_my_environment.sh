@@ -13,6 +13,7 @@ echo "------- SETTING UP I3 / COMPTON DOTFILES ------------"
 mkdir -p ~/.config/i3
 ln -s ~/Documents/Vitrified-Code/Ubuntu/i3_config ~/.config/i3/config
 ln -s ~/Documents/Vitrified-Code/Ubuntu/compton_config ~/.config/compton.conf
+sudo ln -s ~/Documents/Vitrified-Code/Ubuntu/show_a_window_and_do_nothing /usr/bin/
 
 echo "------- SETTING UP GIT ------------"
 sudo apt install git
