@@ -4,3 +4,34 @@ EXAMPLES
   Debug a segfault
     gdb --ex run --args /opt/ros/kinetic/lib/gmapping/slam_gmapping
     # type 'bt<ENTER>' to get backtrace information
+
+SCRIPTING
+
+  "I basically set up my GDB with commands to stop on a specific pattern of "lseek, then close", and if the pattern isn't met it just automatically continues the program.
+  This is what the gdb script looks like:
+
+      set height 0
+
+      catch syscall close
+      catch syscall read
+      catch syscall lseek
+      disable 1 2
+
+      commands 2
+       disable 1 2
+       continue
+      end
+
+      commands 3
+       if $rdi == 31
+        enable 1 2
+        continue
+       else
+        continue
+       end
+      end
+
+  The lseek catchpoint (3) enables both read and close catchpoints; if the read catchpoint (2) is hit first it disables both and continues. This way we look for lseek followed by close without intervening reads.
+  It generates a few false positives but otherwise fairly quickly stops on the right syscall, at which point I could backtrace and prod the live program. "
+
+  https://news.ycombinator.com/item?id=22031219
