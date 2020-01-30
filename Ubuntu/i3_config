@@ -41,7 +41,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id compton
 
 # Background
-exec --no-startup-id find /home/daniel/Pictures/Wallpaper/ -type f -exec feh --bg-scale {} \;
+# exec --no-startup-id find /home/daniel/Pictures/Wallpaper/EarthviewWallpapersWatermarked -type f -exec feh --bg-scale {} \;
+exec --no-startup-id  feh --bg-scale /home/daniel/Pictures/Wallpaper/nasa.jpg
 
 # Start with an empty container
 exec --no-startup-id show_a_window_and_do_nothing
@@ -69,7 +70,7 @@ bindsym $mod+o exec show_a_window_and_do_nothing
 
 # kill focused window
 bindsym $mod+Shift+q kill
-bindsym Ctrl+w kill
+bindsym $mod+w kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -116,7 +117,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+# bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating

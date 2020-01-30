@@ -127,6 +127,13 @@ if [ $MACHINE_NAME = oceanus ]; then
   export PATH="$HOME/anaconda2/bin:$PATH"
 fi
 
+###     atlas
+if [ $MACHINE_NAME = atlas ]; then
+
+  git-watch --quiet &
+  git-watch --bad-only --no-fetch
+fi
+
 ###     prometheus
 if [ $MACHINE_NAME = prometheus ]; then
 
@@ -156,12 +163,8 @@ if [ $MACHINE_NAME = pepper_laptop ]; then
 #   synclient CoastingFriction=10000
   git-watch --quiet &
   git-watch --bad-only --no-fetch
-#   source /opt/ros/kinetic/setup.sh
-#   source ~/Documents/pepper_ws/devel/setup.bash
   export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
   alias activateboostmode1000="sudo ethtool -s enp0s31f6 speed 1000 duplex full"
-  alias source_segmap="source ~/Documents/segmap_ws/devel/setup.bash"
-  export PATH="$PATH:$HOME/Documents/gotop"
 fi
 
 ###     europalaptop
@@ -177,8 +180,6 @@ if [ $MACHINE_NAME = cronus ]; then
 #   synclient CoastingFriction=10000
   git-watch --quiet &
   git-watch --bad-only --no-fetch
-#   source /opt/ros/kinetic/setup.sh
-#   source ~/Documents/pepper_ws/devel/setup.bash
 fi
 
 # Cluster
