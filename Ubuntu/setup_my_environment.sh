@@ -27,8 +27,9 @@ git clone https://github.com/danieldugas/pyniel.git ~/Documents/pyniel
 
 echo "------- SETTING UP GIT-WATCH ------------"
 git clone https://github.com/danieldugas/git-watch.git ~/Documents/git-watch
-echo "~/Documents/Vitrified-Code" >> ~/git_repos_to_watch.txt
-echo "~/Documents/pyniel" >> ~/git_repos_to_watch.txt
+# echo "~/Documents/Vitrified-Code" >> ~/git_repos_to_watch.txt
+# echo "~/Documents/pyniel" >> ~/git_repos_to_watch.txt
+ln -s ~/Documents/Vitrified-Code/Ubuntu/git_repos_to_watch.txt ~/git_repos_to_watch.txt
 
 echo "------- SETTING UP VIM ------------"
 sudo apt install vim-gtk3 -y

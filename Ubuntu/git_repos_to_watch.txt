@@ -1,0 +1,20 @@
+# Write the locations of the Github repos to watch, below.
+~/Documents/git-watch
+~/Documents/pyniel
+~/Documents/Vitrified-Code
+~/Documents/pepper_ws/src/asl_pepper
+
+/home/daniel/Documents/segmatch_ws/src/segmap_private
+/home/daniel/Documents/pepper_ws/src/naoqi_driver
+
+/home/daniel/Documents/pepper_ws/src/map_matcher
+/home/daniel/logbook
+
+/home/daniel/Documents/pepper_ws/src/responsive
+/home/daniel/Documents/pymap2d
+/home/daniel/Documents/pepper_ws/src/interaction_actions
+/home/daniel/Documents/hexgrid
+/home/daniel/Documents/pepper_ws/src/pylidar2d
+
+/home/daniel/Documents/pepper_ws/src/frame_soft
+/home/daniel/Documents/pepper_ws/src/rds
