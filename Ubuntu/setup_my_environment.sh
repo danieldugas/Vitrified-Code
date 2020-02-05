@@ -34,6 +34,7 @@ ln -s ~/Documents/Vitrified-Code/Ubuntu/git_repos_to_watch.txt ~/git_repos_to_wa
 echo "------- SETTING UP VIM ------------"
 sudo apt install vim-gtk3 -y
 ln -s ~/Documents/Vitrified-Code/Vim/vimrc ~/.vimrc
+ln -s ~/Documents/Vitrified-Code/Ubuntu/flake8_config ~/.config/flake8
 mkdir -p ~/.vim/colors
 cp ~/Documents/Vitrified-Code/Vim/twilight.vim ~/.vim/colors/
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

@@ -47,8 +47,9 @@ let g:ycm_warning_symbol='w' " the symbol in the gutter for warnings
 " Disable everything except python syntax checking
 let g:syntastic_mode_map = {
     \ "mode": "passive",
-    \ "active_filetypes": [],
-    \ "passive_filetypes": ["python"] }
+    \ "active_filetypes": ["python"],
+    \ "passive_filetypes": [] }
+let g:syntastic_python_checkers = ['flake8']
 
 
 "" SECTION: Unicode Support {{{1
