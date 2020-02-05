@@ -16,10 +16,13 @@ ln -s ~/Documents/Vitrified-Code/Ubuntu/compton_config ~/.config/compton.conf
 sudo ln -s ~/Documents/Vitrified-Code/Ubuntu/show_a_window_and_do_nothing /usr/bin/
 
 echo "------- SETTING UP GIT ------------"
+sudo add-apt-repository ppa:git-core/ppa # to get git 2.9
+sudo apt update
 sudo apt install git
 # git config
 git config --global user.email "exodaniel@gmail.com"
 git config --global push.default simple
+git config --global core.hooksPath ~/Documents/Vitrified-Code/Ubuntu/git-hooks
 
 echo "------- CLONING PYNIEL ------------"
 # git clone git@github.com:danieldugas/Vitrified-Code.git

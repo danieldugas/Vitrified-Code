@@ -1,0 +1,10 @@
+#!/bin/bash
+exec < /dev/tty # assigns standard input to the keyboard
+
+YN="Y"
+
+{ git diff --cached --name-only | xargs grep -H --color 'NOCOMMIT' ; } && read -p  "
+
+Found staged files with NOCOMMIT flags. Commit anyways?[y/N]" YN
+
+[[ $YN == "y" || $YN == "Y" || $YN == "yes" || $YN == "Yes" ]] || exit 1
