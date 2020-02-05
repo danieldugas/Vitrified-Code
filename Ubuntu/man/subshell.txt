@@ -1,0 +1,13 @@
+EXAMPLES
+  Run in 'virgin' subshell (as if it were being run in a new terminal window)
+    env -i HOME="$HOME" bash -l -c 'your_command'
+        # Breaking this down for explanation:
+        # 1. env -i HOME="$HOME": Clears the environment.
+        #    The -i sets up an empty environment with no variables whatsoever.
+        #    This is problematic because it means that if you try to naively run bash -l
+        #    it won't load your .bash_profile etc. because HOME isn't set.
+        #    To mitigate this, we explicitly pass HOME="$HOME",
+        #    creating an environment where HOME (and only HOME) is set.
+        # 2. bash -l -c ...: Runs the desired command in a login shell.
+        #    You'll want a login shell for this because we're starting from a clean environment
+        #    and need to reload everything.
