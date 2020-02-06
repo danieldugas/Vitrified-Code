@@ -25,12 +25,17 @@ Plugin 'stephpy/vim-yaml' " syntax highlighting for yaml files
 Plugin 'machakann/vim-columnmove'
 Plugin 'tmhedberg/SimpylFold' " python syntax folding
 Plugin 'sheerun/vim-polyglot' " python syntax highlighting
+Plugin 'vim-airline/vim-airline' " status line
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ctrlpvim/ctrlp.vim' " fuzzy file search
 " Plugin 'numiras/semshi' " python syntax highlighting for nvim
 " Plugin 'taketwo/vim-ros' " :make builds with catkin
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 "" ------- /VUNDLE STUFF -----------
+let g:airline_theme='fruit_punch'
+let g:airline#extensions#tabline#enabled = 1
 
 " YouCompleteMe {{{2
 " if exists(":YcmDiags")
@@ -222,13 +227,13 @@ nnoremap <silent> <M--> :echo DecrementFontSize()<CR>
 nnoremap <silent> <M-=> :echo IncrementFontSize()<CR>
 " }}}3
 " Alt-+ Alt-- zoom in and out TODO: do this better, add L and H support
-nnoremap <silent> <leader><M-->
+nnoremap <silent> <Leader><M-->
             \ :set guifont=Consolas:h2:cANSI<CR>
             \:let &columns = &columns*3<CR>:let &lines = 40+(&lines*2)<CR>
             \:set guioptions+=r<CR>
             \:nnoremap j 10j<CR>
             \:nnoremap k 10k<CR>
-nnoremap <silent> <leader><M-=>
+nnoremap <silent> <Leader><M-=>
             \ :let &columns = &columns/3<CR>:let &lines = (&lines-40)/2<CR>
             \:exec "set guifont=Consolas:h" . g:sessionfontsize . ":cANSI"<CR>
             \:set guioptions-=r<CR>
@@ -242,16 +247,26 @@ vnoremap y "+y
 inoremap jj <Esc>
 let mapleader = "\<Space>"
 noremap <Leader>w <C-W>
+" yank all
 nnoremap <Leader>ya magg"+yG`a
 nnoremap <Leader>va ggvG$
-nnoremap <M-Down> :cd %:p:h<CR>
-nnoremap <M-Up> :cd %:p:h:h<CR>
+" directory navigation
 nnoremap <Leader><Down> :cd %:p:h<CR>
 nnoremap <Leader><Up> :cd %:p:h:h<CR>
-" Think vertical
-nnoremap <Leader>j :<C-U>call columnmove#W('n', '')<CR>
-nnoremap <Leader>k :<C-U>call columnmove#B('n', '')<CR>
-nnoremap <Leader>ve :<C-U>call columnmove#E('n', '')<CR>
+" Think vertical # remember to use { and }
+function FloatUpOrDown(cmd)
+    " clears the 'virtual' column position of cursor (when at end of line)
+    call cursor(line("."), col("."))
+    execute "norm! " . a:cmd
+    while (line(".") > 1 && line(".") < line("$"))
+                \ && (
+                \ strlen(getline(".")) - 1 < col(".")
+                \ || getline(".")[col(".") - 1] =~ '\s' )
+        execute "norm! " . a:cmd
+    endwhile
+endfunction
+nnoremap gk :call FloatUpOrDown("gk")<CR>
+nnoremap gj :call FloatUpOrDown("gj")<CR>
 " unlearn ZZ in favor of ZQ
 nnoremap ZZ <nop>
 " Remove ex mode (accidental triggers)
@@ -266,15 +281,20 @@ imap <up>    <nop>
 imap <down>  <nop>
 imap <left>  <nop>
 imap <right> <nop>
+" back and forth through file history
+let g:ctrlp_map = '<Leader>r'
+let g:ctrlp_cmd = 'CtrlPMRU'
 " Alt-n and N for :cnext :cprev
 nnoremap <Leader>* *N:vim // ./**<CR>
 vnoremap <Leader>/ y/<C-r>0<CR>:vim // ./**<CR>
 nnoremap <Leader>/ :vim // ./**<CR>
 nnoremap <Leader>n :cnf<CR>zz
 nnoremap <Leader>N :cpf<CR>zz
-nnoremap <Leader>q :bd<CR>
+nnoremap <Leader>w :bd<CR>
 nnoremap <Leader><Tab> :bnext<CR>
 nnoremap <Leader><S-Tab> :bprev<CR>
+nnoremap <Esc>l :bnext<CR>
+nnoremap <Esc>j :bprev<CR>
 nnoremap <Leader>h :silent echo SwitchToOrFromHeader()<CR>
 function! SwitchToOrFromHeader() " {{{2
   if expand('%:t:e') == 'cpp'
