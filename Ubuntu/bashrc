@@ -175,6 +175,12 @@ if [ $MACHINE_NAME = europa_laptop ]; then
   git-watch --bad-only --no-fetch
 fi
 
+###     bigboy (europalaptop ubuntu18)
+if [ $MACHINE_NAME = bigboy ]; then
+  git-watch --quiet &
+  git-watch --bad-only --no-fetch
+fi
+
 ###     Cronus (T420)
 if [ $MACHINE_NAME = cronus ]; then
 # Disable trackpad kinetic scrolling - Moved to .gnomerc

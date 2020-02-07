@@ -18,7 +18,7 @@ sudo ln -s ~/Documents/Vitrified-Code/Ubuntu/show_a_window_and_do_nothing /usr/b
 echo "------- SETTING UP GIT ------------"
 sudo add-apt-repository ppa:git-core/ppa # to get git 2.9
 sudo apt update
-sudo apt install git
+sudo apt install -y git
 # git config
 git config --global user.email "exodaniel@gmail.com"
 git config --global push.default simple
@@ -29,13 +29,14 @@ echo "------- CLONING PYNIEL ------------"
 git clone https://github.com/danieldugas/pyniel.git ~/Documents/pyniel
 
 echo "------- SETTING UP GIT-WATCH ------------"
+sudo apt install -y python-git
 git clone https://github.com/danieldugas/git-watch.git ~/Documents/git-watch
 # echo "~/Documents/Vitrified-Code" >> ~/git_repos_to_watch.txt
 # echo "~/Documents/pyniel" >> ~/git_repos_to_watch.txt
 ln -s ~/Documents/Vitrified-Code/Ubuntu/git_repos_to_watch.txt ~/git_repos_to_watch.txt
 
 echo "------- SETTING UP VIM ------------"
-sudo apt install vim-gtk3 -y
+sudo apt install -y vim-gtk3
 ln -s ~/Documents/Vitrified-Code/Vim/vimrc ~/.vimrc
 ln -s ~/Documents/Vitrified-Code/Ubuntu/flake8_config ~/.config/flake8
 mkdir -p ~/.vim/colors
@@ -57,7 +58,7 @@ echo "------- SETTING UP UBUNTU GUI PREFERENCES ------------"
 # Load gnome terminal profile (replace load with dump and < with > to save)
 dconf load /org/gnome/terminal/ < ~/Documents/Vitrified-Code/Ubuntu/gnome-terminal-profiles.txt
 # compiz config settings manager
-sudo apt install compizconfig-settings-manager python-compizconfig -y
+sudo apt install -y compizconfig-settings-manager python-compizconfig
 python ~/Documents/Vitrified-Code/Ubuntu/import_compiz_settings.py ~/Documents/Vitrified-Code/Ubuntu/compiz.profile
 # Enable workspaces
 gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
@@ -69,5 +70,5 @@ gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
 # Behavior
 # gsettings set org.gnome.shell.overrides workspaces-only-on-primary false
 # Oneclick extract
-sudo apt install p7zip-full
+sudo apt install -y p7zip-full
 sudo cp ~/Documents/Vitrified-Code/Ubuntu/oneclickextract.desktop /usr/share/applications/
