@@ -67,7 +67,6 @@ rm() {
 }
 
 export PATH="$HOME/Documents/simple-sync:$PATH"
-export PATH="$HOME/Documents/SageMath:$PATH"
 # Quick mathematical python
 alias py="ml3env && ipython --pylab"
 
@@ -167,6 +166,8 @@ if [ $MACHINE_NAME = pepper_laptop ]; then
   git-watch --bad-only --no-fetch
   export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
   alias activateboostmode1000="sudo ethtool -s enp0s31f6 speed 1000 duplex full"
+  export DEFAULT_ETH_INTERFACE="enp0s31f6"
+  export PEPPER_IP="10.42.0.49"
 fi
 
 ###     europalaptop
@@ -179,6 +180,9 @@ fi
 if [ $MACHINE_NAME = bigboy ]; then
   git-watch --quiet &
   git-watch --bad-only --no-fetch
+  export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
+  export DEFAULT_ETH_INTERFACE="enp0s25"
+  export PEPPER_IP="10.42.0.84"
 fi
 
 ###     Cronus (T420)
