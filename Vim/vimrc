@@ -55,6 +55,7 @@ let g:syntastic_mode_map = {
     \ "active_filetypes": ["python"],
     \ "passive_filetypes": [] }
 let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_always_populate_loc_list = 1
 
 
 "" SECTION: Unicode Support {{{1
@@ -284,13 +285,18 @@ imap <right> <nop>
 " back and forth through file history
 let g:ctrlp_map = '<Leader>r'
 let g:ctrlp_cmd = 'CtrlPMRU'
-" Alt-n and N for :cnext :cprev
+" Leader-e and E for next and previous error in loclist
+nnoremap <Leader>e :lnext<CR>zz
+nnoremap <Leader>E :lprev<CR>zz
+" Vim grep in directory shortcuts - Leader-n and N for :cnext :cprev
 nnoremap <Leader>* *N:vim // ./**<CR>
 vnoremap <Leader>/ y/<C-r>0<CR>:vim // ./**<CR>
 nnoremap <Leader>/ :vim // ./**<CR>
-nnoremap <Leader>n :cnf<CR>zz
-nnoremap <Leader>N :cpf<CR>zz
+nnoremap <Leader>n :cnfile<CR>zz
+nnoremap <Leader>N :cpfile<CR>zz
+" buffers
 nnoremap <Leader>w :bd<CR>
+nnoremap <Leader>W :%bd\|e#<CR>
 nnoremap <Leader><Tab> :bnext<CR>
 nnoremap <Leader><S-Tab> :bprev<CR>
 nnoremap <Esc>l :bnext<CR>
