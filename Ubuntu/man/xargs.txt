@@ -1,0 +1,4 @@
+EXAMPLES
+  Get all currently installed packages with nvidia in their name, purge (dry run)
+    dpkg -l | grep nvidia | cut -d" " -f3 ...-f1 | xargs -I{} echo dpkg --purge {}
+    # change echo to sudo for the real thing
