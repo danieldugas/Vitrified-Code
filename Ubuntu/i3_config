@@ -41,8 +41,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id compton
 
 # Background
-# exec --no-startup-id find /home/daniel/Pictures/Wallpaper/EarthviewWallpapersWatermarked -type f -exec feh --bg-scale {} \;
-exec --no-startup-id  feh --bg-scale /home/daniel/Pictures/Wallpaper/wreck.jpg
+exec --no-startup-id find /home/daniel/Pictures/Wallpaper/EarthviewWallpapersWatermarked | sort -R | tail -1 | xargs -I{} feh --bg-scale {}
+# exec --no-startup-id  feh --bg-scale /home/daniel/Pictures/Wallpaper/wreck.jpg
 
 # Start with an empty container
 exec --no-startup-id show_a_window_and_do_nothing
@@ -64,6 +64,9 @@ bindsym Mod1+Ctrl+t exec i3-sensible-terminal
 # start firefox
 bindsym $mod+2 exec firefox
 bindsym $mod+1 exec nautilus --no-desktop
+
+# lock
+bindsym $mod+Mod1+l exec i3lock-fancy
 
 # empty space
 bindsym $mod+o exec show_a_window_and_do_nothing
@@ -222,7 +225,7 @@ client.focused          #d9d9d9 #cecece #000000 #d9d9d9 #d9d9d9
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        tray_output primary
+#         tray_output primary
         font pango:DejaVu Sans Mono 14
         status_command i3status
 }
