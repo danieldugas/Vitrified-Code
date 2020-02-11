@@ -1,0 +1,13 @@
+Hard (ln) vs soft (ln -s) link
+
+Hard link: point to same inode. files only, same partition only
+Soft link: anything, points to original file
+
+You probably want a soft link
+
+
+    inode
+   /      \
+ file.txt hardlink.txt
+  |
+ softlink.txt
