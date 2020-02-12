@@ -8,3 +8,4 @@ EXAMPLES
   Enable/disable incoming password authentificated ssh
     sudo vim /etc/ssh/sshd_config
     # change PasswordAuthentification from yes to no
+    sudo systemctl reload ssh
