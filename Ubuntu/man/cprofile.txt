@@ -1,0 +1,4 @@
+EXAMPLES
+  Profile a python script
+    $ python -m cProfile -o program.prof my_program.py
+    $ snakeviz program.prof
