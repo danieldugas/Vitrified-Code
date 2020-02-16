@@ -28,6 +28,7 @@ Plugin 'sheerun/vim-polyglot' " python syntax highlighting
 Plugin 'vim-airline/vim-airline' " status line
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy file search
+Plugin 'tpope/vim-fugitive' " git diff in gutter
 " Plugin 'numiras/semshi' " python syntax highlighting for nvim
 " Plugin 'taketwo/vim-ros' " :make builds with catkin
 " All of your Plugins must be added before the following line
@@ -284,7 +285,7 @@ imap <left>  <nop>
 imap <right> <nop>
 " back and forth through file history
 let g:ctrlp_map = '<Leader>r'
-let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_cmd = 'CtrlPMixed'
 " Leader-e and E for next and previous error in loclist
 nnoremap <Leader>e :lnext<CR>zz
 nnoremap <Leader>E :lprev<CR>zz
