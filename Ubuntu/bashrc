@@ -203,3 +203,7 @@ if [ $MACHINE_NAME = leonhard ]; then
   # echo "3.) pip install --user tensorflow_gpu==1.12.0"
   alias interactivejob="bsub -Is -W 4:00 -R \"rusage[ngpus_excl_p=1, mem=4096]\" bash"
 fi
+
+# temporary storage for often run commands
+# roslaunch ia_ros ros_ia_node.launch rosbag:=multiagent_sim_iros mapname:=asl mapfolder:=$HOME/Documents/pepper_ws/src/interaction_actions/python/maps n_downsampling_passes:=0 localization:=false script_args:="--no-stop"
+# roslaunch asl_pepper_move_base move_base.launch rosbag:=multiagent_sim_iros mapname:=asl mapfolder:=$HOME/Documents/pepper_ws/src/interaction_actions/python/maps
