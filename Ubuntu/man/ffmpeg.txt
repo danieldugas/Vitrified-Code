@@ -1,4 +1,7 @@
 EXAMPLES
+  Cut video by time
+    ffmpeg -i video.mp4 -ss 00:01:11 -t 00:00:08 -async 1 out.mp4
+          # -t is duration, NOT endtime
   Converting a video to images
     mkdir frames
     ffmpeg -i video.mp4 'frames/frame-%03d.jpg'
