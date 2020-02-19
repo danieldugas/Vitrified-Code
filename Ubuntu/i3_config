@@ -61,6 +61,9 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym Mod1+Ctrl+t exec i3-sensible-terminal
 
+# gnome screenshotting
+bindsym Shift+Print exec gnome-screenshot -a
+
 # start firefox
 bindsym $mod+2 exec firefox
 bindsym $mod+1 exec nautilus --no-desktop
@@ -74,6 +77,7 @@ bindsym $mod+o exec show_a_window_and_do_nothing
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+w kill
+bindsym Mod1+F4 kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
