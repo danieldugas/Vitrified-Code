@@ -16,3 +16,6 @@
 
 ~/Documents/pepper_ws/src/frame_soft
 ~/Documents/pepper_ws/src/rds
+
+/home/daniel/Documents/CrowdBotUnity
+/home/daniel/Documents/crowdbot_sim_ws/src/catkin_crowdbotsim

@@ -207,3 +207,8 @@ fi
 # temporary storage for often run commands
 # roslaunch ia_ros ros_ia_node.launch rosbag:=multiagent_sim_iros mapname:=asl mapfolder:=$HOME/Documents/pepper_ws/src/interaction_actions/python/maps n_downsampling_passes:=0 localization:=false script_args:="--no-stop"
 # roslaunch asl_pepper_move_base move_base.launch rosbag:=multiagent_sim_iros mapname:=asl mapfolder:=$HOME/Documents/pepper_ws/src/interaction_actions/python/maps
+
+# sim (unity scene) + ia, using sim_map as reference
+# roslaunch ia_ros ros_ia_node.launch rosbag:=multiagent_sim_unity mapname:=unity_scene_map mapfolder:=$HOME/maps n_downsampling_passes:=0 localization:=false script_args:="--no-stop"
+# sim (unity scene) + move base, using sim_map as ref
+# roslaunch asl_pepper_move_base move_base.launch rosbag:=multiagent_sim_unity mapname:=unity_scene_map mapfolder:=$HOME/maps
