@@ -69,7 +69,7 @@ bindsym $mod+2 exec firefox
 bindsym $mod+1 exec nautilus --no-desktop
 
 # lock
-bindsym $mod+Mod1+l exec "/home/daniel/.i3/i3lock-fancy-multimonitor/lock -p --no-text"
+bindsym $mod+l exec "/home/daniel/.i3/i3lock-fancy-multimonitor/lock -p --no-text"
 
 # empty space
 bindsym $mod+o exec show_a_window_and_do_nothing
@@ -90,17 +90,20 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 focus_follows_mouse no # Do not change focus on hover
 focus_wrapping no
 
+# interactive focus script, i3focus
+bindsym Mod1+Tab exec --no-startup-id ~/.i3/i3focus
+
 # change focus
-bindsym $mod+j     focus left
-bindsym $mod+comma focus down
-bindsym $mod+i     focus up
-bindsym $mod+l     focus right
+# bindsym $mod+j     focus left
+# bindsym $mod+comma focus down
+# bindsym $mod+i     focus up
+# bindsym $mod+l     focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left  focus left
-bindsym $mod+Down  focus down
-bindsym $mod+Up    focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left  focus left
+# bindsym $mod+Down  focus down
+# bindsym $mod+Up    focus up
+# bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Ctrl+j     fullscreen disable; floating disable; move left
@@ -152,6 +155,15 @@ set $ws8  "8"
 set $ws9  "9"
 set $ws10 "10"
 
+workspace $ws1 output DP-2
+workspace $ws2 output DP-2
+workspace $ws3 output DP-2
+workspace $ws4 output DP-2
+workspace $ws5 output DP-0
+workspace $ws6 output DP-0
+workspace $ws7 output DP-0
+workspace $ws8 output DP-0
+
 # switch to workspace
 bindsym Mod1+Ctrl+1 workspace number $ws1
 bindsym Mod1+Ctrl+2 workspace number $ws2
@@ -164,10 +176,10 @@ bindsym Mod1+Ctrl+8 workspace number $ws8
 bindsym Mod1+Ctrl+9 workspace number $ws9
 bindsym Mod1+Ctrl+0 workspace number $ws10
 # alternatively, you can use the cursor keys:
-bindsym Mod1+Ctrl+Left  workspace number $ws1
-bindsym Mod1+Ctrl+Down  workspace number $ws2
-bindsym Mod1+Ctrl+Up    workspace number $ws3
-bindsym Mod1+Ctrl+Right workspace number $ws4
+bindsym Mod1+Ctrl+Left  focus output DP-2, workspace number $ws1, focus output DP-0, workspace number $ws5, focus output DP-2
+bindsym Mod1+Ctrl+Down  focus output DP-2, workspace number $ws2, focus output DP-0, workspace number $ws6, focus output DP-2
+bindsym Mod1+Ctrl+Up    focus output DP-2, workspace number $ws3, focus output DP-0, workspace number $ws7, focus output DP-2
+bindsym Mod1+Ctrl+Right focus output DP-2, workspace number $ws4, focus output DP-0, workspace number $ws8, focus output DP-2
 
 # move focused window between monitors
 bindsym $mod+Ctrl+space move container to output right, focus output right
@@ -187,10 +199,10 @@ bindsym Mod1+Ctrl+Shift+8 move container to workspace number $ws8
 bindsym Mod1+Ctrl+Shift+9 move container to workspace number $ws9
 bindsym Mod1+Ctrl+Shift+0 move container to workspace number $ws10
 # alternatively, you can use the cursor keys:
-bindsym Mod1+Ctrl+Shift+Left  move container to workspace number $ws1; workspace number $ws1
-bindsym Mod1+Ctrl+Shift+Down  move container to workspace number $ws2; workspace number $ws2
-bindsym Mod1+Ctrl+Shift+Up    move container to workspace number $ws3; workspace number $ws3
-bindsym Mod1+Ctrl+Shift+Right move container to workspace number $ws4; workspace number $ws4
+bindsym Mod1+Ctrl+Shift+Left  move container to workspace number $ws1, focus output DP-2, workspace number $ws1, focus output DP-0, workspace number $ws5, focus output DP-2
+bindsym Mod1+Ctrl+Shift+Down  move container to workspace number $ws2, focus output DP-2, workspace number $ws2, focus output DP-0, workspace number $ws6, focus output DP-2
+bindsym Mod1+Ctrl+Shift+Up    move container to workspace number $ws3, focus output DP-2, workspace number $ws3, focus output DP-0, workspace number $ws7, focus output DP-2
+bindsym Mod1+Ctrl+Shift+Right move container to workspace number $ws4, focus output DP-2, workspace number $ws4, focus output DP-0, workspace number $ws8, focus output DP-2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

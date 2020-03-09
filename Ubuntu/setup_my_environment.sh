@@ -53,6 +53,9 @@ echo "------- SETTING UP UMEDIT ------------"
 ln -s ~/Code/Vitrified-Code/Ubuntu/man ~/man
 ln -s ~/Code/Vitrified-Code/Ubuntu/templates ~/templates
 
+echo "------- SETTING UP LOGBOOK ------------"
+git clone git@bitbucket.org:exodaniel/logbook.git ~/logbook
+
 echo "------- SETTING UP UBUNTU GUI PREFERENCES ------------"
 ## Ubuntu GUI
 # Load gnome terminal profile (replace load with dump and < with > to save)
@@ -80,3 +83,10 @@ dconf load / < ~/Code/Vitrified-Code/Ubuntu/dconf-settings.ini
 # Enable workspaces
 # gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
 # gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
+
+
+echo "------- SETTING UP I3 GUI PREFERENCES ------------"
+sudo apt install python-pip
+pip install --user i3ipc pynput
+git clone git@github.com:danieldugas/i3focus.git ~/Code/i3focus
+ln -s ~/Code/i3focus/i3focus ~/.i3/i3focus
