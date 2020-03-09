@@ -89,4 +89,5 @@ echo "------- SETTING UP I3 GUI PREFERENCES ------------"
 sudo apt install python-pip
 pip install --user i3ipc pynput
 git clone git@github.com:danieldugas/i3focus.git ~/Code/i3focus
+mkdir ~/.i3
 ln -s ~/Code/i3focus/i3focus ~/.i3/i3focus

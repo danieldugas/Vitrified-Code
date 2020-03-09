@@ -1,5 +1,5 @@
 opacity-rule = [
-"95:class_g = 'Gnome-terminal'",
+"99:class_g = 'Gnome-terminal'",
 "10:class_g = 'Pleasemri3makethiswindowtransparent'"
 ]
 
