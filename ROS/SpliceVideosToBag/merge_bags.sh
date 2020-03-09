@@ -2,7 +2,7 @@
 ### alongside the sensor data interactively.
 
 # Original videos are already scaled down, with 20-30fps
-cd ~/Documents/pyniel/pyniel/ros_tools/
+cd ~/Code/pyniel/pyniel/ros_tools/
 ./video_to_rosbag ~/Videos/pepper_demo/camera_follow.mp4 /media/storage/camera_follow.bag
 ./video_to_rosbag ~/Videos/pepper_demo/camera_fixed_north.mp4 /media/storage/camera_fixed_north.bag
 ./video_to_rosbag ~/Videos/pepper_demo/camera_fixed_koze.mp4 /media/storage/camera_fixed_koze.bag
@@ -28,7 +28,7 @@ rm *.orig.bag
 
 
 # I expected to have to use -i (reindex), but it does not work. Don't use -i instead.
-cd ~/Documents/pepper_ws/src/bagedit/nodes
+cd ~/Code/pepper_ws/src/bagedit/nodes
 ./bagmerge.py -o /media/storage/merged.bag ~/rosbags/demo2.bag /media/storage/camera_follow-deepsync.bag
 ./bagmerge.py -o /media/storage/merged2.bag /media/storage/merged.bag /media/storage/camera_fixed_north-deepsync.bag
 rm /media/storage/merged.bag # save some space

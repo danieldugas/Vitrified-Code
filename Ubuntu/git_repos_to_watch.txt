@@ -1,21 +1,21 @@
 # Write the locations of the Github repos to watch, below.
-~/Documents/git-watch
-~/Documents/Vitrified-Code
+~/Code/git-watch
+~/Code/Vitrified-Code
 ~/logbook
 
-~/Documents/pyniel
-~/Documents/hexgrid
+~/Code/pyniel
+~/Code/hexgrid
 
-~/Documents/pepper_ws/src/asl_pepper
-~/Documents/pepper_ws/src/naoqi_driver
-~/Documents/pepper_ws/src/map_matcher
-~/Documents/pepper_ws/src/responsive
-~/Documents/pepper_ws/src/pymap2d
-~/Documents/pepper_ws/src/interaction_actions
-~/Documents/pepper_ws/src/pylidar2d
+~/Code/pepper_ws/src/asl_pepper
+~/Code/pepper_ws/src/naoqi_driver
+~/Code/pepper_ws/src/map_matcher
+~/Code/pepper_ws/src/responsive
+~/Code/pepper_ws/src/pymap2d
+~/Code/pepper_ws/src/interaction_actions
+~/Code/pepper_ws/src/pylidar2d
 
-~/Documents/pepper_ws/src/frame_soft
-~/Documents/pepper_ws/src/rds
+~/Code/pepper_ws/src/frame_soft
+~/Code/pepper_ws/src/rds
 
-/home/daniel/Documents/CrowdBotUnity
-/home/daniel/Documents/crowdbot_sim_ws/src/catkin_crowdbotsim
+/home/daniel/Code/CrowdBotUnity
+/home/daniel/Code/crowdbot_sim_ws/src/catkin_crowdbotsim

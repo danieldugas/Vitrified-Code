@@ -26,7 +26,7 @@ if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
 alias gitview="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 
 # git_watch
-export PATH="$HOME/Documents/git-watch:$PATH"
+export PATH="$HOME/Code/git-watch:$PATH"
 
 # Functions to jump straight to a workspace
 workondirectory() {
@@ -41,16 +41,16 @@ export EDITOR=vim
 export VISUAL=vim
 
 # Source my personal python packages
-# export PYTHONPATH="$HOME/Documents/pyniel:$PYTHONPATH"
+# export PYTHONPATH="$HOME/Code/pyniel:$PYTHONPATH"
 
 # Aliases
 alias ml3env="source ~/ml3/bin/activate"
 alias segmappyenv="source ~/segmappyenv/bin/activate"
 alias rospyenv="source ~/rospyenv/bin/activate"
-alias wopepper="source ~/rospyenv/bin/activate && source ~/Documents/pepper_ws/devel/setup.bash && roscd asl_pepper_motion_planning && git status"
+alias wopepper="source ~/rospyenv/bin/activate && source ~/Code/pepper_ws/devel/setup.bash && roscd asl_pepper_motion_planning && git status"
 alias woia="wopepper && roscd ia_ros && cd .. && git status"
 alias woros="source /opt/ros/kinetic/setup.bash"
-alias cdpepper="cd ~/Documents/pepper_ws/src/asl_pepper/asl_pepper_motion_planning/"
+alias cdpepper="cd ~/Code/pepper_ws/src/asl_pepper/asl_pepper_motion_planning/"
 alias swim="nautilus ."
 alias jpnb="jupyter notebook"
 alias pythoncprofile="python -m cProfile -o program.prof"
@@ -66,7 +66,7 @@ rm() {
     fi
 }
 
-export PATH="$HOME/Documents/simple-sync:$PATH"
+export PATH="$HOME/Code/simple-sync:$PATH"
 # Quick mathematical python
 alias py="ml3env && ipython --pylab"
 
@@ -75,7 +75,7 @@ function parse_git_branch () {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 function parse_ros_ws () {
-#   echo $PKG_CONFIG_PATH | sed -e 's/\/home\/daniel\/Documents\///' | sed -e 's/\/opt\/ros\///' | sed -e 's/\/.*$//'
+#   echo $PKG_CONFIG_PATH | sed -e 's/\/home\/daniel\/Code\///' | sed -e 's/\/opt\/ros\///' | sed -e 's/\/.*$//'
   echo $PKG_CONFIG_PATH \
     | sed -e 's/:.*$//' \
     | sed -e 's/.*\/\(.*\)\/devel\/.*$/\1 /' \
@@ -115,7 +115,7 @@ logbook() {
 
 # Find which wallpaper based on watermark
 whichwallpaper() {
-  ls "$HOME/Pictures/Wallpapers/Earthview Wallpapers" | grep "$1"
+  ls "$HOME/Pictures/Wallpaper/EarthviewWallpapersWatermarked" | grep "$1"
 }
 
 ### ------------- COMPUTER SPECIFIC  --------------###
@@ -143,10 +143,10 @@ if [ $MACHINE_NAME = prometheus ]; then
   # Matlab
   alias matlab="/usr/local/MATLAB/R2018a/bin/matlab"
   # Pepper ros project
-#   source ~/Documents/pepper_ws/devel/setup.bash
-#   export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.5.5-linux64/lib/python2.7/site-packages"
+#   source ~/Code/pepper_ws/devel/setup.bash
+#   export PYTHONPATH="$PYTHONPATH:$HOME/Code/pynaoqi-python2.7-2.5.5.5-linux64/lib/python2.7/site-packages"
   # Segmap ros project
-  alias source_segmap="source ~/Documents/segmatch_ws/devel/setup.bash"
+  alias source_segmap="source ~/Code/segmatch_ws/devel/setup.bash"
   alias wosegmap="source_segmap && roscd segmapper && cd .."
   # Group share
   mountgroupshare() {
@@ -164,7 +164,7 @@ if [ $MACHINE_NAME = pepper_laptop ]; then
 #   synclient CoastingFriction=10000
   git-watch --quiet &
   git-watch --bad-only --no-fetch
-  export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
+  export PYTHONPATH="$PYTHONPATH:$HOME/Code/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
   alias activateboostmode1000="sudo ethtool -s enp0s31f6 speed 1000 duplex full"
   export DEFAULT_ETH_INTERFACE="enp0s31f6"
   export PEPPER_IP="10.42.0.49"
@@ -180,7 +180,7 @@ fi
 if [ $MACHINE_NAME = bigboy ]; then
   git-watch --quiet &
   git-watch --bad-only --no-fetch
-  export PYTHONPATH="$PYTHONPATH:$HOME/Documents/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
+  export PYTHONPATH="$PYTHONPATH:$HOME/Code/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
   export DEFAULT_ETH_INTERFACE="enp0s25"
   export PEPPER_IP="10.42.0.84"
 fi
@@ -205,8 +205,8 @@ if [ $MACHINE_NAME = leonhard ]; then
 fi
 
 # temporary storage for often run commands
-# roslaunch ia_ros ros_ia_node.launch rosbag:=multiagent_sim_iros mapname:=asl mapfolder:=$HOME/Documents/pepper_ws/src/interaction_actions/python/maps n_downsampling_passes:=0 localization:=false script_args:="--no-stop"
-# roslaunch asl_pepper_move_base move_base.launch rosbag:=multiagent_sim_iros mapname:=asl mapfolder:=$HOME/Documents/pepper_ws/src/interaction_actions/python/maps
+# roslaunch ia_ros ros_ia_node.launch rosbag:=multiagent_sim_iros mapname:=asl mapfolder:=$HOME/Code/pepper_ws/src/interaction_actions/python/maps n_downsampling_passes:=0 localization:=false script_args:="--no-stop"
+# roslaunch asl_pepper_move_base move_base.launch rosbag:=multiagent_sim_iros mapname:=asl mapfolder:=$HOME/Code/pepper_ws/src/interaction_actions/python/maps
 
 # sim (unity scene) + ia, using sim_map as reference
 # roslaunch ia_ros ros_ia_node.launch rosbag:=multiagent_sim_unity mapname:=unity_scene_map mapfolder:=$HOME/maps n_downsampling_passes:=0 localization:=false script_args:="--no-stop"

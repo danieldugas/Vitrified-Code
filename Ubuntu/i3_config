@@ -69,7 +69,7 @@ bindsym $mod+2 exec firefox
 bindsym $mod+1 exec nautilus --no-desktop
 
 # lock
-bindsym $mod+Mod1+l exec i3lock-fancy
+bindsym $mod+Mod1+l exec "/home/daniel/.i3/i3lock-fancy-multimonitor/lock -p --no-text"
 
 # empty space
 bindsym $mod+o exec show_a_window_and_do_nothing
@@ -168,6 +168,11 @@ bindsym Mod1+Ctrl+Left  workspace number $ws1
 bindsym Mod1+Ctrl+Down  workspace number $ws2
 bindsym Mod1+Ctrl+Up    workspace number $ws3
 bindsym Mod1+Ctrl+Right workspace number $ws4
+
+# move focused window between monitors
+bindsym $mod+Ctrl+space move container to output right, focus output right
+bindsym $mod+Ctrl+Shift+l move container to output right, focus output right
+bindsym $mod+Ctrl+Shift+j move container to output left, focus output left
 
 
 # move focused container to workspace
