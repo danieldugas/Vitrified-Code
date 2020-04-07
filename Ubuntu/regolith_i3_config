@@ -32,7 +32,7 @@ set_from_resource $alt  i3-wm.alt Mod1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-hide_edge_borders smart
+# hide_edge_borders smart
 
 ## Launch // Terminal // <Super> Enter ##
 bindsym $mod+Return exec /usr/bin/x-terminal-emulator
@@ -135,7 +135,7 @@ bindsym $mod+2 exec firefox
 bindsym $mod+1 exec nautilus --no-desktop
 
 # lock
-bindsym $mod+l exec "/home/daniel/.i3/i3lock-fancy-multimonitor/lock -p --no-text"
+# bindsym $mod+l exec "/home/daniel/.i3/i3lock-fancy-multimonitor/lock -p --no-text"
 
 # empty space
 bindsym $mod+o exec show_a_window_and_do_nothing
@@ -158,6 +158,9 @@ focus_wrapping no
 # interactive focus script, i3focus
 # bindsym Mod1+Tab exec --no-startup-id ~/.i3/i3focus
 
+# toggle tiling / floating
+bindsym $mod+Ctrl+k floating enable; fullscreen toggle
+
 # move focused window
 bindsym $mod+Ctrl+j     fullscreen disable; floating disable; move left
 bindsym $mod+Ctrl+comma fullscreen disable; floating disable; move down
@@ -168,6 +171,12 @@ bindsym $mod+Ctrl+l     fullscreen disable; floating disable; move right
 # bindsym $mod+Ctrl+o     fullscreen disable; floating disable; move right; move up
 # bindsym $mod+Ctrl+period   fullscreen disable; floating disable; move right; move down
 # bindsym $mod+Ctrl+m     fullscreen disable; floating disable; move left;  move down
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
 
 ## Daniel: Workspaces -----------------------------------------------------------------------------
 # Define names for default workspaces for which we configure key bindings later on.
@@ -258,7 +267,7 @@ bindsym Mod1+Tab [class=".*"] border pixel 20; mode "Focus Mode"
 ## EndDaniel --------------------------------------------------------------------------------------
 
 ## Session // Lock Screen // <Super> Escape ##
-bindsym $mod+Escape exec gnome-screensaver-command --lock
+bindsym $mod+l exec gnome-screensaver-command --lock
 
 ## Session // Sleep // <Super><Shift> s ##
 bindsym $mod+Shift+s exec systemctl suspend
@@ -372,10 +381,15 @@ set_from_resource $urgent.color.child_border i3-wm.client.urgent.color.child_bor
 
 # Window Border color
 # class                 border                             background                         text                               indicator                          child_border
-client.focused          $focused.color.border              $focused.color.background          $focused.color.text                $focused.color.indicator           $focused.color.child_border
-client.focused_inactive $focused_inactive.color.border     $focused_inactive.color.background $focused_inactive.color.text       $focused_inactive.color.indicator  $focused_inactive.color.child_border
-client.unfocused        $unfocused.color.border            $unfocused.color.background        $unfocused.color.text              $unfocused.color.indicator         $unfocused.color.child_border
-client.urgent           $urgent.color.border               $urgent.color.background           $urgent.color.text                 $urgent.color.indicator            $urgent.color.child_border
+# client.focused          $focused.color.border              $focused.color.background          $focused.color.text                $focused.color.indicator           $focused.color.child_border
+# client.focused_inactive $focused_inactive.color.border     $focused_inactive.color.background $focused_inactive.color.text       $focused_inactive.color.indicator  $focused_inactive.color.child_border
+# client.unfocused        $unfocused.color.border            $unfocused.color.background        $unfocused.color.text              $unfocused.color.indicator         $unfocused.color.child_border
+# client.urgent           $urgent.color.border               $urgent.color.background           $urgent.color.text                 $urgent.color.indicator            $urgent.color.child_border
+
+# class                 border  backgr. text    indicator child_border
+client.focused_inactive #0d1010 #212121 #d9d9d9 #0d1010 #063340
+client.unfocused        #0d1010 #212121 #d9d9d9 #424242 #063340
+client.focused          #d9d9d9 #cecece #000000 #d9d9d9 #d9d9d9
 
 # Enable popup during fullscreen
 popup_during_fullscreen smart
