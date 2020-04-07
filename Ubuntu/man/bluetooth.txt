@@ -1,2 +1,6 @@
 $ bluetoothctl
 # help
+
+$ scan on
+$ devices
+$ pair DEVICE
