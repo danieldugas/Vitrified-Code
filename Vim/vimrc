@@ -370,7 +370,6 @@ function! ToggleDocType() " {{{2
   if &l:wrap
     setl nowrap
     setl nu
-        setl rnu
     setl list
         setl textwidth=0
     return "Code Document"
