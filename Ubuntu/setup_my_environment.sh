@@ -10,13 +10,15 @@ if [ -z "$MACHINE_NAME" ]; then
 fi
 
 echo "------- SETTING UP I3 / COMPTON DOTFILES ------------"
+sudo add-apt-repository -y ppa:regolith-linux/release
+sudo apt install -y regolith-desktop
 mkdir -p ~/.config/i3
+ln -s ~/Code/Vitrified-Code/Ubuntu/regolith_i3_config ~/.config/regolith/i3/config
 ln -s ~/Code/Vitrified-Code/Ubuntu/i3_config ~/.config/i3/config
 ln -s ~/Code/Vitrified-Code/Ubuntu/compton_config ~/.config/compton.conf
 sudo ln -s ~/Code/Vitrified-Code/Ubuntu/show_a_window_and_do_nothing /usr/bin/
 
 echo "------- SETTING UP GIT ------------"
-sudo add-apt-repository ppa:git-core/ppa # to get git 2.9
 sudo apt update
 sudo apt install -y git
 # git config
@@ -45,9 +47,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "------- SETTING UP HSTR ------------"
 # better ctrl-r search
-sudo add-apt-repository ppa:ultradvorka/ppa -y
+sudo add-apt-repository -y ppa:ultradvorka/ppa
 sudo apt-get update
-sudo apt-get install hstr -y
+sudo apt-get install -y hstr
 
 echo "------- SETTING UP UMEDIT ------------"
 ln -s ~/Code/Vitrified-Code/Ubuntu/man ~/man
