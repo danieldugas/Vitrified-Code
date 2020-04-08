@@ -4,7 +4,7 @@ from Tkinter import Tk, Label, Button
 class MyFirstGUI:
     def __init__(self, master):
         self.master = master
-        master.title("A simple GUI")
+        master.title("Hi there.")
 
         self.label = Label(master, text="A useless window designed to be made transparent by i3/compton, to serve as an 'empty' container.")
         self.label.pack()
@@ -13,5 +13,6 @@ class MyFirstGUI:
         self.close_button.pack()
 
 root = Tk(className="pleasemri3makethiswindowtransparent")
+root.wm_attributes('-alpha', 0.5)
 my_gui = MyFirstGUI(root)
 root.mainloop()

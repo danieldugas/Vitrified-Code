@@ -20,7 +20,7 @@ sudo ln -s ~/Code/Vitrified-Code/Ubuntu/i3xrocks/volumedaniel /usr/share/i3xrock
 sudo ln -s ~/Code/Vitrified-Code/Ubuntu/i3xrocks/bluetoothdaniel /usr/share/i3xrocks/bluetoothdaniel  # && sudo chmod +x /usr/share/i3xrocks/bluetoothdaniel
 sudo ln -s ~/Code/Vitrified-Code/Ubuntu/i3xrocks/keyboard_layoutdaniel /usr/share/i3xrocks/keyboard_layoutdaniel  # && sudo chmod +x /usr/share/i3xrocks/bluetoothdaniel
 
-sudo ln -s ~/Code/Vitrified-Code/Ubuntu/show_a_window_and_do_nothing /usr/bin/
+ln -s ~/Code/Vitrified-Code/Ubuntu/show_a_window_and_do_nothing ~/.i3/show_a_window_and_do_nothing
 # deprecated in favor of regolith
 # ln -s ~/Code/Vitrified-Code/Ubuntu/i3_config ~/.config/i3/config
 # ln -s ~/Code/Vitrified-Code/Ubuntu/compton_config ~/.config/compton.conf

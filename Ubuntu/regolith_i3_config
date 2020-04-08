@@ -138,7 +138,7 @@ bindsym $mod+1 exec nautilus --no-desktop
 # bindsym $mod+l exec "/home/daniel/.i3/i3lock-fancy-multimonitor/lock -p --no-text"
 
 # empty space
-bindsym $mod+o exec show_a_window_and_do_nothing
+# bindsym $mod+o exec --no-startup-id show_a_window_and_do_nothing
 
 # kill focused window
 bindsym $mod+w kill
@@ -167,16 +167,19 @@ bindsym $mod+Ctrl+comma fullscreen disable; floating disable; move down
 bindsym $mod+Ctrl+i     fullscreen disable; floating disable; move up
 bindsym $mod+Ctrl+l     fullscreen disable; floating disable; move right
 # diagonals
-# bindsym $mod+Ctrl+u     fullscreen disable; floating disable; move left;  move up
-# bindsym $mod+Ctrl+o     fullscreen disable; floating disable; move right; move up
+bindsym $mod+Ctrl+u     fullscreen disable; floating disable; mark latest; focus left; split v; open; mark hole; [con_mark="latest"] focus; move left;  move up; move up; unmark latest
+bindsym $mod+Ctrl+o     fullscreen disable; floating disable; mark latest; focus right; split v; open; mark hole; [con_mark="latest"] focus; move right; move up; move up; unmark latest
 # bindsym $mod+Ctrl+period   fullscreen disable; floating disable; move right; move down
 # bindsym $mod+Ctrl+m     fullscreen disable; floating disable; move left;  move down
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+h split h; mark latest; open; mark hole; [con_mark="latest"] focus; unmark latest;
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+v split v; mark latest; open; mark hole; [con_mark="latest"] focus; unmark latest;
+
+# take container out of parent
+bindsym $mod+u mark child; focus parent; mark parent; [con_mark="child"] focus; move right; [con_mark="hole"] kill; [con_mark="child"] focus; unmark parent; unmark child
 
 ## Daniel: Workspaces -----------------------------------------------------------------------------
 # Define names for default workspaces for which we configure key bindings later on.
@@ -255,6 +258,8 @@ mode "Focus Mode" {
         bindsym l focus right
         bindsym i focus up
         bindsym comma focus down
+
+        bindsym $mod+w kill
 
         ## exit mode
         bindsym Return [class=".*"] border pixel 2; mode "default"
