@@ -387,8 +387,8 @@ set_from_resource $urgent.color.child_border i3-wm.client.urgent.color.child_bor
 # client.urgent           $urgent.color.border               $urgent.color.background           $urgent.color.text                 $urgent.color.indicator            $urgent.color.child_border
 
 # class                 border  backgr. text    indicator child_border
-client.focused_inactive #0d1010 #212121 #d9d9d9 #0d1010 #063340
-client.unfocused        #0d1010 #212121 #d9d9d9 #424242 #063340
+client.focused_inactive #101010 #212121 #d9d9d9 #0d1010 #333333
+client.unfocused        #101010 #212121 #d9d9d9 #424242 #333333
 client.focused          #d9d9d9 #cecece #000000 #d9d9d9 #d9d9d9
 
 # Enable popup during fullscreen
@@ -428,15 +428,13 @@ set_from_resource $i3-wm.bar.separator i3-wm.bar.separator " "
 set_from_resource $i3-wm.bar.trayoutput i3-wm.bar.trayoutput none
 set_from_resource $i3-wm.bar.stripworkspacenumbers i3-wm.bar.stripworkspacenumbers yes
 
-# i3xrocks config file. Override this for custom status indicators on the bar.
-set_from_resource $i3-wm.i3xrocks.config i3-wm.i3xrocks.config "/etc/regolith/i3xrocks/config"
 
 # The bar configuration
 bar {
   position $i3-wm.bar.position
   font $i3-wm.bar.font
   separator_symbol $i3-wm.bar.separator
-  status_command i3xrocks -c $i3-wm.i3xrocks.config
+  status_command i3xrocks -c "$HOME/.config/regolith/i3xrocks/config"
   tray_output $i3-wm.bar.trayoutput
   strip_workspace_numbers $i3-wm.bar.stripworkspacenumbers
 

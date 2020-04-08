@@ -17,6 +17,8 @@
 ~/Code/pepper_ws/src/frame_soft
 ~/Code/pepper_ws/src/rds
 
+~/Code/navigation_representations
+
 /home/daniel/Code/CrowdBotUnity
 /home/daniel/Code/crowdbot_sim_ws/src/catkin_crowdbotsim
 
