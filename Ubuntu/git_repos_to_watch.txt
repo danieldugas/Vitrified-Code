@@ -19,7 +19,5 @@
 
 ~/Code/navigation_representations
 
-/home/daniel/Code/CrowdBotUnity
-/home/daniel/Code/crowdbot_sim_ws/src/catkin_crowdbotsim
 
 /home/daniel/Code/i3focus

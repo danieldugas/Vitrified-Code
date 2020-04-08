@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# icons at https://fontawesome.com/cheatsheet?from=io
+LABEL_ICON= # 
+LABEL_FONT="Ubuntu Mono"
+LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
+VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color)}
+VALUE_FONT=${font:-$(xrescat i3xrocks.value.font)}
+
+PANGO_START="<span color=\"${LABEL_COLOR}\" font_desc=\"${LABEL_FONT}\">${LABEL_ICON}</span><span color=\"${VALUE_COLOR}\" font_desc=\"${VALUE_FONT}\">"
+PANGO_END="</span>"
+
+NCONNECTED=$(expr $(hcitool con | wc -l) - 1)
+echo ${PANGO_START}${NCONNECTED}${PANGO_END}
+
+if [ ! -z "$button" ]; then
+    /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center bluetooth
+fi

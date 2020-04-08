@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# icons at https://fontawesome.com/cheatsheet?from=io
+LABEL_ICON=⌨
+LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
+VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color)}
+VALUE_FONT=${font:-$(xrescat i3xrocks.value.font)}
+
+PANGO_START="<span color=\"${LABEL_COLOR}\">${LABEL_ICON}</span><span color=\"${VALUE_COLOR}\" font_desc=\"${VALUE_FONT}\">"
+PANGO_END="</span>"
+
+# gsettings get org.gnome.desktop.input-sources mru-sources | sed -r "s,\S*\s'([^']+).*,$PANGO_START\1$PANGO_END,"
+# gsettings monitor org.gnome.desktop.input-sources mru-sources | sed -u -r "s,\S*\s\S*\s'([^']+).*,$PANGO_START\1$PANGO_END,"
+
+KBLAYOUT=$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}')
+echo ${PANGO_START}${KBLAYOUT^^}${PANGO_END}
+
