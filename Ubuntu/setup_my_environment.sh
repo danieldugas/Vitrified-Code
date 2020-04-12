@@ -1,6 +1,6 @@
 sudo echo "------- SETTING UP BASHRC ------------"
 # bashrc
-ln -s ~/Code/Vitrified-Code/Ubuntu/bashrc ~/.bashrc_ext
+ln -s -i ~/Code/Vitrified-Code/Ubuntu/bashrc ~/.bashrc_ext
 if [ -z "$MACHINE_NAME" ]; then
   echo "Name of this machine: "
   read machine_name
@@ -12,18 +12,26 @@ fi
 echo "------- SETTING UP I3 / COMPTON DOTFILES ------------"
 sudo add-apt-repository -y ppa:regolith-linux/release
 sudo apt install -y regolith-desktop
-mkdir -p ~/.config/i3
-ln -s ~/Code/Vitrified-Code/Ubuntu/regolith_i3_config ~/.config/regolith/i3/config
+mkdir -p ~/.config/regolith/i3
+ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3_config ~/.config/regolith/i3/config
 
-ln -s ~/Code/Vitrified-Code/Ubuntu/regolith_i3xrocks_config ~/.config/regolith/i3xrocks/config
-sudo ln -s ~/Code/Vitrified-Code/Ubuntu/i3xrocks/volumedaniel /usr/share/i3xrocks/volumedaniel #  && sudo chmod +x /usr/share/i3xrocks/volumedaniel
-sudo ln -s ~/Code/Vitrified-Code/Ubuntu/i3xrocks/bluetoothdaniel /usr/share/i3xrocks/bluetoothdaniel  # && sudo chmod +x /usr/share/i3xrocks/bluetoothdaniel
-sudo ln -s ~/Code/Vitrified-Code/Ubuntu/i3xrocks/keyboard_layoutdaniel /usr/share/i3xrocks/keyboard_layoutdaniel  # && sudo chmod +x /usr/share/i3xrocks/bluetoothdaniel
+mkdir -p ~/.config/regolith/i3xrocks
+ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3xrocks_config ~/.config/regolith/i3xrocks/config
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/volumedaniel /usr/share/i3xrocks/volumedaniel #  && sudo chmod +x /usr/share/i3xrocks/volumedaniel
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/bluetoothdaniel /usr/share/i3xrocks/bluetoothdaniel  # && sudo chmod +x /usr/share/i3xrocks/bluetoothdaniel
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/keyboard_layoutdaniel /usr/share/i3xrocks/keyboard_layoutdaniel  # && sudo chmod +x /usr/share/i3xrocks/bluetoothdaniel
 
-ln -s ~/Code/Vitrified-Code/Ubuntu/show_a_window_and_do_nothing ~/.i3/show_a_window_and_do_nothing
+ln -s -i ~/Code/Vitrified-Code/Ubuntu/show_a_window_and_do_nothing ~/.i3/show_a_window_and_do_nothing
 # deprecated in favor of regolith
-# ln -s ~/Code/Vitrified-Code/Ubuntu/i3_config ~/.config/i3/config
-# ln -s ~/Code/Vitrified-Code/Ubuntu/compton_config ~/.config/compton.conf
+# ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3_config ~/.config/i3/config
+# ln -s -i ~/Code/Vitrified-Code/Ubuntu/compton_config ~/.config/compton.conf
+
+# i3 focus is deprecated
+# sudo apt install python-pip
+# pip install --user i3ipc pynput
+# git clone git@github.com:danieldugas/i3focus.git ~/Code/i3focus
+# mkdir ~/.i3
+# ln -s -i ~/Code/i3focus/i3focus ~/.i3/i3focus
 
 echo "------- SETTING UP GIT ------------"
 sudo apt update
@@ -35,19 +43,17 @@ git config --global core.hooksPath ~/Code/Vitrified-Code/Ubuntu/git-hooks
 
 echo "------- CLONING PYNIEL ------------"
 # git clone git@github.com:danieldugas/Vitrified-Code.git
-git clone https://github.com/danieldugas/pyniel.git ~/Code/pyniel
+git clone git@github.com:danieldugas/pyniel.git ~/Code/pyniel
 
 echo "------- SETTING UP GIT-WATCH ------------"
 sudo apt install -y python-git
 git clone https://github.com/danieldugas/git-watch.git ~/Code/git-watch
-# echo "~/Code/Vitrified-Code" >> ~/git_repos_to_watch.txt
-# echo "~/Code/pyniel" >> ~/git_repos_to_watch.txt
-ln -s ~/Code/Vitrified-Code/Ubuntu/git_repos_to_watch.txt ~/git_repos_to_watch.txt
+ln -s -i ~/Code/Vitrified-Code/Ubuntu/git_repos_to_watch.txt ~/git_repos_to_watch.txt
 
 echo "------- SETTING UP VIM ------------"
 sudo apt install -y vim-gtk3
-ln -s ~/Code/Vitrified-Code/Vim/vimrc ~/.vimrc
-ln -s ~/Code/Vitrified-Code/Ubuntu/flake8_config ~/.config/flake8
+ln -s -i ~/Code/Vitrified-Code/Vim/vimrc ~/.vimrc
+ln -s -i ~/Code/Vitrified-Code/Ubuntu/flake8_config ~/.config/flake8
 mkdir -p ~/.vim/colors
 cp ~/Code/Vitrified-Code/Vim/twilight.vim ~/.vim/colors/
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -59,8 +65,9 @@ sudo apt-get update
 sudo apt-get install -y hstr
 
 echo "------- SETTING UP UMEDIT ------------"
-ln -s ~/Code/Vitrified-Code/Ubuntu/man ~/man
-ln -s ~/Code/Vitrified-Code/Ubuntu/templates ~/templates
+# -T treats ~/man as the target instead of creating the link inside ~/man if ~/man already exists
+ln -s -i -T ~/Code/Vitrified-Code/Ubuntu/man ~/man
+ln -s -i -T ~/Code/Vitrified-Code/Ubuntu/templates ~/templates
 
 echo "------- SETTING UP LOGBOOK ------------"
 git clone git@bitbucket.org:exodaniel/logbook.git ~/logbook
@@ -93,10 +100,3 @@ dconf load / < ~/Code/Vitrified-Code/Ubuntu/dconf-settings.ini
 # gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
 # gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
 
-
-echo "------- SETTING UP I3 GUI PREFERENCES ------------"
-sudo apt install python-pip
-pip install --user i3ipc pynput
-git clone git@github.com:danieldugas/i3focus.git ~/Code/i3focus
-mkdir ~/.i3
-ln -s ~/Code/i3focus/i3focus ~/.i3/i3focus
