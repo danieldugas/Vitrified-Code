@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# icons at https://fontawesome.com/cheatsheet?from=io
-LABEL_ICON= # 
-LABEL_FONT="Ubuntu Mono"
+# how hard is it to find a bluetooth symbol in common fonts...
+# more icons at https://fontawesome.com/cheatsheet?from=io
+LABEL_ICON= #ᛒ # '' # #  # ᛒ
+LABEL_FONT="Material Design Icons"
 LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
 VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color)}
 VALUE_FONT=${font:-$(xrescat i3xrocks.value.font)}
