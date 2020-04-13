@@ -444,7 +444,8 @@ bar {
   strip_workspace_numbers $i3-wm.bar.stripworkspacenumbers
 
   colors {
-      background $i3-wm.bar.background.color
+#       background $i3-wm.bar.background.color
+      background #333333
       statusline $i3-wm.bar.statusline.color
       separator  $i3-wm.bar.separator.color
 
