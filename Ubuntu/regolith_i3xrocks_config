@@ -44,7 +44,7 @@ interval=5
 # Displays the wifi network's name
 # If the auto-discovered wifi device is incorrect,
 # override the "instance" value with the desired device
-[wifi2]
+[wifi]
 # Replace with your wifi device if you need on next line
 instance=wlp3s0 
 interval=5
@@ -52,16 +52,16 @@ interval=5
 # nettraffic
 #
 # Displays network load
-[nettraffic]
+[net-traffic]
 interval=10
 
-[openvpn]
+[vpndaniel]
 interval=5
 
 # Keyboard layout
 #
 # Displays current keyboard layout.
-[keyboard_layout]
+[keyboard_layoutdaniel]
 interval=5
 
 # Memory
@@ -73,7 +73,7 @@ interval=5
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-[cpu_usage]
+[cpu-usage]
 interval=5
 min_width=100%
 
@@ -82,7 +82,7 @@ min_width=100%
 # Displays total percentage charge left of specified battery.
 # You can specify the instance by adding:
 # instance=BAT0
-[battery3]
+[battery]
 interval=30
 
 # Rofication
@@ -93,7 +93,7 @@ command=/usr/share/i3xrocks/rofication-statusi3blocks.py
 interval=10
 
 # Date Time
-[time2]
+[time]
 interval=10
 
 # Show title of focused window
