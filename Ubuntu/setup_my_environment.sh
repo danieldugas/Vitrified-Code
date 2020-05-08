@@ -17,10 +17,11 @@ ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3_config ~/.config/regolith/i3/c
 
 mkdir -p ~/.config/regolith/i3xrocks
 ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3xrocks_config ~/.config/regolith/i3xrocks/config
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/volumedaniel /usr/share/i3xrocks/volumedaniel #  && sudo chmod +x /usr/share/i3xrocks/volumedaniel
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/bluetoothdaniel /usr/share/i3xrocks/bluetoothdaniel  # && sudo chmod +x /usr/share/i3xrocks/bluetoothdaniel
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/keyboard_layoutdaniel /usr/share/i3xrocks/keyboard_layoutdaniel  # && sudo chmod +x /usr/share/i3xrocks/bluetoothdaniel
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/vpndaniel /usr/share/i3xrocks/vpndaniel  # && sudo chmod +x /usr/share/i3xrocks/bluetoothdaniel
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/volumedaniel /usr/share/i3xrocks/volumedaniel
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/bluetoothdaniel /usr/share/i3xrocks/bluetoothdaniel
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/keyboard_layoutdaniel /usr/share/i3xrocks/keyboard_layoutdaniel
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/vpndaniel /usr/share/i3xrocks/vpndaniel
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/wifidaniel /usr/share/i3xrocks/wifidaniel
 
 ln -s -i ~/Code/Vitrified-Code/Ubuntu/show_a_window_and_do_nothing ~/.i3/show_a_window_and_do_nothing
 # deprecated in favor of regolith

@@ -89,9 +89,9 @@ bindsym $mod+f fullscreen toggle
 ## Modify // Window Floating Toggle // <Super><Shift> f ##
 bindsym $mod+Shift+f floating toggle
 ## Modify // Move to Scratchpad // <Super><Ctrl> m ##
-bindsym $mod+Ctrl+m move to scratchpad
+# bindsym $mod+Ctrl+m move to scratchpad
 ## Navigate // Scratchpad // <Super><Ctrl> a ##
-bindsym $mod+Ctrl+a scratchpad show
+# bindsym $mod+Ctrl+a scratchpad show
 
 ## Navigate // Tile/Float Focus Toggle // <Super><Shift> t ##
 bindsym $mod+Shift+t focus mode_toggle
