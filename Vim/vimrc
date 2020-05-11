@@ -57,6 +57,12 @@ let g:syntastic_mode_map = {
     \ "passive_filetypes": [] }
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_always_populate_loc_list = 1
+function! SyntasticForceFullCheckNow ()
+  let g:syntastic_python_checkers = ['pylint']
+  SyntasticCheck
+  let g:syntastic_python_checkers = ['flake8']
+endfunction
+command! SyntasticForceFullCheckNow call SyntasticForceFullCheckNow()
 
 
 "" SECTION: Unicode Support {{{1
