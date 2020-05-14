@@ -4,7 +4,6 @@
 ~/logbook
 
 ~/Code/pyniel
-~/Code/hexgrid
 
 ~/Code/pepper_ws/src/asl_pepper
 ~/Code/pepper_ws/src/naoqi_driver
@@ -20,4 +19,3 @@
 ~/Code/navigation_representations
 
 
-/home/daniel/Code/i3focus
