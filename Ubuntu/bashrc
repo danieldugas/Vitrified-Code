@@ -56,6 +56,7 @@ alias jpnb="jupyter notebook"
 alias pythoncprofile="python -m cProfile -o program.prof"
 alias roslaunch="mon launch --output-attr=obey"
 alias monlaunch="mon launch --output-attr=obey"
+alias py="ml3env && ipython --pylab -c \"import pandas as pd\" -i" # Quick mathematical python
 rm() {
     if [[ $@ == "-rf ~" ]]; then
         echo "HELL NO"
@@ -67,8 +68,6 @@ rm() {
 }
 
 export PATH="$HOME/Code/simple-sync:$PATH"
-# Quick mathematical python
-alias py="ml3env && ipython --pylab"
 
 # Replace the PS1 setup lines with this in code above to enable git branch display
 function parse_git_branch () {
