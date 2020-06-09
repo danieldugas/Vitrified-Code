@@ -1,0 +1,2 @@
+What files are read/written by a utility?  ( see also whatfiles on github )
+  strace -fe trace=creat,open,openat,unlink,unlinkat ./program
