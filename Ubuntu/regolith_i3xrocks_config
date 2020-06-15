@@ -93,7 +93,10 @@ command=/usr/share/i3xrocks/rofication-statusi3blocks.py
 interval=10
 
 # Date Time
-[time]
+[calendardaniel]
+interval=10
+
+[timedaniel]
 interval=10
 
 # Show title of focused window

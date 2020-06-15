@@ -1,0 +1,12 @@
+#!/bin/bash
+
+TIME_SPEC="%H:%M"
+TIME_VALUE=$(date "+ $TIME_SPEC")
+
+VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color "#D8DEE9")}
+VALUE_FONT=${font:-$(xrescat i3xrocks.value.font "Source Code Pro Medium 13")}
+echo "<span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$TIME_VALUE </span>"
+
+if [ ! -z "$button" ]; then
+    /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center datetime
+fi
