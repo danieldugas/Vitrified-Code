@@ -129,10 +129,10 @@ bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off
 
 ## Daniel: most often used keybindings ------------------------------------------------------------
 # terminal
-bindsym Ctrl+Mod1+t exec gnome-terminal
+bindsym Ctrl+Mod1+t fullscreen disable; exec gnome-terminal
 # start firefox
-bindsym $mod+2 exec firefox
-bindsym $mod+1 exec nautilus --no-desktop
+bindsym $mod+2 fullscreen disable; exec firefox
+bindsym $mod+1 fullscreen disable; exec nautilus --no-desktop
 
 # lock
 # bindsym $mod+l exec "/home/daniel/.i3/i3lock-fancy-multimonitor/lock -p --no-text"
