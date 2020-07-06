@@ -160,7 +160,7 @@ focus_wrapping no
 
 # toggle tiling / floating
 bindsym $mod+Ctrl+k floating enable; fullscreen toggle
-bindsym Escape fullscreen disable
+# bindsym --release Escape fullscreen disable  # doesn't work, captures Escape and no app can use it
 
 # move focused window
 bindsym $mod+Ctrl+j     fullscreen disable; floating disable; move left
