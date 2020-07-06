@@ -61,6 +61,7 @@ ln -s -i ~/Code/Vitrified-Code/Ubuntu/flake8_config ~/.config/flake8
 mkdir -p ~/.vim/colors
 cp ~/Code/Vitrified-Code/Vim/twilight.vim ~/.vim/colors/
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimv /usr/bin/vimv
 
 echo "------- SETTING UP HSTR ------------"
 # better ctrl-r search
