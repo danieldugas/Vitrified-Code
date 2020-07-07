@@ -1,0 +1,7 @@
+EXAMPLES
+  List all files in current dir
+    find . -type f
+  Same but with full filename
+    find "$(pwd)" -type f
+  Same but custom formatting
+    find "$(pwd)" -type f -printf "%p\n"
