@@ -1,0 +1,10 @@
+#!/bin/bash
+# Usage: vimcp [cp arguments, -i, --verbose, -u, etc]
+# file appears with commands
+# save and exit to run copy command
+FINDRESULTFILE=$(mktemp)
+CMDFILE=$(mktemp)
+
+find "$(pwd)" -type f -fprintf "$FINDRESULTFILE" "cp $@ %-100p %p\n"
+vim "$CMDFILE" --cmd "silent read $FINDRESULTFILE" --cmd "g/^$/d"
+yesno "Copy $(cat $CMDFILE | wc -l) files?" 'y' && source $CMDFILE && echo "Copied."

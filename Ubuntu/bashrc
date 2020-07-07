@@ -118,33 +118,7 @@ whichwallpaper() {
   ls "$HOME/Pictures/Wallpaper/EarthviewWallpapersWatermarked" | grep "$1"
 }
 
-yesno() {
-  # first argument (string) overrides prompt message
-  # second argument ('y' or 'n') sets default behavior
-  PROMPTMSG=${1:-Confirm?}
-  DEFAULT=${2:-None}
-  ERRMSG=""
-  NEWLINE=$'\n'
-  case $DEFAULT in
-    [yY]) DEFCHOICETEXT="[Y/n]" ;;
-    [nN]) DEFCHOICETEXT="[y/N]" ;;
-    "None") DEFCHOICETEXT="[y/n]" ;;
-    *) echo "default = $DEFAULT not recognized. must be y or n. Defaulting to None"; DEFCHOICETEXT="[y/n]" ;;
-  esac
-  while true; do
-    read -r -p "${ERRMSG}${PROMPTMSG} $DEFCHOICETEXT: " REPLY
-    case $REPLY in
-      [yY]) echo ; return 0 ;;
-      [nN]) echo ; return 1 ;;
-      "") case $DEFAULT in
-            [yY]) echo; return 1 ;;
-            [nN]) echo; return 0 ;;
-            *) ERRMSG="default is not set. answer must be y or n.$NEWLINE" ;;
-          esac ;;
-      *) ERRMSG="'$REPLY' not recognized: answer must be y or n.$NEWLINE"
-    esac 
-  done  
-}
+# yesno now in /usr/bin/
 
 notify() {
   $*
