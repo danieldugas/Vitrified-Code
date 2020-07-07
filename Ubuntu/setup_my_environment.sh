@@ -8,7 +8,8 @@ if [ -z "$MACHINE_NAME" ]; then
   echo "export MACHINE_NAME=$machine_name" >> ~/.bashrc
   echo "source ~/.bashrc_ext" >> ~/.bashrc
 fi
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/yesno /usr/bin/yesno
+git clone https://github.com/danieldugas/yesno.git ~/Code/Vitrified-Code/Ubuntu/yesno
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/yesno/yesno /usr/bin/yesno
 
 echo "------- SETTING UP I3 / COMPTON DOTFILES ------------"
 sudo add-apt-repository -y ppa:regolith-linux/release
@@ -63,7 +64,10 @@ mkdir -p ~/.vim/colors
 cp ~/Code/Vitrified-Code/Vim/twilight.vim ~/.vim/colors/
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimv /usr/bin/vimv
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimcp /usr/bin/vimcp
+
+git clone git@github.com:danieldugas/vimcp.git ~/Code/Vitrified-Code/Ubuntu/vimcp
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimcp/vimcp /usr/bin/vimcp
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimcp/vimcpr /usr/bin/vimcpr
 
 echo "------- SETTING UP HSTR ------------"
 # better ctrl-r search
