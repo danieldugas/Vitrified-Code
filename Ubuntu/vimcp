@@ -5,6 +5,9 @@
 FINDRESULTFILE=$(mktemp)
 CMDFILE=$(mktemp)
 
-find "$(pwd)" -type f -fprintf "$FINDRESULTFILE" "cp $@ %-100p %p\n"
+
+LINEWIDTH=$(find "$(pwd)" -type f -printf "%p  \n" | wc -L)
+find "$(pwd)" -type f -fprintf "$FINDRESULTFILE" "cp $@ %-${LINEWIDTH}p %p\n"
 vim "$CMDFILE" --cmd "silent read $FINDRESULTFILE" --cmd "g/^$/d"
-yesno "Copy $(cat $CMDFILE | wc -l) files?" 'y' && source $CMDFILE && echo "Copied."
+# yesno "Copy $(cat $CMDFILE | wc -l) files?" 'y' &&
+source $CMDFILE && echo "$(cat $CMDFILE | wc -l) files copied."
