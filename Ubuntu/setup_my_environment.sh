@@ -26,6 +26,8 @@ sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/vpndaniel /usr/share/i3xrock
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/wifidaniel /usr/share/i3xrocks/wifidaniel
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/timedaniel /usr/share/i3xrocks/timedaniel
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/calendardaniel /usr/share/i3xrocks/calendardaniel
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/nettrafficdaniel /usr/share/i3xrocks/nettrafficdaniel
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/cpudaniel /usr/share/i3xrocks/cpudaniel
 
 ln -s -i ~/Code/Vitrified-Code/Ubuntu/show_a_window_and_do_nothing ~/.i3/show_a_window_and_do_nothing
 # deprecated in favor of regolith

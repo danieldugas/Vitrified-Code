@@ -52,7 +52,7 @@ interval=5
 # nettraffic
 #
 # Displays network load
-[net-traffic]
+[nettrafficdaniel]
 interval=10
 
 [vpndaniel]
@@ -73,7 +73,7 @@ interval=5
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-[cpu-usage]
+[cpudaniel]
 interval=5
 min_width=100%
 

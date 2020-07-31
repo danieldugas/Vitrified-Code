@@ -13,6 +13,6 @@ else
     echo "<span color=\"${LABEL_COLOR}\"></span>" # full text
 fi
 
-if [ ! -z "$button" ]; then
-    /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center wifi
-fi
+case $BLOCK_BUTTON in
+    1) /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center wifi ;; # left click
+esac

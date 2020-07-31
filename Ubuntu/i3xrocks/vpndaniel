@@ -14,9 +14,9 @@ LABEL_COLOR=${vpn_label_color:-$(xrescat i3xrocks.label.color)}
 VALUE_COLOR="${vpn_color:-$(xrescat i3xrocks.value.color)}"
 VALUE_FONT=${font:-$(xrescat i3xrocks.value.font)}
 
-if [ ! -z "$button" ]; then
-    /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center network
-fi
+case $BLOCK_BUTTON in
+    1) /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center network ;; # left click
+esac
 
 if [[ -z "$CONNECTION" ]]; then
     echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\"></span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"></span>" # full text

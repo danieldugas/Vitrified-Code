@@ -15,6 +15,6 @@ PANGO_END="</span>"
 KBLAYOUT=$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}')
 echo ${PANGO_START}${KBLAYOUT^^}${PANGO_END}
 
-if [ ! -z "$button" ]; then
-    /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center region
-fi
+case $BLOCK_BUTTON in
+    1) /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center region ;; # left click
+esac
