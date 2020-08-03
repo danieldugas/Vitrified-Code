@@ -168,10 +168,8 @@ bindsym $mod+Ctrl+comma fullscreen disable; floating disable; move down
 bindsym $mod+Ctrl+i     fullscreen disable; floating disable; move up
 bindsym $mod+Ctrl+l     fullscreen disable; floating disable; move right
 # diagonals
-bindsym $mod+Ctrl+u     fullscreen disable; floating disable; mark latest; focus left; split v; open; mark hole; [con_mark="latest"] focus; move left;  move up; move up; unmark latest
-bindsym $mod+Ctrl+o     fullscreen disable; floating disable; mark latest; focus right; split v; open; mark hole; [con_mark="latest"] focus; move right; move up; move up; unmark latest
-# bindsym $mod+Ctrl+period   fullscreen disable; floating disable; move right; move down
-# bindsym $mod+Ctrl+m     fullscreen disable; floating disable; move left;  move down
+bindsym $mod+Ctrl+m     fullscreen disable; floating disable; mark latest; focus left; split v; [con_mark="latest"] focus; move left;  unmark latest
+bindsym $mod+Ctrl+period     fullscreen disable; floating disable; mark latest; focus right; split v; [con_mark="latest"] focus; move right; unmark latest
 
 # split in horizontal orientation
 bindsym $mod+h split h; mark latest; open; mark hole; [con_mark="latest"] focus; unmark latest;
