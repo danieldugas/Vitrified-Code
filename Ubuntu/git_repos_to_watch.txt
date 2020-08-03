@@ -17,5 +17,6 @@
 ~/Code/pepper_ws/src/rds
 
 ~/Code/navigation_representations
+~/Code/deep_social_planner
 
 ~/Code/danieldugas.github.io
