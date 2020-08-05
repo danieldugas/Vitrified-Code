@@ -263,8 +263,8 @@ mode "Focus Mode" {
         ## exit mode
         bindsym Return [class=".*"] border pixel 2; mode "default"
         bindsym Escape [class=".*"] border pixel 2; mode "default"
-        bindsym Tab [class=".*"] border pixel 2; mode "default"
-        bindsym Mod1+Tab [class=".*"] border pixel 2; mode "default"
+        bindsym --release Tab [class=".*"] border pixel 2; mode "default"
+        bindsym --release Mod1+Tab [class=".*"] border pixel 2; mode "default"
 }
 bindsym Mod1+Tab [class=".*"] border pixel 20; mode "Focus Mode"
 
