@@ -291,10 +291,11 @@ imap <left>  <nop>
 imap <right> <nop>
 " back and forth through file history
 let g:ctrlp_map = '<Leader>r'
-let g:ctrlp_cmd = 'CtrlPMixed'
-" Leader-e and E for next and previous error in loclist
-nnoremap <Leader>e :lnext<CR>zz
-nnoremap <Leader>E :lprev<CR>zz
+let g:ctrlp_cmd = 'CtrlPMRU'
+nnoremap <Leader>e :CtrlPMixed<CR>
+" Leader-l and L for next and previous error in loclist
+nnoremap <Leader>l :lnext<CR>zz
+nnoremap <Leader>L :lprev<CR>zz
 " Vim grep in directory shortcuts - Leader-n and N for :cnext :cprev
 nnoremap <Leader>* *N:vim // ./**<CR>
 vnoremap <Leader>/ y/<C-r>0<CR>:vim // ./**<CR>
