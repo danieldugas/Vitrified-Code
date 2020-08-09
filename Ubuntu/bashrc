@@ -125,6 +125,11 @@ notify() {
   spd-say "it is done."
 }
 
+solomon-notify() {
+  $*
+  telegram-send "$* complete"
+}
+
 remove_empty_dirs() {
   find ${1:-$PWD} -depth -mindepth 1 -type d -empty -ok rmdir {} \;
 }
