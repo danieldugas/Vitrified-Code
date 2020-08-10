@@ -127,7 +127,9 @@ notify() {
 
 solomon-notify() {
   $*
-  telegram-send "$* complete"
+  ~/pepper3venv/bin/telegram-send "Your command,"
+  ~/pepper3venv/bin/telegram-send ">> $*"
+  ~/pepper3venv/bin/telegram-send "has returned."
 }
 
 remove_empty_dirs() {
