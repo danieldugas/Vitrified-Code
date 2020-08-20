@@ -1,8 +1,19 @@
-# Bashrc should not echo things or it will mess up rsync and other stream communicators
+# Bashrc should not echo things or it will mess up rsync and other   stream communicators
 # .bash_profile gets run by user bash sessions, whereas .bashrc gets run by most login shells
 echo "How to install arbitrary python modules in a gpu node"
-echo "1.) bsub -Is -W 4:00 -R \"rusage[ngpus_excl_p=1, mem=4096]\" bash"
+echo "1.) bsub -Is -W 4:00 -R \"rusage[ngpus_excl_p=1, mem=4096]\"   bash"
 echo "2.) module load eth_proxy python_gpu/3.6.4"
 echo "3.) pip install --user tensorflow_gpu==1.12.0"
+
+echo " "
+
+screen -list
+
+echo " "
+
+bjobs
+
+echo "use bpeek [JOBID] to peek at a job's output"
+echo "bjobs -l for details on all jobs"
 
 source .bashrc
