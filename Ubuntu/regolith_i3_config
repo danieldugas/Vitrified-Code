@@ -130,6 +130,7 @@ bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off
 ## Daniel: most often used keybindings ------------------------------------------------------------
 # terminal
 bindsym Ctrl+Mod1+t fullscreen disable; exec gnome-terminal
+bindsym Ctrl+Shift+Mod1+t fullscreen disable; split v; exec gnome-terminal
 # start firefox
 bindsym $mod+2 fullscreen disable; exec firefox
 bindsym $mod+1 fullscreen disable; exec nautilus --no-desktop

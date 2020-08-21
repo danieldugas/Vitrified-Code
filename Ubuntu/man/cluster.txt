@@ -1,0 +1,18 @@
+EXAMPLES
+  Submit job (defaults)
+    bsub -W 4:00 -n 1 -R "rusage[ngpus_excl_p=0, mem=1024, scratch=0]" < script.sh
+      # same as bsub < script.sh
+      # -J name : assign job name
+      # -B / -N : send an email at begin / end
+      # -u user@email : use this email adress
+
+  Submit interactive job
+    bsub -Is -W 4:00 -R "rusage[ngpus_excl_p=1, mem=4096]" bash
+
+  Forgot to add email notification
+    bsub -N -W 00:01 -w "done(YOUR_JOB_ID)" -R light < empty_job.sh
+      # -w is a pre-start condition (done(), started(), ...)
+
+  Useful Commands
+    bbjobs  # better bjobs
+    busers  # limits
