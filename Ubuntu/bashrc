@@ -132,6 +132,28 @@ solomon-notify() {
   ~/pepper3venv/bin/telegram-send "has returned."
 }
 
+euler-notify() {
+  echo "waiting for following jobs to be done:"
+  ssh dugasd@euler.ethz.ch -q -t "bjobs $1"
+  while [ 1 ]
+  do
+    { ssh dugasd@euler.ethz.ch -q -t "bjobs $1" | grep "RUN" >> /dev/null ; } \
+      || { solomon-notify echo "euler job $1 done. $2" && break ; }
+    sleep 600
+  done
+}
+
+leonhard-notify() {
+  echo "waiting for following jobs to be done:"
+  ssh dugasd@login.leonhard.ethz.ch -q -t "bjobs $1"
+  while [ 1 ]
+  do
+    { ssh dugasd@login.leonhard.ethz.ch -q -t "bjobs $1" | grep "RUN" >> /dev/null ; } \
+      || { solomon-notify echo "leonhard job $1 done. $2" && break ; }
+    sleep 600
+  done
+}
+
 remove_empty_dirs() {
   find ${1:-$PWD} -depth -mindepth 1 -type d -empty -ok rmdir {} \;
 }

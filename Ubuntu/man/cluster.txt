@@ -13,6 +13,10 @@ EXAMPLES
     bsub -N -W 00:01 -w "done(YOUR_JOB_ID)" -R light < empty_job.sh
       # -w is a pre-start condition (done(), started(), ...)
 
+  Why is my job not started
+    bjobs -p
+      # "individual host-based reasons" means resources not available yet (ever?)
+
   Useful Commands
     bbjobs  # better bjobs
     busers  # limits
