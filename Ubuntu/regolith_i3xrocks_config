@@ -64,6 +64,9 @@ interval=5
 [keyboard_layoutdaniel]
 interval=5
 
+[clipboarddaniel]
+interval=5
+
 # Memory
 #
 #[memory]

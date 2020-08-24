@@ -123,6 +123,9 @@ bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off
 # Compton allows for transparency  # args hopefully fix screen tearing
 # exec --no-startup-id compton --backend glx --vsync opengl-swc
 
+# CopyQ clipboard manager
+exec --no-startup-id copyq
+
 # Background
 # exec --no-startup-id find /home/daniel/Pictures/Wallpaper/EarthviewWallpapersWatermarked | sort -R | tail -1 | xargs -I{} feh --bg-scale {}
 # exec --no-startup-id  feh --bg-scale /home/daniel/Pictures/Wallpaper/wreck.jpg

@@ -250,8 +250,9 @@ nnoremap <silent> <Leader><M-=>
 endif " }}}2
 
 "" SECTION: Keymaps {{{1
-nnoremap y "+y
-vnoremap y "+y
+set clipboard=unnamedplus
+" nnoremap y "+y  # doesn't work (wtf?)
+" vnoremap y "+y
 inoremap jj <Esc>
 let mapleader = "\<Space>"
 noremap <Leader>w <C-W>

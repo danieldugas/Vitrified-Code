@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# how hard is it to find a bluetooth symbol in common fonts...
+# more icons at https://fontawesome.com/cheatsheet?from=io
+LABEL_ICON=
+LABEL_FONT="Material Design Icons"
+LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
+VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color)}
+VALUE_FONT=${font:-$(xrescat i3xrocks.value.font)}
+
+PANGO_START="<span color=\"${LABEL_COLOR}\" font_desc=\"${LABEL_FONT}\">${LABEL_ICON}</span><span color=\"${VALUE_COLOR}\" font_desc=\"${VALUE_FONT}\">"
+PANGO_END="</span>"
+
+NCONNECTED=$(copyq count)
+echo ${PANGO_START}${NCONNECTED}${PANGO_END}
+
+case $BLOCK_BUTTON in
+    1) copyq toggle  # left click
+esac

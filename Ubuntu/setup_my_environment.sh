@@ -28,6 +28,7 @@ sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/timedaniel /usr/share/i3xroc
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/calendardaniel /usr/share/i3xrocks/calendardaniel
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/nettrafficdaniel /usr/share/i3xrocks/nettrafficdaniel
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/cpudaniel /usr/share/i3xrocks/cpudaniel
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/clipboarddaniel /usr/share/i3xrocks/clipboarddaniel
 
 ln -s -i ~/Code/Vitrified-Code/Ubuntu/show_a_window_and_do_nothing ~/.i3/show_a_window_and_do_nothing
 # deprecated in favor of regolith
@@ -84,6 +85,10 @@ ln -s -i -T ~/Code/Vitrified-Code/Ubuntu/templates ~/templates
 
 echo "------- SETTING UP LOGBOOK ------------"
 git clone git@bitbucket.org:exodaniel/logbook.git ~/logbook
+
+echo "------- SETTING UP CLIPBOARD ------------"
+sudo apt install -y copyq
+sudo apt install -y gucharmap
 
 echo "------- SETTING UP UBUNTU GUI PREFERENCES ------------"
 ## Ubuntu GUI
