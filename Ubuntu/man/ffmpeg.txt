@@ -24,7 +24,7 @@ EXAMPLES
           # scale=852:-1   to preserve the aspect ratio
 
   Rotate a video
-    ffmpeg -i in.mov -vf "transpose=1" out.mov
+    ffmpeg -i video.mov -vf "transpose=1" out.mov
           # transpose:
           #   0 = 90CounterCLockwise and Vertical Flip (default)
           #   1 = 90Clockwise
@@ -45,3 +45,5 @@ NOTES
     #    are not enabled, add '-strict -2' if you want to use it."
     # -strict -2 needs to be added right before the last parameter
     ffmpeg -i infile -strict -2 outfile
+
+" vim: filetype=sh

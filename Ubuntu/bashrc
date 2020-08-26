@@ -98,7 +98,7 @@ um() {
     echo "Manuals for the following functions are available: "
     ls ~/man | sed -e 's/\.txt//g'
   else
-    less ~/man/"$1.txt"
+    vim -R $HOME/man/"$1.txt"
   fi
 }
 template() {
