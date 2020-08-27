@@ -38,6 +38,10 @@ EXAMPLES
           #      frames are skipped in order to keep framerate.
           # -an  disables the audio stream 
 
+  Convert filetype
+     ffmpeg -i input.mp4 out.mkv
+          # -acodec and -vcodec flags can set codec
+
 NOTES
   Experimental codecs
     # Getting this kind of error?
