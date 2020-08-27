@@ -187,11 +187,5 @@ else
 fi
 
 case $BLOCK_BUTTON in
-1)
-    if [ "$INT_TYPE" == "W" ]; then
-        /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center wifi
-    else
-        /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center network
-    fi
-    ;; # left click
+1) /usr/bin/i3-msg -q exec /usr/bin/gnome-system-monitor ;; # left click
 esac
