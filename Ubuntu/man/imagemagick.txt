@@ -10,3 +10,5 @@ EXAMPLES
 
   Cache exhausted
     # modify /etc/ImageMagick-6/policy.xml
+
+" vim: filetype=sh

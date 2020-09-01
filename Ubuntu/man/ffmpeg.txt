@@ -42,6 +42,11 @@ EXAMPLES
      ffmpeg -i input.mp4 out.mkv
           # -acodec and -vcodec flags can set codec
 
+  Reduce video size
+     ffmpeg -i input.mp4 -vcodec libx265 -crf 28 output.mp4
+          # H265 is more efficient than H264
+          # -crf higher = smaller size
+
 NOTES
   Experimental codecs
     # Getting this kind of error?

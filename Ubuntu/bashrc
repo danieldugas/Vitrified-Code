@@ -92,7 +92,14 @@ PS1='\[\033[01;33m\]$(parse_ros_ws)\[\033[00m\]${debian_chroot:+($debian_chroot)
 # dconf write /org/compiz/profiles/unity/plugins/core/focus-prevention-level 0
 
 # Create personal man pages
-umedit() { mkdir -p ~/man; vim ~/man/"$1.txt"; }
+umedit() {
+  mkdir -p ~/man;
+  if [ -z "$1" ]; then
+    echo "no name specified"
+  else
+    vim ~/man/"$1.txt";
+  fi
+}
 um() { 
   if [ -z "$1" ]; then
     echo "Manuals for the following functions are available: "
