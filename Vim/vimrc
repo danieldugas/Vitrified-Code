@@ -263,19 +263,44 @@ nnoremap <Leader>va ggvG$
 nnoremap <Leader><Down> :cd %:p:h<CR>
 nnoremap <Leader><Up> :cd %:p:h:h<CR>
 " Think vertical # remember to use { and }
-function FloatUpOrDown(cmd)
+function FloatUpOrDown(cmd, stop_on_space)
+    " BUG: for some reason col(".") doesn't return the right value when in
+    " block-visual mode...
+    "
     " clears the 'virtual' column position of cursor (when at end of line)
+    let w:origin_col=col(".")
     call cursor(line("."), col("."))
-    execute "norm! " . a:cmd
-    while (line(".") > 1 && line(".") < line("$"))
-                \ && (
-                \ strlen(getline(".")) - 1 < col(".")
-                \ || getline(".")[col(".") - 1] =~ '\s' )
+    while 1
         execute "norm! " . a:cmd
+        " get beginning of line
+        execute "norm! ^"
+        let w:linebeg_col=col(".")
+        " cancel previous op
+        call cursor(line("."), w:origin_col)
+        " reach end, stop
+        if line(".") <= 1 || line(".") >= line("$")
+          break
+        " past end of line, continue
+        elseif w:origin_col != col(".")
+          continue
+        " before start of line, continue
+        elseif col(".") < w:linebeg_col
+          continue
+        " land on a space, continue
+        elseif getline(".")[col(".") - 1] =~ '\s'
+          continue
+        endif
+        break
     endwhile
 endfunction
-nnoremap gk :call FloatUpOrDown("gk")<CR>
-nnoremap gj :call FloatUpOrDown("gj")<CR>
+function FloatUpOrDownVisual(cmd, stop_on_space)
+  normal! gv
+  call FloatUpOrDown(a:cmd, a:stop_on_space)
+endfunction
+nnoremap <Leader>k :call FloatUpOrDown("gk", 1)<CR>
+nnoremap <Leader>j :call FloatUpOrDown("gj", 1)<CR>
+vnoremap <Leader>k :call FloatUpOrDownVisual("gk", 1)<CR>
+vnoremap <Leader>j :call FloatUpOrDownVisual("gj", 1)<CR>
 " unlearn ZZ in favor of ZQ
 nnoremap ZZ <nop>
 " Remove ex mode (accidental triggers)
