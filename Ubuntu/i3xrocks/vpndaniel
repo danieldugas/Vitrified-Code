@@ -14,8 +14,15 @@ LABEL_COLOR=${vpn_label_color:-$(xrescat i3xrocks.label.color)}
 VALUE_COLOR="${vpn_color:-$(xrescat i3xrocks.value.color)}"
 VALUE_FONT=${font:-$(xrescat i3xrocks.value.font)}
 
+DEFAULT_VPN="ETHZ"
+
 case $BLOCK_BUTTON in
-    1) /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center network ;; # left click
+    1) if [[ -z "$CONNECTION" ]]; then
+        nmcli con up id $DEFAULT_VPN
+      else
+        nmcli con down id $DEFAULT_VPN
+      fi ;;  # left click
+    3) /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center network ;; # right click
 esac
 
 if [[ -z "$CONNECTION" ]]; then
