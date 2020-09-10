@@ -2,13 +2,16 @@ sudo echo "------- SETTING UP BASHRC ------------"
 # bashrc
 ln -s -i ~/Code/Vitrified-Code/Ubuntu/bashrc ~/.bashrc_ext
 if [ -z "$MACHINE_NAME" ]; then
-  echo "Name of this machine: "
-  read machine_name
+  machine_name=$1
+  if [ -z $machine_name ]; then
+    echo "Name of this machine: "
+    read machine_name
+  fi
   echo "# Added by setup_my_environment.sh script (Daniel)" >> ~/.bashrc
   echo "export MACHINE_NAME=$machine_name" >> ~/.bashrc
   echo "source ~/.bashrc_ext" >> ~/.bashrc
   # give non-graphical interfaces a tmux-friendly intro
-  if [[ $1 == "--no-gui" ]]; then
+  if [[ $2 == "--no-gui" ]]; then
     sudo apt install -y tmux
     echo "echo ' '" >> ~/.bashrc
     echo "echo 'TMUX SESSIONS (tm0 - attach, C-b d - detach):'" >> ~/.bashrc
@@ -63,7 +66,7 @@ ln -s -i -T ~/Code/Vitrified-Code/Ubuntu/templates ~/templates
 echo "------- SETTING UP LOGBOOK ------------"
 git clone git@bitbucket.org:exodaniel/logbook.git ~/logbook
 
-if [[ $1 == "--no-gui" ]]; then
+if [[ $2 == "--no-gui" ]]; then
   echo "Skipping gui section"
 else
   echo "------- SETTING UP CLIPBOARD ------------"
