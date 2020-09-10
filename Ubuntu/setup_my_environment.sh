@@ -11,7 +11,7 @@ if [ -z "$MACHINE_NAME" ]; then
   if [[ $1 == "--no-gui" ]]; then
     sudo apt install -y tmux
     echo "echo ' '" >> ~/.bashrc
-    echo "echo TMUX SESSIONS (tm0 - attach, C-b d - detach):" >> ~/.bashrc
+    echo "echo 'TMUX SESSIONS (tm0 - attach, C-b d - detach):'" >> ~/.bashrc
     echo "tmux ls" >> ~/.bashrc
   fi
 fi
@@ -38,6 +38,7 @@ ln -s -i ~/Code/Vitrified-Code/Ubuntu/git_repos_to_watch.txt ~/git_repos_to_watc
 echo "------- SETTING UP VIM ------------"
 sudo apt install -y vim-gtk3
 ln -s -i ~/Code/Vitrified-Code/Vim/vimrc ~/.vimrc
+mkdir -p ~/.config
 ln -s -i ~/Code/Vitrified-Code/Ubuntu/flake8_config ~/.config/flake8
 mkdir -p ~/.vim/colors
 cp ~/Code/Vitrified-Code/Vim/twilight.vim ~/.vim/colors/
