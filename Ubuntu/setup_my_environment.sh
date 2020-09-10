@@ -11,37 +11,6 @@ fi
 git clone https://github.com/danieldugas/yesno.git ~/Code/Vitrified-Code/Ubuntu/yesno
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/yesno/yesno /usr/bin/yesno
 
-echo "------- SETTING UP I3 / COMPTON DOTFILES ------------"
-sudo add-apt-repository -y ppa:regolith-linux/release
-sudo apt install -y regolith-desktop
-mkdir -p ~/.config/regolith/i3
-ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3_config ~/.config/regolith/i3/config
-
-mkdir -p ~/.config/regolith/i3xrocks
-ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3xrocks_config ~/.config/regolith/i3xrocks/config
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/volumedaniel /usr/share/i3xrocks/volumedaniel
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/bluetoothdaniel /usr/share/i3xrocks/bluetoothdaniel
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/keyboard_layoutdaniel /usr/share/i3xrocks/keyboard_layoutdaniel
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/vpndaniel /usr/share/i3xrocks/vpndaniel
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/wifidaniel /usr/share/i3xrocks/wifidaniel
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/timedaniel /usr/share/i3xrocks/timedaniel
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/calendardaniel /usr/share/i3xrocks/calendardaniel
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/nettrafficdaniel /usr/share/i3xrocks/nettrafficdaniel
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/cpudaniel /usr/share/i3xrocks/cpudaniel
-sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/clipboarddaniel /usr/share/i3xrocks/clipboarddaniel
-
-ln -s -i ~/Code/Vitrified-Code/Ubuntu/show_a_window_and_do_nothing ~/.i3/show_a_window_and_do_nothing
-# deprecated in favor of regolith
-# ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3_config ~/.config/i3/config
-# ln -s -i ~/Code/Vitrified-Code/Ubuntu/compton_config ~/.config/compton.conf
-
-# i3 focus is deprecated
-# sudo apt install python-pip
-# pip install --user i3ipc pynput
-# git clone git@github.com:danieldugas/i3focus.git ~/Code/i3focus
-# mkdir ~/.i3
-# ln -s -i ~/Code/i3focus/i3focus ~/.i3/i3focus
-
 echo "------- SETTING UP GIT ------------"
 sudo apt update
 sudo apt install -y git
@@ -86,35 +55,70 @@ ln -s -i -T ~/Code/Vitrified-Code/Ubuntu/templates ~/templates
 echo "------- SETTING UP LOGBOOK ------------"
 git clone git@bitbucket.org:exodaniel/logbook.git ~/logbook
 
-echo "------- SETTING UP CLIPBOARD ------------"
-sudo apt install -y copyq
-sudo apt install -y gucharmap
+if [[ $1 == "--no-gui" ]]; then
+  echo "Skipping gui section"
+else
+  echo "------- SETTING UP CLIPBOARD ------------"
+  sudo apt install -y copyq
+  sudo apt install -y gucharmap
 
-echo "------- SETTING UP UBUNTU GUI PREFERENCES ------------"
-## Ubuntu GUI
-# Load gnome terminal profile (replace load with dump and < with > to save)
-dconf load /org/gnome/terminal/ < ~/Code/Vitrified-Code/Ubuntu/gnome-terminal-profiles.txt
-# Gnome Extensions
-# PutWindows
-{
-  cd ~/Downloads && \
-  wget https://github.com/negesti/gnome-shell-extensions-negesti/releases/download/v26/putWindow@clemens.lab21.org.zip && \
-  file-roller --extract-here putWindow@clemens.lab21.org.zip
-  mkdir -p ~/.local/share/gnome-shell/extensions
-  mv putWindow@clemens.lab21.org ~/.local/share/gnome-shell/extensions/ && \
-  gnome-shell-extension-tool -e putWindow@clemens.lab21.org
-}
-# Oneclick extract
-sudo apt install -y p7zip-full
-sudo cp ~/Code/Vitrified-Code/Ubuntu/oneclickextract.desktop /usr/share/applications/
-# Load Gnome settings
-dconf load / < ~/Code/Vitrified-Code/Ubuntu/dconf-settings.ini
-# dconf dump / > ~/Code/Vitrified-Code/Ubuntu/dconf-settings.ini
+  echo "------- SETTING UP I3 / COMPTON DOTFILES ------------"
+  sudo add-apt-repository -y ppa:regolith-linux/release
+  sudo apt install -y regolith-desktop
+  mkdir -p ~/.config/regolith/i3
+  ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3_config ~/.config/regolith/i3/config
 
-# compiz config settings manager # DEPRECATED 16.04
-# sudo apt install -y compizconfig-settings-manager python-compizconfig
-# python ~/Code/Vitrified-Code/Ubuntu/import_compiz_settings.py ~/Code/Vitrified-Code/Ubuntu/compiz.profile
-# Enable workspaces
-# gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
-# gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
+  mkdir -p ~/.config/regolith/i3xrocks
+  ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3xrocks_config ~/.config/regolith/i3xrocks/config
+  sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/volumedaniel /usr/share/i3xrocks/volumedaniel
+  sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/bluetoothdaniel /usr/share/i3xrocks/bluetoothdaniel
+  sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/keyboard_layoutdaniel /usr/share/i3xrocks/keyboard_layoutdaniel
+  sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/vpndaniel /usr/share/i3xrocks/vpndaniel
+  sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/wifidaniel /usr/share/i3xrocks/wifidaniel
+  sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/timedaniel /usr/share/i3xrocks/timedaniel
+  sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/calendardaniel /usr/share/i3xrocks/calendardaniel
+  sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/nettrafficdaniel /usr/share/i3xrocks/nettrafficdaniel
+  sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/cpudaniel /usr/share/i3xrocks/cpudaniel
+  sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/clipboarddaniel /usr/share/i3xrocks/clipboarddaniel
+
+  ln -s -i ~/Code/Vitrified-Code/Ubuntu/show_a_window_and_do_nothing ~/.i3/show_a_window_and_do_nothing
+  # deprecated in favor of regolith
+  # ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3_config ~/.config/i3/config
+  # ln -s -i ~/Code/Vitrified-Code/Ubuntu/compton_config ~/.config/compton.conf
+
+  # i3 focus is deprecated
+  # sudo apt install python-pip
+  # pip install --user i3ipc pynput
+  # git clone git@github.com:danieldugas/i3focus.git ~/Code/i3focus
+  # mkdir ~/.i3
+  # ln -s -i ~/Code/i3focus/i3focus ~/.i3/i3focus
+
+  echo "------- SETTING UP UBUNTU GUI PREFERENCES ------------"
+  ## Ubuntu GUI
+  # Load gnome terminal profile (replace load with dump and < with > to save)
+  dconf load /org/gnome/terminal/ < ~/Code/Vitrified-Code/Ubuntu/gnome-terminal-profiles.txt
+  # Gnome Extensions
+  # PutWindows
+  {
+    cd ~/Downloads && \
+    wget https://github.com/negesti/gnome-shell-extensions-negesti/releases/download/v26/putWindow@clemens.lab21.org.zip && \
+    file-roller --extract-here putWindow@clemens.lab21.org.zip
+    mkdir -p ~/.local/share/gnome-shell/extensions
+    mv putWindow@clemens.lab21.org ~/.local/share/gnome-shell/extensions/ && \
+    gnome-shell-extension-tool -e putWindow@clemens.lab21.org
+  }
+  # Oneclick extract
+  sudo apt install -y p7zip-full
+  sudo cp ~/Code/Vitrified-Code/Ubuntu/oneclickextract.desktop /usr/share/applications/
+  # Load Gnome settings
+  dconf load / < ~/Code/Vitrified-Code/Ubuntu/dconf-settings.ini
+  # dconf dump / > ~/Code/Vitrified-Code/Ubuntu/dconf-settings.ini
+
+  # compiz config settings manager # DEPRECATED 16.04
+  # sudo apt install -y compizconfig-settings-manager python-compizconfig
+  # python ~/Code/Vitrified-Code/Ubuntu/import_compiz_settings.py ~/Code/Vitrified-Code/Ubuntu/compiz.profile
+  # Enable workspaces
+  # gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
+  # gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
+fi
 
