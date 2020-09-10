@@ -7,6 +7,13 @@ if [ -z "$MACHINE_NAME" ]; then
   echo "# Added by setup_my_environment.sh script (Daniel)" >> ~/.bashrc
   echo "export MACHINE_NAME=$machine_name" >> ~/.bashrc
   echo "source ~/.bashrc_ext" >> ~/.bashrc
+  # give non-graphical interfaces a tmux-friendly intro
+  if [[ $1 == "--no-gui" ]]; then
+    sudo apt install -y tmux
+    echo "echo ' '" >> ~/.bashrc
+    echo "echo TMUX SESSIONS (tm0 - attach, C-b d - detach):" >> ~/.bashrc
+    echo "tmux ls" >> ~/.bashrc
+  fi
 fi
 git clone https://github.com/danieldugas/yesno.git ~/Code/Vitrified-Code/Ubuntu/yesno
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/yesno/yesno /usr/bin/yesno
