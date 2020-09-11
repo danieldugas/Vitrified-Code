@@ -66,6 +66,9 @@ ln -s -i -T ~/Code/Vitrified-Code/Ubuntu/templates ~/templates
 echo "------- SETTING UP LOGBOOK ------------"
 git clone git@bitbucket.org:exodaniel/logbook.git ~/logbook
 
+echo "------- SETTING UP TOOLS --------------"
+sudo apt install -y tree
+
 if [[ $2 == "--no-gui" ]]; then
   echo "Skipping gui section"
 else
