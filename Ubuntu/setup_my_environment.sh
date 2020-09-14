@@ -68,6 +68,7 @@ git clone git@bitbucket.org:exodaniel/logbook.git ~/logbook
 
 echo "------- SETTING UP TOOLS --------------"
 sudo apt install -y tree
+sudo apt install -y bats
 
 if [[ $2 == "--no-gui" ]]; then
   echo "Skipping gui section"
