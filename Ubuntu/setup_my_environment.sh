@@ -14,9 +14,6 @@ if [ -z "$MACHINE_NAME" ]; then
   # give non-graphical interfaces a tmux-friendly intro
   if [[ $2 == "--no-gui" ]]; then
     sudo apt install -y tmux
-    echo "echo ' '" >> ~/.bashrc
-    echo "echo 'TMUX SESSIONS (tm0 - attach, C-b d - detach):'" >> ~/.bashrc
-    echo "tmux ls" >> ~/.bashrc
   fi
 fi
 git clone https://github.com/danieldugas/yesno.git ~/Code/Vitrified-Code/Ubuntu/yesno

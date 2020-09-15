@@ -67,10 +67,6 @@ rm() {
         command rm "$@"
     fi
 }
-alias tm0="tmux attach-session -t 0"
-alias tm1="tmux attach-session -t 1"
-alias tm2="tmux attach-session -t 2"
-alias tm3="tmux attach-session -t 3"
 
 export PATH="$HOME/Code/simple-sync:$PATH"
 
@@ -255,6 +251,15 @@ if [ $MACHINE_NAME = leonhard ]; then
   alias interactivejob="bsub -Is -W 4:00 -R \"rusage[ngpus_excl_p=1, mem=4096]\" bash"
 fi
 
+if [ $MACHINE_NAME = amazon ]; then
+  alias tm0="tmux attach-session -t 0"
+  alias tm1="tmux attach-session -t 1"
+  alias tm2="tmux attach-session -t 2"
+  alias tm3="tmux attach-session -t 3"
+  echo ' '
+  echo 'TMUX SESSIONS (tm0 - attach, C-b d - detach):'
+  tmux ls
+fi
 # temporary storage for often run commands
 # roslaunch ia_ros ros_ia_node.launch rosbag:=multiagent_sim_iros mapname:=asl mapfolder:=$HOME/Code/pepper_ws/src/interaction_actions/python/maps n_downsampling_passes:=0 localization:=false script_args:="--no-stop"
 # roslaunch asl_pepper_move_base move_base.launch rosbag:=multiagent_sim_iros mapname:=asl mapfolder:=$HOME/Code/pepper_ws/src/interaction_actions/python/maps
