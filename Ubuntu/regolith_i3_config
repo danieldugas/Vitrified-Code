@@ -145,7 +145,7 @@ bindsym $mod+1 fullscreen disable; exec nautilus --no-desktop
 # bindsym $mod+o exec --no-startup-id show_a_window_and_do_nothing
 
 # kill focused window
-bindsym $mod+w kill
+# bindsym $mod+w kill
 bindsym Mod1+F4 kill
 
 # start dmenu (a program launcher)
