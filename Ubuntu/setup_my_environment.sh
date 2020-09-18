@@ -49,6 +49,8 @@ sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimv /usr/bin/vimv
 git clone git@github.com:danieldugas/vimcp.git ~/Code/Vitrified-Code/Ubuntu/vimcp
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimcp/vimcp /usr/bin/vimcp
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimcp/vimcpr /usr/bin/vimcpr
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimcp/vimrm /usr/bin/vimrm
+sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimcp/vimrmr /usr/bin/vimrmr
 
 echo "------- SETTING UP HSTR ------------"
 # better ctrl-r search
