@@ -20,3 +20,5 @@
 ~/Code/deep_social_planner
 
 ~/Code/danieldugas.github.io
+
+~/Code/nori
