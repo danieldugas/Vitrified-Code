@@ -44,6 +44,7 @@ export VISUAL=vim
 # export PYTHONPATH="$HOME/Code/pyniel:$PYTHONPATH"
 
 # Aliases
+alias prometheus="ssh daniel@129.132.39.77"
 alias ml3env="source ~/ml3/bin/activate"
 alias segmappyenv="source ~/segmappyenv/bin/activate"
 alias peppervenv="source ~/peppervenv/bin/activate"
@@ -51,6 +52,7 @@ alias wopepper="source ~/peppervenv/bin/activate && source ~/Code/pepper_ws/deve
 alias woia="wopepper && roscd ia_ros && cd .. && git status"
 alias wonavrep="source ~/pepper3venv/bin/activate && cd ~/Code/navigation_representations && git status"
 alias wonori="cd ~/Code/nori && git status"
+alias wocbc="cd ~/uplink/CrowdBotChallengePublic/Crowdbotsim_python/crowdbotsimcontrol && source ~/cbcenv/bin/activate"
 alias wovitrified="cd ~/Code/Vitrified-Code && git status"
 alias woros="source /opt/ros/kinetic/setup.bash"
 alias cdpepper="cd ~/Code/pepper_ws/src/asl_pepper/asl_pepper_motion_planning/"
