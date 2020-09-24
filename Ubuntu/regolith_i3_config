@@ -315,10 +315,10 @@ mode "Resize Mode" {
         bindsym Up resize shrink height 6 px or 6 ppt
         bindsym Right resize grow width 6 px or 6 ppt
 
-        bindsym Shift+Left resize shrink width 12 px or 12 ppt
-        bindsym Shift+Down resize grow height 12 px or 12 ppt
-        bindsym Shift+Up resize shrink height 12 px or 12 ppt
-        bindsym Shift+Right resize grow width 12 px or 12 ppt
+        bindsym Shift+Left resize shrink width 60 px or 60 ppt
+        bindsym Shift+Down resize grow height 60 px or 60 ppt
+        bindsym Shift+Up resize shrink height 60 px or 60 ppt
+        bindsym Shift+Right resize grow width 60 px or 60 ppt
 
         ## Resize // Resize Window // k j h l ##
         bindsym h resize shrink width 6 px or 6 ppt
@@ -326,10 +326,10 @@ mode "Resize Mode" {
         bindsym j resize shrink height 6 px or 6 ppt
         bindsym l resize grow width 6 px or 6 ppt
 
-        bindsym Shift+h resize shrink width 12 px or 12 ppt
-        bindsym Shift+k resize grow height 12 px or 12 ppt
-        bindsym Shift+j resize shrink height 12 px or 12 ppt
-        bindsym Shift+l resize grow width 12 px or 12 ppt
+        bindsym Shift+h resize shrink width 60 px or 60 ppt
+        bindsym Shift+k resize grow height 60 px or 60 ppt
+        bindsym Shift+j resize shrink height 60 px or 60 ppt
+        bindsym Shift+l resize grow width 60 px or 60 ppt
 
         ## Resize // Window Gaps // + - ##
         bindsym minus gaps inner current minus 6
@@ -357,6 +357,8 @@ default_floating_border pixel $i3-wm.floatingwindow.border.size
 # Specify the distance between windows in pixels. (i3-gaps)
 gaps inner 10
 gaps outer 0
+# small mode for the big screen
+bindsym $mod+g gaps horizontal all toggle 864, gaps vertical all toggle 432
 
 # Only enable gaps on a workspace when there is at least one container
 # smart_gaps on
