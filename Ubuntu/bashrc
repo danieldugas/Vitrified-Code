@@ -4,7 +4,6 @@ shopt -s histappend # set filemode to append (is this needed?)
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND" # "The -a immediately writes the current/new lines to the history file."
 
 # Better ctrl-r history search
-alias hh=hstr                    # hh to be alias for hstr
 export HSTR_CONFIG=hicolor       # get more colors
 export HISTCONTROL=ignorespace   # leading space hides commands from history
 export HSTR_CONFIG=raw-history-view # show history list by default
@@ -62,6 +61,7 @@ alias pythoncprofile="python -m cProfile -o program.prof"
 alias roslaunch="mon launch --output-attr=obey"
 alias monlaunch="mon launch --output-attr=obey"
 alias py="ml3env && ipython --pylab -c \"import pandas as pd\" -i" # Quick mathematical python
+alias gtop="watch -n 1 nvidia-smi"
 rm() {
     if [[ $@ == "-rf ~" ]]; then
         echo "HELL NO"
