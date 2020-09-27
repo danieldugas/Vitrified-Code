@@ -248,7 +248,7 @@ bindsym Mod1+Ctrl+Shift+Right move container to workspace number $ws4, focus out
 
 ## Daniel: Focus mode --------------------------------------------------------------------------
 mode "Focus Mode" {
-        # These bindings trigger as soon as you enter the resize mode
+        # These bindings trigger as soon as you enter the focus mode
 
         bindsym space focus mode_toggle
 
@@ -338,11 +338,11 @@ mode "Resize Mode" {
         bindsym Shift+plus gaps inner current plus 12
 
         ## Resize // Exit Resize Mode // Escape or Enter ## 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym Return [class=".*"] border pixel 2; mode "default"
+        bindsym Escape [class=".*"] border pixel 2; mode "default"
+        bindsym $mod+r [class=".*"] border pixel 2; mode "default"
 }
-bindsym $mod+r mode "Resize Mode"
+bindsym $mod+r [class=".*"] border pixel 10; mode "Resize Mode"
 
 
 ## Other // Toggle this Dialog // <Super><Shift> ? ##
@@ -356,7 +356,9 @@ default_floating_border pixel $i3-wm.floatingwindow.border.size
 
 # Specify the distance between windows in pixels. (i3-gaps)
 gaps inner 10
-gaps outer 0
+gaps horizontal 864
+gaps vertical 432
+# gaps outer 0
 # small mode for the big screen
 bindsym $mod+g gaps horizontal all toggle 864, gaps vertical all toggle 432
 
