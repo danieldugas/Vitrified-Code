@@ -50,6 +50,7 @@ alias peppervenv="source ~/peppervenv/bin/activate"
 alias wopepper="source ~/peppervenv/bin/activate && source ~/Code/pepper_ws/devel/setup.bash && roscd asl_pepper_motion_planning/.. && git status"
 alias woia="wopepper && roscd ia_ros && cd .. && git status"
 alias wonavrep="source ~/pepper3venv/bin/activate && cd ~/Code/navigation_representations && git status"
+alias wolivenavrep="source ~/Code/pepper_ws/devel/setup.bash && source ~/pepper3venv/bin/activate && cd ~/Code/navigation_representations && git status"
 alias wonori="cd ~/Code/nori && git status"
 alias wocbc="cd ~/uplink/CrowdBotChallengePublic/Crowdbotsim_python/crowdbotsimcontrol && source ~/cbcenv/bin/activate"
 alias wovitrified="cd ~/Code/Vitrified-Code && git status"
@@ -206,6 +207,15 @@ if [ $MACHINE_NAME = prometheus ]; then
     read -s password
     sudo mount -t cifs -o vers=2.0,username=dugasd,password=$password //nas12.ethz.ch/mavt_iris_asl_1 /media/groupserver/
   }
+
+  # TMUX stuff (can be removed if no longer remoting
+  alias tm0="tmux attach-session -t 0"
+  alias tm1="tmux attach-session -t 1"
+  alias tm2="tmux attach-session -t 2"
+  alias tm3="tmux attach-session -t 3"
+  echo ' '
+  echo 'TMUX SESSIONS (tm0 - attach, C-b d - detach):'
+  tmux ls
 fi
 
 ###     Pepper laptop
