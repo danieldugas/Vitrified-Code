@@ -18,6 +18,7 @@ EXAMPLES
 
   Converting frames to video
     ffmpeg -framerate 30 -pattern_type glob -i 'frames/*.jpg' -c:v libx264 -pix_fmt yuv420p out.mp4
+          # if "width not divisible by 2" add ` -vf scale=-2:720 ` before out.mp4
 
   Scale a video
     ffmpeg -i input.avi -vf scale=852:480 output.avi
