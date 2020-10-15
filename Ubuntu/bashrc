@@ -56,7 +56,7 @@ alias wocbc="cd ~/uplink/CrowdBotChallengePublic/Crowdbotsim_python/crowdbotsimc
 alias wovitrified="cd ~/Code/Vitrified-Code && git status"
 alias woros="source /opt/ros/kinetic/setup.bash"
 alias cdpepper="cd ~/Code/pepper_ws/src/asl_pepper/asl_pepper_motion_planning/"
-alias swim="nautilus ."
+alias swim="nautilus . &"
 alias jpnb="jupyter notebook"
 alias pythoncprofile="python -m cProfile -o program.prof"
 alias roslaunch="mon launch --output-attr=obey"
