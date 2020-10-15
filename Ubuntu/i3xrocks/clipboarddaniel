@@ -8,11 +8,15 @@ LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
 VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color)}
 VALUE_FONT=${font:-$(xrescat i3xrocks.value.font)}
 
+NCLIPS=$(copyq count)
+if [[ -z "$NCLIPS" ]]; then
+  LABEL_COLOR="#535353"
+fi
+
 PANGO_START="<span color=\"${LABEL_COLOR}\" font_desc=\"${LABEL_FONT}\">${LABEL_ICON}</span><span color=\"${VALUE_COLOR}\" font_desc=\"${VALUE_FONT}\">"
 PANGO_END="</span>"
 
-NCONNECTED=$(copyq count)
-echo ${PANGO_START}${NCONNECTED}${PANGO_END}
+echo ${PANGO_START}${PANGO_END}
 
 case $BLOCK_BUTTON in
     1) copyq toggle  # left click
