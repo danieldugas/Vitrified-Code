@@ -174,7 +174,7 @@ remove_empty_dirs() {
 
 ###     oceanus
 if [ $MACHINE_NAME = oceanus ]; then
-  git-watch --quiet &
+  git-watch --quiet 1>/dev/null &
   git-watch --bad-only --no-fetch
 # added by Anaconda2 4.0.0 installer
   export PATH="$HOME/anaconda2/bin:$PATH"
@@ -183,14 +183,14 @@ fi
 ###     atlas
 if [ $MACHINE_NAME = atlas ]; then
 
-  git-watch --quiet &
+  git-watch --quiet 1>/dev/null &
   git-watch --bad-only --no-fetch
 fi
 
 ###     prometheus
 if [ $MACHINE_NAME = prometheus ]; then
 
-  git-watch --quiet &
+  git-watch --quiet 1>/dev/null &
   git-watch --bad-only --no-fetch
   # Matlab
   alias matlab="/usr/local/MATLAB/R2018a/bin/matlab"
@@ -223,7 +223,7 @@ if [ $MACHINE_NAME = pepper_laptop ]; then
 # Disable trackpad kinetic scrolling - Moved to .gnomerc
 #   synclient CoastingSpeed=10000
 #   synclient CoastingFriction=10000
-  git-watch --quiet &
+  git-watch --quiet 1>/dev/null &
   git-watch --bad-only --no-fetch
   export PYTHONPATH="$PYTHONPATH:$HOME/Code/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
   alias activateboostmode1000="sudo ethtool -s enp0s31f6 speed 1000 duplex full"
@@ -233,13 +233,13 @@ fi
 
 ###     europalaptop
 if [ $MACHINE_NAME = europa_laptop ]; then
-  git-watch --quiet &
+  git-watch --quiet 1>/dev/null &
   git-watch --bad-only --no-fetch
 fi
 
 ###     bigboy (europalaptop ubuntu18)
 if [ $MACHINE_NAME = bigboy ]; then
-  git-watch --quiet &
+  git-watch --quiet 1>/dev/null &
   git-watch --bad-only --no-fetch
   export PYTHONPATH="$PYTHONPATH:$HOME/Code/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
   export DEFAULT_ETH_INTERFACE="enp0s25"
@@ -251,7 +251,7 @@ if [ $MACHINE_NAME = cronus ]; then
 # Disable trackpad kinetic scrolling - Moved to .gnomerc
 #   synclient CoastingSpeed=10000
 #   synclient CoastingFriction=10000
-  git-watch --quiet &
+  git-watch --quiet 1>/dev/null &
   git-watch --bad-only --no-fetch
 fi
 
