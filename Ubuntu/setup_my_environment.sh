@@ -32,7 +32,7 @@ echo "------- CLONING PYNIEL ------------"
 git clone git@github.com:danieldugas/pyniel.git ~/Code/pyniel
 
 echo "------- SETTING UP GIT-WATCH ------------"
-sudo apt install -y python-git
+sudo apt install -y python-git python3-git
 git clone https://github.com/danieldugas/git-watch.git ~/Code/git-watch
 ln -s -i ~/Code/Vitrified-Code/Ubuntu/git_repos_to_watch.txt ~/git_repos_to_watch.txt
 
@@ -85,6 +85,7 @@ else
 
   mkdir -p ~/.config/regolith/i3xrocks
   ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3xrocks_config ~/.config/regolith/i3xrocks/config
+  sudo mkdir -p /usr/share/i3xrocks
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/volumedaniel /usr/share/i3xrocks/volumedaniel
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/bluetoothdaniel /usr/share/i3xrocks/bluetoothdaniel
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/keyboard_layoutdaniel /usr/share/i3xrocks/keyboard_layoutdaniel
