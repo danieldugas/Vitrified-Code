@@ -85,10 +85,14 @@ function parse_ros_ws () {
     | sed -e 's/:.*$//' \
     | sed -e 's/.*\/\(.*\)\/devel\/.*$/\1 /' \
     | sed -e 's/\/opt\/ros\/kinetic\/.*$/kinetic /' \
+    | sed -e 's/\/opt\/ros\/melodic\/.*$/melodic /' \
+    | sed -e 's/\/opt\/ros\/noetic\/.*$/noetic /' \
     | sed -e 's/.*\/.*$/? /'
     # delete everything after first ':'
     # replace with parent dir of devel 
     # or kinetic if /opt/ros/kinetic
+    # or melodic if /opt/ros/melodic
+    # or noetic if /opt/ros/noetic
     # if a '/' is still found, erase everything
 }
 PS1='\[\033[01;33m\]$(parse_ros_ws)\[\033[00m\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch)\$ '
