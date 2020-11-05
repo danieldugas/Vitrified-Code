@@ -29,6 +29,7 @@ Plugin 'vim-airline/vim-airline' " status line
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy file search
 Plugin 'tpope/vim-fugitive' " git diff in gutter
+Plugin 'jremmen/vim-ripgrep'
 " Plugin 'numiras/semshi' " python syntax highlighting for nvim
 " Plugin 'taketwo/vim-ros' " :make builds with catkin
 " All of your Plugins must be added before the following line
@@ -325,7 +326,8 @@ nnoremap <Leader>L :lprev<CR>zz
 " Vim grep in directory shortcuts - Leader-n and N for :cnext :cprev
 nnoremap <Leader>* *N:vim // ./**<CR>
 vnoremap <Leader>/ y/<C-r>0<CR>:vim // ./**<CR>
-nnoremap <Leader>/ :vim // ./**<CR>
+nnoremap <Leader>/ :execute 'Rg '. '"' . substitute('<C-r>/', '\\[<>]', '\\b', 'g') . '"'<CR><CR>
+" nnoremap <Leader>/ :vim // ./**<CR>
 nnoremap <Leader>n :cnfile<CR>zz
 nnoremap <Leader>N :cpfile<CR>zz
 " buffers
