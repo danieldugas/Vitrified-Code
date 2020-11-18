@@ -331,12 +331,14 @@ nnoremap <Leader>/ :execute 'Rg '. '"' . substitute('<C-r>/', '\\[<>]', '\\b', '
 nnoremap <Leader>n :cnfile<CR>zz
 nnoremap <Leader>N :cpfile<CR>zz
 " buffers
+nnoremap ZQ :q!<CR>
+nnoremap <Leader>q :%bd<CR>
 nnoremap <Leader>w :bd<CR>
 nnoremap <Leader>W :%bd\|e#<CR>
 nnoremap <Leader><Tab> :bnext<CR>
 nnoremap <Leader><S-Tab> :bprev<CR>
-nnoremap <Esc>l :bnext<CR>
-nnoremap <Esc>j :bprev<CR>
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
 nnoremap <Leader>h :silent echo SwitchToOrFromHeader()<CR>
 function! SwitchToOrFromHeader() " {{{2
   if expand('%:t:e') == 'cpp'
