@@ -338,7 +338,7 @@ nnoremap <Leader>/ :execute 'Rg '. '"' . RipgrepifyString('<C-r>/') . '"'<CR><CR
 nnoremap <Leader>n :cnfile<CR>zz
 nnoremap <Leader>N :cpfile<CR>zz
 " buffers
-nnoremap ZQ :q!<CR>
+nnoremap ZQ :qa!<CR>
 nnoremap <Leader>q :%bd<CR>
 nnoremap <Leader>w :bd<CR>
 nnoremap <Leader>W :%bd\|e#<CR>

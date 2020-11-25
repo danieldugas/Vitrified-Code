@@ -189,6 +189,7 @@ if [ $MACHINE_NAME = atlas ]; then
 
   git-watch --quiet 1>/dev/null &
   git-watch --bad-only --no-fetch
+  export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 fi
 
 ###     prometheus

@@ -331,6 +331,11 @@ mode "Resize Mode" {
         bindsym Shift+j resize shrink height 60 px or 60 ppt
         bindsym Shift+l resize grow width 60 px or 60 ppt
 
+        bindsym 1 resize set width 2080 px height 1250 px
+        bindsym 2 resize set width 1040 px height 1250 px
+        bindsym 3 resize set width 1040 px height 620 px
+        bindsym 4 resize set width 720 px height 480 px
+
         ## Resize // Window Gaps // + - ##
         bindsym minus gaps inner current minus 6
         bindsym plus gaps inner current plus 6
