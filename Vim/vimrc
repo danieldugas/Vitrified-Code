@@ -323,6 +323,11 @@ nnoremap <Leader>e :CtrlPMixed<CR>
 " Leader-l and L for next and previous error in loclist
 nnoremap <Leader>l :lnext<CR>zz
 nnoremap <Leader>L :lprev<CR>zz
+" Scratchpad
+function! GetCurrentMarkAsQuickfixItem()
+  return expand("%") . ':' . line('.') . ':' . col('.') . ':'
+endfunction
+nnoremap <Leader>s :execute 'call system("echo ''' . GetCurrentMarkAsQuickfixItem() . ''' >> scratchpad.txt")' \| e scratchpad.txt<CR>GA
 " Vim grep in directory shortcuts - Leader-n and N for :cnext :cprev
 nnoremap <Leader>* *N:vim // ./**<CR>
 vnoremap <Leader>/ y/<C-r>0<CR>:vim // ./**<CR>
@@ -474,6 +479,7 @@ autocmd BufEnter * silent exec "normal :if &bt=='help'\<CR>nnoremap <buffer> <s-
 command RemoveTrailingSpaces %s/\s\+$//e
 command -nargs=1 Numbers put =map(range(1,<args>), 'printf(''%04d'', v:val)')
 command ShuffleLines %!shuf
+command Scratchpad cf scratchpad.txt | copen
 
 " }}}1
 
