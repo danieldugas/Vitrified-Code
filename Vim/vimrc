@@ -478,6 +478,7 @@ autocmd BufEnter * silent exec "normal :if &bt=='help'\<CR>nnoremap <buffer> <s-
 "" SECTION: User-defined Commands {{{1
 command RemoveTrailingSpaces %s/\s\+$//e
 command -nargs=1 Numbers put =map(range(1,<args>), 'printf(''%04d'', v:val)')
+command -nargs=1 Files read !ls <args>
 command ShuffleLines %!shuf
 command Scratchpad cf scratchpad.txt | copen
 command! -nargs=1 -complete=file W write <args> | edit <args>
