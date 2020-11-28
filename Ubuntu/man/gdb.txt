@@ -2,8 +2,11 @@ Debug tools
 
 EXAMPLES
   Debug a segfault
-    gdb --ex run --args /opt/ros/kinetic/lib/gmapping/slam_gmapping
-    # type 'bt<ENTER>' to get backtrace information
+    # this is the same as doing $ gdb myprogram, then (gdb) run myargs
+    gdb --ex run --args ./build/nori ./scenes/pa1/sponza-av.xml
+    # program segfaults
+    (gdb) bt
+    (gdb) up
 
 SCRIPTING
 
@@ -35,3 +38,5 @@ SCRIPTING
   It generates a few false positives but otherwise fairly quickly stops on the right syscall, at which point I could backtrace and prod the live program. "
 
   https://news.ycombinator.com/item?id=22031219
+
+# vim: set filetype=sh:
