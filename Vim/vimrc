@@ -130,6 +130,7 @@ set colorcolumn=100
 autocmd FileType c,cpp,java,scala set colorcolumn=100
 autocmd FileType vim              set colorcolumn=80
 autocmd FileType text             set colorcolumn=0
+autocmd FileType c,cpp,java,scala set foldmethod=syntax
 "" Grey out everything if editing a swap file. {{{2
 function! CurrentFileIsSwap ()
   if @% =~ "\\.sw.\\>" || @% =~ "\\~"

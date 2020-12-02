@@ -335,6 +335,9 @@ mode "Resize Mode" {
         bindsym 2 resize set width 1040 px height 1250 px
         bindsym 3 resize set width 1040 px height 620 px
         bindsym 4 resize set width 720 px height 480 px
+        bindsym 5 resize set width 720 px height 1050 px
+        bindsym 6 resize set width 480 px height 360 px
+        bindsym 7 resize set width 1800 px height 360 px
 
         ## Resize // Window Gaps // + - ##
         bindsym minus gaps inner current minus 6
