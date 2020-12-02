@@ -8,6 +8,18 @@ EXAMPLES
     (gdb) bt
     (gdb) up
 
+  Add conditional breakpoint
+    (gdb) b Message.cpp:112 if i == 99
+
+  Print variable
+    (gdb) p mypointer->member
+
+  Move execution
+    (gdb) next      # next line, including loops
+    (gdb) continue  # next breakpoint
+    (gdb) up / down
+    (gdb) until     # next line, jumping over loops
+
 SCRIPTING
 
   "I basically set up my GDB with commands to stop on a specific pattern of "lseek, then close", and if the pattern isn't met it just automatically continues the program.
