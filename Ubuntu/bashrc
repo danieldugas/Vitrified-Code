@@ -221,6 +221,8 @@ if [ $MACHINE_NAME = prometheus ]; then
   echo ' '
   echo 'TMUX SESSIONS (tm0 - attach, C-b d - detach):'
   tmux ls
+
+  export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 fi
 
 ###     Pepper laptop
