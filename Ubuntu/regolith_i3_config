@@ -30,7 +30,8 @@ set_from_resource $alt  i3-wm.alt Mod1
 # set_from_resource $ws19 i3-wm.workspace.19.name "19"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# floating_modifier $mod # bug in i3, doesn't work with bindcode 133 --release
+floating_modifier Mod1
 
 # hide_edge_borders smart
 
@@ -44,7 +45,7 @@ set_from_resource $rofiTheme rofi.theme "regolith-theme"
 
 # rofi app and window launchers
 ## Launch // Application // <Super> Space ##
-bindsym $mod+space exec rofi -show drun -theme $rofiTheme
+bindcode 133 --release exec rofi -show drun -theme $rofiTheme
 ## Launch // Command // <Super><Shift> Space ##
 bindsym $mod+Shift+space exec rofi -show run -theme $rofiTheme
 ## Navigate // Window by Name // <Super><Ctrl> Space ##

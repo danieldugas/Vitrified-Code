@@ -1,0 +1,10 @@
+Examples
+  Encrypt a file
+    gpg -c file.txt
+    # (password will be prompted)
+    # -c means symmetric (same password for enc and dec)
+    gpg-connect-agent reloadagent /bye
+    # clears stored password
+
+  Decrypt a file
+    gpg file.txt.gpg
