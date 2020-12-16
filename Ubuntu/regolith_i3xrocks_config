@@ -33,6 +33,9 @@ label_color=xresource:i3xrocks.label.color
 # full_text=xresource:i3xrocks.label.help
 # command=i3-msg -q exec /usr/bin/remontoire-toggle
 
+[media-player]
+interval=5
+
 [volumedaniel]
 interval=5
 

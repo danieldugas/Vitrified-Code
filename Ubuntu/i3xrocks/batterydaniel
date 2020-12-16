@@ -60,6 +60,7 @@ elif [ "$CHARGE_STATE" == "discharging" ]; then
     CHARGE_ICON=$(xrescat i3xrocks.label.dn D)
 elif [ "$CHARGE_STATE" == "charging" ]; then
     CHARGE_ICON=$(xrescat i3xrocks.label.up C)
+    VALUE_COLOR=$(xrescat i3xrocks.label.color white)
 else
     CHARGE_ICON=$(echo -e '\u2003')
 fi
