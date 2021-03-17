@@ -480,6 +480,8 @@ autocmd BufEnter * silent exec "normal :if &bt=='help'\<CR>nnoremap <buffer> <s-
 command RemoveTrailingSpaces %s/\s\+$//e
 command -nargs=1 Numbers put =map(range(1,<args>), 'printf(''%04d'', v:val)')
 command -nargs=1 Files read !ls <args>
+"" copies the command for ipython debugging in the script
+command DebugIPython let @+ = "%run -d -b ". expand("%") . ":" . line('.') . " script.py" | echo "'" . @+ . "' copied to Clipboard"
 command ShuffleLines %!shuf
 command Scratchpad cf scratchpad.txt | copen
 command! -nargs=1 -complete=file W write <args> | edit <args>
