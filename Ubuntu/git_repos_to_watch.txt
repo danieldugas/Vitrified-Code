@@ -1,7 +1,6 @@
 # Write the locations of the Github repos to watch, below.
 ~/Code/git-watch
 ~/Code/Vitrified-Code
-~/logbook
 
 ~/Code/pyniel
 
