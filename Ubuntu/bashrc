@@ -59,7 +59,7 @@ alias cdpepper="cd ~/Code/pepper_ws/src/asl_pepper/asl_pepper_motion_planning/"
 alias swim="nautilus . &"
 alias jpnb="jupyter notebook"
 alias pythoncprofile="python -m cProfile -o program.prof"
-alias roslaunch="mon launch --output-attr=obey"
+# alias roslaunch="mon launch --output-attr=obey"
 alias monlaunch="mon launch --output-attr=obey"
 alias py="ml3env && ipython --pylab -c \"import pandas as pd\" -i" # Quick mathematical python
 alias gtop="watch -n 1 nvidia-smi"

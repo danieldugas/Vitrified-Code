@@ -5,13 +5,21 @@ EXAMPLES
     # this must be run afterwards
     sudo update-grub
 
+  Show real-time log while booting and shutting down, edit
+    # /etc/default/grub
+    # change
+    # GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+    # to
+    # GRUB_CMDLINE_LINUX_DEFAULT=""
+
+
   Reboot into specific image once
     # list menu entries
     grep -i "menuentry '" /boot/grub/grub.cfg
     # set for next reboot only
     # replace 3 with value from previous command
     # first value is 0, and so on.
-    sudo grub-reboot 3
+    sudo grub-reboot 2 && sudo reboot
     
 
 
