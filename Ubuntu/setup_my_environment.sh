@@ -86,6 +86,8 @@ else
   mkdir -p ~/.config/regolith/i3xrocks
   ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3xrocks_config ~/.config/regolith/i3xrocks/config
   sudo mkdir -p /usr/share/i3xrocks
+  sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/batterydaniel /usr/share/i3xrocks/batterydaniel
+  sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/rofication-statusi3blocks.py /usr/share/i3xrocks/rofication-statusi3blocks.py
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/volumedaniel /usr/share/i3xrocks/volumedaniel
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/bluetoothdaniel /usr/share/i3xrocks/bluetoothdaniel
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/keyboard_layoutdaniel /usr/share/i3xrocks/keyboard_layoutdaniel
