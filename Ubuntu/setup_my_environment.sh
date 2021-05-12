@@ -138,5 +138,8 @@ else
   # Enable workspaces
   # gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
   # gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
-fi
 
+  ## Nautilus with typeahead
+  sudo add-apt-repository -y ppa:lubomir-brindza/nautilus-typeahead
+  sudo apt install --upgrade -y nautilus
+fi
