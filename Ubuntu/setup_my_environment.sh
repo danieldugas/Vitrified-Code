@@ -57,6 +57,7 @@ echo "------- SETTING UP HSTR ------------"
 sudo add-apt-repository -y ppa:ultradvorka/ppa
 sudo apt-get update
 sudo apt-get install -y hstr
+ln -s -i ~/Code/Vitrified-Code/Ubuntu/hstr_favorites ~/.hstr_favorites
 
 echo "------- SETTING UP UMEDIT ------------"
 # -T treats ~/man as the target instead of creating the link inside ~/man if ~/man already exists
