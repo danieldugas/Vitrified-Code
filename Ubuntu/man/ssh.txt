@@ -9,3 +9,15 @@ EXAMPLES
     sudo vim /etc/ssh/sshd_config
     # change PasswordAuthentification from yes to no
     sudo systemctl reload ssh
+
+  Reverse SSH
+    # if laptop is firewalled, and you can ssh from laptop to pc, but not from pc to laptop
+    # on laptop (129.132.39.77 is IP of PC):
+    ssh -f -N -T -R22222:localhost:22 129.132.39.77
+    # on pc
+    ssh -p 22222 daniel@localhost
+    # -R remote entry point. Anything that attaches to port 22222 on the far end of the tunnel will actually reach "localhost port 22", where "localhost" is from the perspective of the exit point of the tunnel (i.e. your ssh client).
+    # -f tells ssh to background itself after it authenticates, so you don't have to sit around running something on the remote server for the tunnel to remain alive.
+    # -N says that you want an SSH connection, but you don't actually want to run any remote commands. If all you're creating is a tunnel, then including this option saves resources.
+    # -T disables pseudo-tty allocation, which is appropriate because you're not trying to create an interactive shell.
+
