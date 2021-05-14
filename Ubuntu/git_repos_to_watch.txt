@@ -15,7 +15,7 @@
 ~/Code/pepper_ws/src/frame_soft
 ~/Code/pepper_ws/src/rds
 
-~/Code/navrep
+~/Code/pepper_ws/src/navrep
 
 ~/Code/danieldugas.github.io
 
