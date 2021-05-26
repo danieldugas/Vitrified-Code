@@ -53,6 +53,7 @@ alias wonavrep="source ~/pepper3venv/bin/activate && cd ~/Code/navrep && git sta
 alias wolivenavrep="source ~/Code/pepper_ws/devel/setup.bash && source ~/pepper3venv/bin/activate && cd ~/Code/navrep && git status"
 alias wonori="cd ~/Code/nori && git status"
 alias wocbc="cd ~/Code/cbsim/navrep3d && source ~/cbc3env/bin/activate"
+alias wofileworld="cd ~/Code/fileworld && source ~/fileworldenv/bin/activate"
 alias wovitrified="cd ~/Code/Vitrified-Code && git status"
 alias woros="source /opt/ros/melodic/setup.bash"
 alias cdpepper="cd ~/Code/pepper_ws/src/asl_pepper/asl_pepper_motion_planning/"

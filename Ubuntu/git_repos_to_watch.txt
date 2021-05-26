@@ -20,6 +20,7 @@
 ~/Code/danieldugas.github.io
 
 ~/Code/nori
+~/Code/fileworld
 
 /home/daniel/Code/cbsim/navrep3d
 /home/daniel/Code/cbsim/CrowdBotUnity
