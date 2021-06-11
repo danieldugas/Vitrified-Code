@@ -11,7 +11,7 @@ EXAMPLES
     mkdir frames
     ffmpeg -i video.mp4 -r 20 'frames/frame-%03d.jpg'
           # -r [N] for [N] fps
-    convert -resize 768x576 -delay 5 -loop 0 frames/*.jpg video.gif
+    convert -resize 854x480 -delay 5 -loop 0 frames/*.jpg video.gif
           # -resize is useful for reducing filesize
           # -delay [N] with [N] = 100/fps
           # -loop 0 to loop forever
