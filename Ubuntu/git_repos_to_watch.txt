@@ -9,7 +9,7 @@
 ~/Code/pepper_ws/src/map_matcher
 ~/Code/pepper_ws/src/responsive
 ~/Code/pepper_ws/src/pymap2d
-~/Code/pepper_ws/src/interaction_actions
+~/Code/pepper_ws/src/interaction_actions_for_navigation
 ~/Code/pepper_ws/src/pylidar2d
 
 ~/Code/pepper_ws/src/frame_soft
