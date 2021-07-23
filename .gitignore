@@ -43,3 +43,10 @@ build/
 # Vim Tags #
 ############
 tags
+
+# hooks added by git lfs #
+###########
+Ubuntu/git-hooks/post-checkout
+Ubuntu/git-hooks/post-commit
+Ubuntu/git-hooks/post-merge
+Ubuntu/git-hooks/pre-push
