@@ -53,13 +53,13 @@ elif [[ "$ACTIVE_MODE" == 'dark' ]]; then
 fi
 
 if [[ "$DARK_MODE" == 'auto' ]]; then
-  # ◑
-    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\">◑</span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"></span>" # full text
+  # ◑   
+    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\"></span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"></span>" # full text
     exit 0
 elif [[ "$DARK_MODE" == 'dark' ]]; then
-  # ○ 
-    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\">○</span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$CONNECTION</span>" # full text
+  # ○  
+    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\"></span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$CONNECTION</span>" # full text
 elif [[ "$DARK_MODE" == 'light' ]]; then
-  # ● 
-    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\">●</span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$CONNECTION</span>" # full text
+  # ●  
+    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\"></span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$CONNECTION</span>" # full text
 fi

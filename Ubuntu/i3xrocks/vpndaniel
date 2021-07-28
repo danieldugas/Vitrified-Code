@@ -42,7 +42,7 @@ if [[ -z "$CONNECTION" ]]; then
     echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\"></span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"></span>" # full text
     exit 0
 else
-  #   
-    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\"></span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$CONNECTION</span>" # full text
+  #    
+    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\"></span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$CONNECTION</span>" # full text
 fi
 
