@@ -1,7 +1,10 @@
 #!/bin/bash
 
 VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color "#D8DEE9")}
-LABEL_ICON=${label_icon:-$(xrescat i3xrocks.label.wifi )}
+# LABEL_ICON=${label_icon:-$(xrescat i3xrocks.label.wifi )}
+#   
+LABEL_ICON=
+NOWIFI_ICON=
 LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
 VALUE_FONT=${font:-$(xrescat i3xrocks.value.font "Source Code Pro Medium 13")}
 
@@ -10,7 +13,7 @@ if [ ! -z "$ESSID" ]; then
     echo "<span color=\"${LABEL_COLOR}\">${LABEL_ICON}</span><span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"> $ESSID</span>" # full text
     echo "<span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"> $ESSID</span>" # short text
 else
-    echo "<span color=\"${LABEL_COLOR}\"></span>" # full text
+    echo "<span color=\"${LABEL_COLOR}\">${NOWIFI_ICON}</span>" # full text
 fi
 
 case $BLOCK_BUTTON in
