@@ -42,6 +42,10 @@ case "$IF" in
         NIC="" # ${label_icon:-$(xrescat i3xrocks.label.wifi )} # we already have wifi icon on the left due to wifistatus block
         INT_TYPE="W"
     ;;
+    tun*)
+        exit # Currently the traffic-checking method reports 0 traffic on tun0 device, and it's not clear how to get which device is currently in use
+        # TODO: measure traffic on all devices, only show traffic if there is any.
+    ;;
 esac
 
 # get arguments
