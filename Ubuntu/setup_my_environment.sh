@@ -93,6 +93,7 @@ else
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/bluetoothdaniel /usr/share/i3xrocks/bluetoothdaniel
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/keyboard_layoutdaniel /usr/share/i3xrocks/keyboard_layoutdaniel
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/vpndaniel /usr/share/i3xrocks/vpndaniel
+  sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/darkthemedaniel /usr/share/i3xrocks/darkthemedaniel
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/wifidaniel /usr/share/i3xrocks/wifidaniel
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/timedaniel /usr/share/i3xrocks/timedaniel
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/calendardaniel /usr/share/i3xrocks/calendardaniel

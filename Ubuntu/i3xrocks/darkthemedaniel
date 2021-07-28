@@ -1,0 +1,65 @@
+#!/bin/bash
+
+LABEL_COLOR=${vpn_label_color:-$(xrescat i3xrocks.label.color)}
+VALUE_COLOR="${vpn_color:-$(xrescat i3xrocks.value.color)}"
+VALUE_FONT=${font:-$(xrescat i3xrocks.value.font)}
+
+# set dark mode if not already set
+DARK_MODE='auto'
+PERSISTENT_MODE_FILE="$HOME/.dark_mode"
+if [ -f "$PERSISTENT_MODE_FILE" ]
+then
+    DARK_MODE=$(cat "$PERSISTENT_MODE_FILE")
+fi
+
+# toggle dark mode
+case $BLOCK_BUTTON in
+    1) if [[ "$DARK_MODE" == 'auto' ]]; then
+        DARK_MODE='dark'
+      elif [[ "$DARK_MODE" == 'dark' ]]; then
+        DARK_MODE='light'
+      elif [[ "$DARK_MODE" == 'light' ]]; then
+        DARK_MODE='auto'
+      fi ;;  # left click
+    3) : ;; # right click
+esac
+
+# store in persistent file
+echo "$DARK_MODE" > "$PERSISTENT_MODE_FILE"
+
+
+# compute desired mode
+if [[ "$DARK_MODE" == 'auto' ]]; then
+  TIME_SPEC="%H"
+  TIME_VALUE=$(date "+ $TIME_SPEC")
+  ACTIVE_MODE='dark'
+  [[ $TIME_VALUE -gt 7 ]] && [[ $TIME_VALUE -lt 21 ]] && ACTIVE_MODE='light'
+elif [[ "$DARK_MODE" == 'dark' ]]; then
+  ACTIVE_MODE='dark'
+elif [[ "$DARK_MODE" == 'light' ]]; then
+  ACTIVE_MODE='light'
+fi
+
+# set the theme if wrong
+GTK_THEME=$(gsettings get org.gnome.desktop.interface gtk-theme)
+if [[ "$ACTIVE_MODE" == 'light' ]]; then
+  if [[ "$GTK_THEME" != 'Ayu-Mirage' ]]; then
+   gsettings set org.gnome.desktop.interface gtk-theme Ayu-Mirage
+  fi
+elif [[ "$ACTIVE_MODE" == 'dark' ]]; then
+  if [[ "$GTK_THEME" != 'Ayu-Mirage-Dark' ]]; then
+   gsettings set org.gnome.desktop.interface gtk-theme Ayu-Mirage-Dark
+  fi
+fi
+
+if [[ "$DARK_MODE" == 'auto' ]]; then
+  # ◑
+    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\">◑</span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"></span>" # full text
+    exit 0
+elif [[ "$DARK_MODE" == 'dark' ]]; then
+  # ○ 
+    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\">○</span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$CONNECTION</span>" # full text
+elif [[ "$DARK_MODE" == 'light' ]]; then
+  # ● 
+    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\">●</span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$CONNECTION</span>" # full text
+fi

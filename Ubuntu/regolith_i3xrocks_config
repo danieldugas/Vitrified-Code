@@ -98,6 +98,9 @@ interval=30
 command=/usr/share/i3xrocks/rofication-statusi3blocks.py
 interval=10
 
+[darkthemedaniel]
+interval=10
+
 # Date Time
 [calendardaniel]
 interval=10
