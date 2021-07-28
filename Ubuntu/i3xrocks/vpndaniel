@@ -10,6 +10,7 @@ CONNECTION=$(LC_ALL=C nmcli -t connection show --active | awk -F ':' '
   }
 }
 END{if (vpn_name) {printf("%s", vpn_name)}  else if(tun_name) {printf("%s", tun_name)}}')
+
 LABEL_COLOR=${vpn_label_color:-$(xrescat i3xrocks.label.color)}
 VALUE_COLOR="${vpn_color:-$(xrescat i3xrocks.value.color)}"
 VALUE_FONT=${font:-$(xrescat i3xrocks.value.font)}
@@ -24,6 +25,17 @@ case $BLOCK_BUTTON in
       fi ;;  # left click
     3) /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center network ;; # right click
 esac
+
+CONNECTION=$(LC_ALL=C nmcli -t connection show --active | awk -F ':' '
+{ if($3 == "vpn") {
+    vpn_name=$1
+  } else if ($3 == "tun"){
+    tun_name=$1
+  } else if ($3 == "tap"){
+    tun_name=$1
+  }
+}
+END{if (vpn_name) {printf("%s", vpn_name)}  else if(tun_name) {printf("%s", tun_name)}}')
 
 if [[ -z "$CONNECTION" ]]; then
   #   

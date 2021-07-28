@@ -45,11 +45,13 @@ $cpu_usage eq -1 and die 'Can\'t find CPU information';
 my $label_color = $ENV{'label_color'} || `xrescat i3xrocks.label.color #7B8394`;
 my $value_color = $ENV{'color'} || `xrescat i3xrocks.value.color #D8DEE9`;
 my $value_font = $ENV{'font'} || `xrescat i3xrocks.value.font "Source Code Pro Medium 13"`;
-my $value_icon = $ENV{'icon'} || `xrescat i3xrocks.label.cpu `;
+# my $value_icon = $ENV{'icon'} || `xrescat i3xrocks.label.cpu `;
+my $value_icon = "";
+my $icon_font = "FontAwesome";
 
 # Print short_text, full_text
 binmode STDOUT, ":utf8";
-printf "<span color='%s'>%s</span><span font_desc='%s' color='%s'> %02d%%</span>\n", $label_color, $value_icon, $value_font, $value_color, $cpu_usage;
+printf "<span font_desc='%s' color='%s'>%s</span><span font_desc='%s' color='%s'> %02d%%</span>\n", $icon_font, $label_color, $value_icon, $value_font, $value_color, $cpu_usage;
 printf "<span font_desc='%s' color='%s'> %02d%%</span>\n", $value_font, $value_color, $cpu_usage;
 
 # left click

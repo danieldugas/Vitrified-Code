@@ -7,20 +7,23 @@ fspan() {
 
 # span for label/icon
 lspan() {
-    echo "<span color=\"${LABEL_COLOR}\">${1}</span>"
+    echo "<span font_desc=\"${ICON_FONT}\" color=\"${LABEL_COLOR}\">${1}</span>"
 }
 
 # get font specifics from xresource file
 VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color "#D8DEE9")}
 LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
 VALUE_FONT=${font:-$(xrescat i3xrocks.value.font "Source Code Pro Medium 13")}
+ICON_FONT="FontAwesome"
 
 # read the dev file for extracting net usage
 GET="cat /proc/net/dev"
 
 # some default values for arguments"
-UP=${label_icon:-$(xrescat i3xrocks.label.up " up")}
-DN=${label_icon:-$(xrescat i3xrocks.label.dn " dn")}
+# UP=${label_icon:-$(xrescat i3xrocks.label.up " up")}
+# DN=${label_icon:-$(xrescat i3xrocks.label.dn " dn")}
+UP="↾"
+DN="⇂"
 ULEV=2
 
 # determine the net interface name
@@ -32,11 +35,11 @@ IF="${BLOCK_INSTANCE:-${IF}}"
 # set net icon based on wire or wireless connection
 case "$IF" in
     e*)
-        NIC=${label_icon:-$(xrescat i3xrocks.label.wired )}
+        NIC="" # ${label_icon:-$(xrescat i3xrocks.label.wired )}
         INT_TYPE="C"
     ;;
     w*)
-        NIC=${label_icon:-$(xrescat i3xrocks.label.wifi )}
+        NIC="" # ${label_icon:-$(xrescat i3xrocks.label.wifi )} # we already have wifi icon on the left due to wifistatus block
         INT_TYPE="W"
     ;;
 esac

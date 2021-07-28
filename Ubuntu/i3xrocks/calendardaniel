@@ -9,7 +9,9 @@ LABEL_ICON=${icon:-$(xrescat i3xrocks.label.time )}
 LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
 VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color "#D8DEE9")}
 VALUE_FONT=${font:-$(xrescat i3xrocks.value.font "Source Code Pro Medium 13")}
-echo "<span color=\"${LABEL_COLOR}\">$LABEL_ICON</span><span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$DATE_VALUE </span>"
+LABEL_ICON=""
+LABEL_FONT="FontAwesome"
+echo "<span color=\"${LABEL_COLOR}\" font_desc=\"${LABEL_FONT}\">$LABEL_ICON</span><span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$DATE_VALUE </span>"
 
 case $BLOCK_BUTTON in
     1) /usr/bin/i3-msg -q exec /usr/bin/gnome-calendar ;; # left click
