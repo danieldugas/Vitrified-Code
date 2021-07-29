@@ -179,7 +179,8 @@ TN="$(echo "$TX"/"$FAC" | bc -l | awk '{ printf("%4.1f", $1)}')"
 AN="$(echo "$AX"/"$FAC" | bc -l | awk '{ printf("%4.1f", $1)}')"
 
 for s in $RN $TN $AN; do
-    [[ "$s" = "$(printf "%s\n-0.0001\n" "$s" | sort -g | head -1)" ]] && exit
+    #[[ "$s" = "$(printf "%s\n-0.0001\n" "$s" | sort -g | head -1)" ]] && exit
+    :
 done
 
 # output net usage using pango markup

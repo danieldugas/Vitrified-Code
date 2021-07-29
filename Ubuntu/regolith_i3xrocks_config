@@ -56,7 +56,8 @@ interval=5
 #
 # Displays network load
 [nettrafficdaniel]
-interval=10
+interval=repeat
+command=/usr/share/i3xrocks/nettrafficdaniel -e 1 -t 3
 
 [vpndaniel]
 interval=5
@@ -94,9 +95,9 @@ interval=30
 # Rofication
 #
 # Displays notifications.
-[rofication]
-command=/usr/share/i3xrocks/rofication-statusi3blocks.py
-interval=10
+# [rofication]
+# command=/usr/share/i3xrocks/rofication-statusi3blocks.py
+# interval=10
 
 [darkthemedaniel]
 interval=10

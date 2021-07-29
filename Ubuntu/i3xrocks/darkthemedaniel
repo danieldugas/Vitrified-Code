@@ -32,6 +32,7 @@ echo "$DARK_MODE" > "$PERSISTENT_MODE_FILE"
 if [[ "$DARK_MODE" == 'auto' ]]; then
   TIME_SPEC="%H"
   TIME_VALUE=$(date "+ $TIME_SPEC")
+  TIME_VALUE=$(echo $TIME_VALUE | bc -l) # convert to int
   ACTIVE_MODE='dark'
   [[ $TIME_VALUE -gt 7 ]] && [[ $TIME_VALUE -lt 21 ]] && ACTIVE_MODE='light'
 elif [[ "$DARK_MODE" == 'dark' ]]; then
