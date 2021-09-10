@@ -63,9 +63,12 @@ format() {
 
 case $BLOCK_BUTTON in
     1) /usr/bin/i3-msg -q exec /usr/bin/gnome-control-center sound ;;  # left click, volume settings
-    3) amixer -q -D $MIXER sset $SCONTROL $(capability) toggle ;;  # right click, mute/unmute
-    4) amixer -q -D $MIXER sset $SCONTROL $(capability) ${STEP}+ unmute ;; # scroll up, increase
-    5) amixer -q -D $MIXER sset $SCONTROL $(capability) ${STEP}- unmute ;; # scroll down, decrease
+    # 3) amixer -q -D $MIXER sset $SCONTROL $(capability) toggle ;;  # right click, mute/unmute
+    3) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
+    # 4) amixer -q -D $MIXER sset $SCONTROL $(capability) ${STEP}+ unmute ;; # scroll up, increase
+    4) pactl set-sink-volume @DEFAULT_SINK@ +${STEP} ;;
+    # 5) amixer -q -D $MIXER sset $SCONTROL $(capability) ${STEP}- unmute ;; # scroll down, decrease
+    5) pactl set-sink-volume @DEFAULT_SINK@ -${STEP} ;;
 esac
 
 VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color "#D8DEE9")}
@@ -78,5 +81,6 @@ LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
 VALUE_FONT=${font:-$(xrescat i3xrocks.value.font "Source Code Pro Medium 13")}
 
 VALUE=$(volume | format)
+VALUE=$(pacmd list-sinks|grep -A 15 '* index'| awk '/volume: front/{ print $5 }' | sed 's/[%|,]//g')%
 
 echo "<span color=\"${LABEL_COLOR}\">${LABEL_ICON}</span><span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"> $VALUE</span>"
