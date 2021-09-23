@@ -146,9 +146,9 @@ notify() {
 
 solomon-notify() {
   $*
-  ~/pepper3venv/bin/telegram-send "Your command,"
-  ~/pepper3venv/bin/telegram-send ">> $*"
-  ~/pepper3venv/bin/telegram-send "has returned."
+  telegram-send "Your command,"
+  telegram-send ">> $*"
+  telegram-send "has returned."
 }
 
 euler-notify() {
