@@ -25,3 +25,5 @@
 /home/daniel/Code/cbsim/navrep3d
 /home/daniel/Code/cbsim/CrowdBotUnity
 /home/daniel/Code/pepper_ws/src/pepper_surrogate
+
+/home/daniel/Code/CrowdBotChallenge
