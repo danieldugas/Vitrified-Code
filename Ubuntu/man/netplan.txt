@@ -1,0 +1,37 @@
+Netplan is the new default network backend, which uses either networkd or NetworkManager as a frontend
+
+the config file is in /etc/netplan/
+
+an example file:
+
+# save this in /etc/netplan/50-cloud-init.yaml
+# This file is generated from information provided by the datasource.  Changes
+# to it will not persist across an instance reboot.  To disable cloud-init's
+# network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
+network:
+    version: 2
+    renderer: NetworkManager
+    ethernets:
+        eth0:
+            dhcp4: true
+            optional: true
+    wifis:
+        wlan0:
+            optional: true
+            dhcp4: true
+            access-points:
+                Flux:
+                    password: examplepassword1
+                eduroam:
+                    auth:
+                        key-management: eap
+                        password: examplepassword2
+                        method: peap
+                        identity: exampleid@exampleserver.com
+                        phase2-auth: mschapv2
+
+
+after changing it, run
+sudo netplan --debug try
