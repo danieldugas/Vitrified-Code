@@ -1,0 +1,25 @@
+Example error:
+
+/home/daniel/Code/pepper_ws/src/pepper_surrogate/OpenHMD/libopenhmd.so: undefined reference to `libusb_handle_events_timeout_completed'
+//usr/lib/x86_64-linux-gnu/libhidapi-libusb.so.0: undefined reference to `libusb_handle_events_completed'
+
+ldd /home/daniel/Code/pepper_ws/src/pepper_surrogate/OpenHMD/libopenhmd.so
+	linux-vdso.so.1 (0x00007ffd943fb000)
+	libhidapi-libusb.so.0 => /usr/lib/x86_64-linux-gnu/libhidapi-libusb.so.0 (0x00007ff29be36000)
+	libusb-1.0.so.0 => /opt/mvIMPACT_Acquire/lib/x86_64/libusb-1.0.so.0 (0x00007ff29bc29000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007ff29ba21000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007ff29b802000)
+	libopencv_calib3d.so.3.2 => /usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.3.2 (0x00007ff29b4b2000)
+	libopencv_imgproc.so.3.2 => /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2 (0x00007ff29af61000)
+	libopencv_core.so.3.2 => /usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2 (0x00007ff29ab26000)
+	libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007ff29a79d000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007ff29a3ff000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007ff29a1e7000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ff299df6000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007ff29c2ae000)
+	libopencv_flann.so.3.2 => /usr/lib/x86_64-linux-gnu/libopencv_flann.so.3.2 (0x00007ff299ba6000)
+	libtbb.so.2 => /usr/lib/x86_64-linux-gnu/libtbb.so.2 (0x00007ff29996a000)
+	libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007ff29974d000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007ff299549000)
+
+-> the linked library is wrong, which means that cmake found a local version.
