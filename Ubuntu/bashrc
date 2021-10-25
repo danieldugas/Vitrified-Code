@@ -53,7 +53,7 @@ alias wonavrep="source ~/pepper3venv/bin/activate && cd ~/Code/pepper_ws/src/nav
 # alias wolivenavrep="source ~/Code/pepper_ws/devel/setup.bash && source ~/pepper3venv/bin/activate && cd ~/Code/navrep && git status"
 alias wonori="cd ~/Code/nori && git status"
 alias wocbc="cd ~/Code/cbsim/navrep3d && source ~/cbc3env/bin/activate"
-alias woflowbot="cd ~/Code/CrowdBotChallenge/Crowdbotsim_python/crowdbotsimcontrol && source ~/cbcenv/bin/activate"
+alias woflowbot="source ~/Code/flowbot_ws/devel/setup.bash && cd ~/Code/CrowdBotChallenge/Crowdbotsim_python/crowdbotsimcontrol && source ~/peppervenv/bin/activate"
 alias wopred="cd ~/Code/predictive/Crowdbotsim_python/crowdbotsimcontrol && source ~/javadenv/bin/activate"
 alias wofileworld="cd ~/Code/fileworld && source ~/fileworldenv/bin/activate"
 alias woturtlebot="export TURTLEBOT3_MODEL=burger && export ROS_MASTER_URI=http://10.253.160.102:11311 && export ROS_HOSTNAME=10.253.160.102 && source ~/peppervenv/bin/activate && source /opt/ros/melodic/setup.bash && cd ~/Code/turtlebot_ws/src/circle_patroller && source ~/Code/turtlebot_ws/devel/setup.bash"
