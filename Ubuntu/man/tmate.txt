@@ -1,8 +1,8 @@
 
-    On remote get tmate, put it in /usr/local/bin (apt version as of 18.04LTS is too old):
+    On remote get tmate, put it in /usr/bin (apt version as of 18.04LTS is too old):
 
 curl -L https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz|tar xJv
-sudo mv tmate-2.4.0-static-linux-amd/tmate /usr/local/bin
+sudo mv tmate-2.4.0-static-linux-amd64/tmate /usr/bin
 
     Put public keys in ~/.ssh/authorized_keys
 
@@ -29,8 +29,8 @@ After=network-online.target
 [Service]
 Type=simple
 Restart=always
-User=root
-ExecStart=/usr/local/bin/tmate -F
+User=daniel
+ExecStart=/usr/bin/tmate -F
 
 probably you want to change User
 
@@ -44,3 +44,7 @@ systemctl enable tmate
 
 ssh <REGISTRED_USERNAME>/<SESSION_NAME>@lon1.tmate.io
 
+    To disable the service
+
+systemctl stop tmate
+systemctl disable tmate
