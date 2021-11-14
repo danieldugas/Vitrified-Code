@@ -27,3 +27,5 @@
 /home/daniel/Code/pepper_ws/src/pepper_surrogate
 
 /home/daniel/Code/CrowdBotChallenge
+/home/daniel/Code/flowbot_ws/src/flowbot_ros
+/home/daniel/Code/flowbot_ws/src/catkin_crowdbotsim
