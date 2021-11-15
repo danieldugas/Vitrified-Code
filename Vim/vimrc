@@ -313,10 +313,10 @@ map <down>  <nop>
 map <left>  <nop>
 map <right> <nop>
 " harder
-imap <up>    <nop>
-imap <down>  <nop>
-imap <left>  <nop>
-imap <right> <nop>
+" imap <up>    <nop>
+" imap <down>  <nop>
+" imap <left>  <nop>
+" imap <right> <nop>
 " back and forth through file history
 let g:ctrlp_map = '<Leader>r'
 let g:ctrlp_cmd = 'CtrlPMRU'

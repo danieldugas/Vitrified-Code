@@ -1,22 +1,22 @@
 
-    On remote get tmate, put it in /usr/bin (apt version as of 18.04LTS is too old):
+    # On remote get tmate, put it in /usr/bin (apt version as of 18.04LTS is too old):
 
 curl -L https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz|tar xJv
 sudo mv tmate-2.4.0-static-linux-amd64/tmate /usr/bin
 
-    Put public keys in ~/.ssh/authorized_keys
+    # Put public keys in ~/.ssh/authorized_keys
 
-    Get API key from https://tmate.io/ (or host your own server)
+    # Get API key from https://tmate.io/ (or host your own server)
 
-    Create ~/.tmate.conf
+    # Create ~/.tmate.conf
 
-set tmate-api-key "<YOUR_API_KEY>"                                
-set tmate-session-name "<SESSION_NAME>"                     
-set tmate-authorized-keys "~/.ssh/authorized_keys"        
+set tmate-api-key "<YOUR_API_KEY>"
+set tmate-session-name "<SESSION_NAME>"
+set tmate-authorized-keys "~/.ssh/authorized_keys"
 
-Session name is chosen by you
+    # Session name is chosen by you
 
-    Create /etc/systemd/system/tmate.service
+    # Create /etc/systemd/system/tmate.service
 
 [Install]
 WantedBy=multi-user.target
@@ -32,19 +32,21 @@ Restart=always
 User=daniel
 ExecStart=/usr/bin/tmate -F
 
-probably you want to change User
+    # probably you want to change User
 
-    Install tmate as service
+    # Install tmate as service
 
 systemctl daemon-reload
 systemctl start tmate
 systemctl enable tmate
 
-    You can reboot and ssh from any computer with private key:
+    # You can reboot and ssh from any computer with private key:
 
 ssh <REGISTRED_USERNAME>/<SESSION_NAME>@lon1.tmate.io
 
-    To disable the service
+    # To disable the service
 
 systemctl stop tmate
 systemctl disable tmate
+
+" vim: filetype=sh
