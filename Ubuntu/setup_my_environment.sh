@@ -46,6 +46,8 @@ mkdir ~/.config/nvim -p
 echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc" > ~/.config/nvim/init.vim
+mkdir -p ~/.config/nvim/pack/github/start
+git clone https://github.com/github/copilot.vim.git ~/.config/nvim/pack/github/start/copilot.vim
 sudo apt install -y vim-gtk3
 ln -s -i ~/Code/Vitrified-Code/Vim/vimrc ~/.vimrc
 mkdir -p ~/.config
