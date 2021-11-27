@@ -37,6 +37,15 @@ git clone https://github.com/danieldugas/git-watch.git ~/Code/git-watch
 ln -s -i ~/Code/Vitrified-Code/Ubuntu/git_repos_to_watch.txt ~/git_repos_to_watch.txt
 
 echo "------- SETTING UP VIM ------------"
+sudo add-apt-repository -y ppa:neovim-ppa/unstable
+sudo apt-get update
+sudo apt-get install -y neovim
+sudo apt install python3-pip
+python3 -m pip install --upgrade pynvim
+mkdir ~/.config/nvim -p
+echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+source ~/.vimrc" > ~/.config/nvim/init.vim
 sudo apt install -y vim-gtk3
 ln -s -i ~/Code/Vitrified-Code/Vim/vimrc ~/.vimrc
 mkdir -p ~/.config

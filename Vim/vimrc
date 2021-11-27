@@ -29,7 +29,7 @@ Plugin 'vim-airline/vim-airline' " status line
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy file search
 Plugin 'tpope/vim-fugitive' " git diff in gutter
-Plugin 'jremmen/vim-ripgrep'
+Plugin 'vNNi/vim-ripgrep'
 " Plugin 'numiras/semshi' " python syntax highlighting for nvim
 " Plugin 'taketwo/vim-ros' " :make builds with catkin
 " All of your Plugins must be added before the following line

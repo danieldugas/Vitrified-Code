@@ -1,1 +1,2 @@
+export ROS_MASTER_URI=http://pepper-laptop:11311
 nmcli connection up mavt-asl-iot
