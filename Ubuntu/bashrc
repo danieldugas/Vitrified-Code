@@ -53,6 +53,7 @@ alias wonavrep="source ~/pepper3venv/bin/activate && cd ~/Code/pepper_ws/src/nav
 # alias wolivenavrep="source ~/Code/pepper_ws/devel/setup.bash && source ~/pepper3venv/bin/activate && cd ~/Code/navrep && git status"
 alias wonori="cd ~/Code/nori && git status"
 alias wocbc="cd ~/Code/cbsim/navrep3d && source ~/cbc3env/bin/activate"
+alias won3d="cd ~/Code/cbsim/navrep3d && source ~/n3denv/bin/activate"
 alias woflowbot="source ~/Code/flowbot_ws/devel/setup.bash && cd ~/Code/CrowdBotChallenge/Crowdbotsim_python/crowdbotsimcontrol && source ~/peppervenv/bin/activate"
 alias wopred="cd ~/Code/predictive/Crowdbotsim_python/crowdbotsimcontrol && source ~/javadenv/bin/activate"
 alias wofileworld="cd ~/Code/fileworld && source ~/fileworldenv/bin/activate"
