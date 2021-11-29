@@ -39,8 +39,8 @@ ln -s -i ~/Code/Vitrified-Code/Ubuntu/git_repos_to_watch.txt ~/git_repos_to_watc
 echo "------- SETTING UP VIM ------------"
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo apt-get update
-sudo apt-get install -y neovim
-sudo apt install python3-pip
+sudo apt-get install -y neovim xsel
+sudo apt install -y python3-pip
 python3 -m pip install --upgrade pynvim
 mkdir ~/.config/nvim -p
 echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after
