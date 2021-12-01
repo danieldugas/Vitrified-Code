@@ -56,6 +56,13 @@ mkdir -p ~/.vim/colors
 cp ~/Code/Vitrified-Code/Vim/twilight.vim ~/.vim/colors/
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimv /usr/bin/vimv
+# needed by youcompleteme
+vim +PlugInstall +qall
+sudo snap install cmake --classic
+hash -r # gives snap cmake binary priority
+sudo apt-get install -y g++-8
+cd ~/.vim/bundle/YouCompleteMe
+CC=gcc-8 CXX=g++-8 python3 install.py --clang-completer --cs-completer
 
 git clone git@github.com:danieldugas/vimcp.git ~/Code/Vitrified-Code/Ubuntu/vimcp
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimcp/vimcp /usr/bin/vimcp
