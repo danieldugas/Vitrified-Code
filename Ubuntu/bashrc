@@ -240,6 +240,7 @@ if [ $MACHINE_NAME = pepper_laptop ]; then
 #   synclient CoastingFriction=10000
   git-watch --quiet 1>/dev/null &
   git-watch --bad-only --no-fetch
+  alias vim="nvim"
   export PYTHONPATH="$PYTHONPATH:$HOME/Code/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
   alias activateboostmode1000="sudo ethtool -s enp0s31f6 speed 1000 duplex full"
   export DEFAULT_ETH_INTERFACE="enp0s31f6"

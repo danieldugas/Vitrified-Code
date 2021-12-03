@@ -31,3 +31,4 @@
 /home/daniel/Code/flowbot_ws/src/catkin_crowdbotsim
 
 /home/daniel/Code/cbsim/WaveEnv
+/home/daniel/Code/pydreamer

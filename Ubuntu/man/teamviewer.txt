@@ -1,0 +1,3 @@
+teamviewer info
+sudo teamviewer passwd [password]
+teamviewer info
