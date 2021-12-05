@@ -151,9 +151,16 @@ notify() {
 
 solomon-notify() {
   $*
-  telegram-send "Your command,"
-  telegram-send ">> $*"
-  telegram-send "has returned."
+  retcode=$?
+  if [ $retcode -eq 0 ]; then
+    teletram-send "Huzzah! Your command,"
+    teletram-send ">> $*"
+    teletram-send "returns triumphant."
+  else
+    teletram-send "Treachery! Your command,"
+    teletram-send ">> $*"
+    teletram-send "returns defeated."
+  fi
 }
 
 euler-notify() {
@@ -198,6 +205,7 @@ if [ $MACHINE_NAME = atlas ]; then
   git-watch --quiet 1>/dev/null &
   git-watch --bad-only --no-fetch
   export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+  alias vim="nvim"
 fi
 
 ###     prometheus
