@@ -61,6 +61,7 @@ alias woturtlebot="export TURTLEBOT3_MODEL=burger && export ROS_MASTER_URI=http:
 alias wovitrified="cd ~/Code/Vitrified-Code && git status"
 alias woros="source /opt/ros/melodic/setup.bash"
 alias wolian="cd ~/Code/LIAN && source ~/cbc3env/bin/activate && source ~/Code/pepper_ws/devel/setup.bash && git status"
+alias womesh="source ~/Code/mesh_ws/devel/setup.bash && cd ~/Code/mesh_ws/src/mesh_sim"
 alias cdpepper="cd ~/Code/pepper_ws/src/asl_pepper/asl_pepper_motion_planning/"
 alias swim="nautilus . &"
 alias jpnb="jupyter notebook"
@@ -153,13 +154,13 @@ solomon-notify() {
   $*
   retcode=$?
   if [ $retcode -eq 0 ]; then
-    teletram-send "Huzzah! Your command,"
-    teletram-send ">> $*"
-    teletram-send "returns triumphant."
+    telegram-send "Huzzah! Your command,"
+    telegram-send ">> $*"
+    telegram-send "returns triumphant."
   else
-    teletram-send "Treachery! Your command,"
-    teletram-send ">> $*"
-    teletram-send "returns defeated."
+    telegram-send "Treachery! Your command,"
+    telegram-send ">> $*"
+    telegram-send "returns defeated."
   fi
 }
 
