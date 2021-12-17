@@ -32,3 +32,5 @@
 
 /home/daniel/Code/cbsim/WaveEnv
 /home/daniel/Code/pydreamer
+
+~/Code/mesh_ws/src/mesh_sim

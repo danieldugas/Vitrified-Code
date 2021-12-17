@@ -207,6 +207,7 @@ if [ $MACHINE_NAME = atlas ]; then
   git-watch --bad-only --no-fetch
   export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
   alias vim="nvim"
+  source ~/uplink/AWS/navrep3d_aws.sh
 fi
 
 ###     prometheus
@@ -240,6 +241,7 @@ if [ $MACHINE_NAME = prometheus ]; then
   tmux ls
 
   export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+  source ~/uplink/AWS/navrep3d_aws.sh
 fi
 
 ###     Pepper laptop
@@ -254,6 +256,7 @@ if [ $MACHINE_NAME = pepper_laptop ]; then
   alias activateboostmode1000="sudo ethtool -s enp0s31f6 speed 1000 duplex full"
   export DEFAULT_ETH_INTERFACE="enp0s31f6"
   export PEPPER_IP="10.42.0.49"
+  source ~/uplink/AWS/navrep3d_aws.sh
 fi
 
 ###     europalaptop
