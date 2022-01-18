@@ -223,6 +223,7 @@ if [ $MACHINE_NAME = prometheus ]; then
   # Segmap ros project
   alias source_segmap="source ~/Code/segmatch_ws/devel/setup.bash"
   alias wosegmap="source_segmap && roscd segmapper && cd .."
+  alias vim="nvim"
   # Group share
   mountgroupshare() {
     mkdir -p /media/groupserver
