@@ -260,6 +260,17 @@ if [ $MACHINE_NAME = pepper_laptop ]; then
   source ~/uplink/AWS/navrep3d_aws.sh
 fi
 
+###     T480
+if [ $MACHINE_NAME = hermes ]; then
+  git-watch --quiet 1>/dev/null &
+  git-watch --bad-only --no-fetch
+  alias vim="nvim"
+  export PYTHONPATH="$PYTHONPATH:$HOME/Code/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
+  export DEFAULT_ETH_INTERFACE="enp0s31f6"
+  export PEPPER_IP="10.42.0.49"
+  source ~/uplink/AWS/navrep3d_aws.sh
+fi
+
 ###     europalaptop
 if [ $MACHINE_NAME = europa_laptop ]; then
   git-watch --quiet 1>/dev/null &
