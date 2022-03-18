@@ -212,6 +212,12 @@ if [ $MACHINE_NAME = atlas ]; then
   export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
   alias vim="nvim"
   source ~/uplink/AWS/navrep3d_aws.sh
+
+  # TMUX stuff (can be removed if no longer remoting
+  alias tm0="tmux attach-session -t 0"
+  echo ' '
+  echo 'TMUX SESSIONS (tm0 - attach, C-b d - detach):'
+  tmux ls
 fi
 
 ###     prometheus
