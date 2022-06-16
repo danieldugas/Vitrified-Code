@@ -1,10 +1,47 @@
 #!/bin/bash
-exec < /dev/tty # assigns standard input to the keyboard
 
-YN="Y"
+RESTORE='\033[0m'
+RED='\033[00;31m'
+YELLOW='\033[00;33m'
+BLUE='\033[00;34m'
 
-{ git diff --cached --name-only | xargs grep -H --color 'NOCOMMIT' ; } && read -p  "
+FORBIDDEN=( 'NOCOMMIT' 'NO COMMIT' )
+FOUND=''
 
-Found staged files with NOCOMMIT flags. Commit anyways?[y/N]" YN
+for j in "${FORBIDDEN[@]}"
+do
+  for i in `git diff --cached --name-only`
+  do
 
-[[ $YN == "y" || $YN == "Y" || $YN == "yes" || $YN == "Yes" ]] || exit 1
+    # the trick is here...use `git show :file` to output what is staged
+    # test it against each of the FORBIDDEN strings ($j)
+
+    if echo `git show :$i` | grep -q "$j"; then
+
+      FOUND+="${BLUE}$i ${RED}contains ${RESTORE}\"$j\"${RESTORE}\n"
+
+    fi
+  done
+done
+
+# if FOUND is not empty, REJECT the COMMIT
+# PRINT the results (colorful-like)
+
+if [[ ! -z $FOUND ]]; then
+  printf "${YELLOW}Problems detected in commit\n"
+  printf "$FOUND"
+  exec < /dev/tty # assigns standard input to the keyboard
+  YN="Y"
+  read -p  "
+Commit anyways? y / [n]
+> " YN
+  if [[ $YN == "y" || $YN == "Y" || $YN == "yes" || $YN == "Yes" ]]; then
+    printf "${YELLOW}Proceeding with commit.${RESTORE}\n\n"
+  else
+    echo "Committing aborted."
+    exit 1
+  fi
+fi
+
+# nothing found? let the commit happen
+exit 0
