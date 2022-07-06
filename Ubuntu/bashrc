@@ -281,6 +281,15 @@ if [ $MACHINE_NAME = hermes ]; then
   source ~/uplink/AWS/navrep3d_aws.sh
 fi
 
+###     MESH T480
+if [ $MACHINE_NAME = mesht480 ]; then
+  git-watch --quiet 1>/dev/null &
+  git-watch --bad-only --no-fetch
+  alias vim="nvim"
+  alias woros="source /opt/ros/noetic/setup.bash"
+  source ~/uplink/AWS/navrep3d_aws.sh
+fi
+
 ###     europalaptop
 if [ $MACHINE_NAME = europa_laptop ]; then
   git-watch --quiet 1>/dev/null &
