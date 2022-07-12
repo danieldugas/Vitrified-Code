@@ -1,0 +1,3 @@
+# Victor's printer (Canon MG3550)
+sudo add-apt-repository ppa:thierry-f/fork-michael-gruz
+sudo apt install cnijfilter-mg3500series
