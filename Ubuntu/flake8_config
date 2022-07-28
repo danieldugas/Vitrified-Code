@@ -1,3 +1,6 @@
 [flake8]
 max-line-length = 110
-ignore = E115, E302, E226, E231, W503, E306, E203, E261
+ignore = E115,
+         E226, W503, E203, E261,
+         # errors for spaces before functions, classes, and line length are distracting and not critical
+         E303, E305, E501, E306, E231, E302

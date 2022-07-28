@@ -3,6 +3,10 @@
 "" Vim settings, rather than Vi settings (must be first)
 set nocompatible
 
+" let has_pynvim = system("pip freeze | grep pynvim -q && echo 1")
+" let has_pyflake8 = system("pip freeze | grep flake8 -q && echo 1")
+" let has_pylint = system("pip freeze | grep pylint -q && echo 1")
+
 "" SECTION: Plugins {{{1
 " VUNDLE STUFF ----------- {{{2
 " HOWTO Guide
@@ -182,6 +186,7 @@ endfunction " }}}2
 
 "" SECTION: Appearance {{{1
 colorscheme ron
+color twilight
 hi ColorColumn ctermbg=darkgrey guibg=darkgrey
 highlight Folded ctermbg=None ctermfg=blue
 " foldtext

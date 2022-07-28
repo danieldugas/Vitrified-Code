@@ -1,0 +1,5 @@
+# Smaller filesize
+
+# ps2pdf
+ps2pdf input.pdf output.pdf
+# This is the solution I used for navdreams, almost no noticeable reduction in image quality, but 10x shrinkage.

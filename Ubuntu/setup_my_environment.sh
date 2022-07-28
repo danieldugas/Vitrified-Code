@@ -47,14 +47,19 @@ mkdir ~/.config/nvim -p
 echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc" > ~/.config/nvim/init.vim
+# nodejs 14 needed by copilot
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt install -y nodejs
 mkdir -p ~/.config/nvim/pack/github/start
 git clone https://github.com/github/copilot.vim.git ~/.config/nvim/pack/github/start/copilot.vim
 sudo apt install -y vim-gtk3
 ln -s -i ~/Code/Vitrified-Code/Vim/vimrc ~/.vimrc
 mkdir -p ~/.config
-ln -s -i ~/Code/Vitrified-Code/Ubuntu/flake8_config ~/.config/flake8
+ln -s -i ~/Code/Vitrified-Code/Ubuntu/flake8_config ~/.flake8
 mkdir -p ~/.vim/colors
 cp ~/Code/Vitrified-Code/Vim/twilight.vim ~/.vim/colors/
+mkdir -p ~/.config/nvim/colors
+cp ~/Code/Vitrified-Code/Vim/twilight.vim ~/.config/nvim/colors/
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimv /usr/bin/vimv
 # needed by youcompleteme
