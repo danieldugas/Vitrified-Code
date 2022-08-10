@@ -1,0 +1,3 @@
+# Change author in all commits since 956951bf 
+git rebase -i 956951bf -x "git commit --amend --reset-author -CHEAD"
+# replace commit hash with --root to do since beginning
