@@ -76,6 +76,10 @@ sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimcp/vimcpr /usr/bin/vimcpr
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimcp/vimrm /usr/bin/vimrm
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimcp/vimrmr /usr/bin/vimrmr
 
+echo "------- SETTING UP VSCODE ----------"
+mkdir -p ~/.config/Code/User
+ln -s ~/Code/Vitrified-Code/Ubuntu/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+
 echo "------- SETTING UP HSTR ------------"
 # better ctrl-r search
 sudo add-apt-repository -y ppa:ultradvorka/ppa

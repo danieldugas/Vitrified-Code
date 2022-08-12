@@ -1,0 +1,24 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+    "key": "alt+v",       // whatever you want here
+    "command": "extension.multiCommand.execute",
+    "args": {
+        "sequence": [
+        {
+            "command": "workbench.action.terminal.newWithCwd",
+            "args": {
+                "cwd": "/"
+            }
+        },
+        {
+            "command": "workbench.action.terminal.sendSequence",
+            "args": {
+            "text": "GNOME_TERMINAL_SCREEN='' gnome-terminal -- bash -c 'cd ${fileDirname} && vim ${fileBasename}; exec bash'\n" // cd ${fileDirname} && vim ${filename}\n"
+            }
+        }
+        ]
+    },
+    "when": "editorTextFocus"
+    }
+]
