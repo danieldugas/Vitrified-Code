@@ -14,7 +14,7 @@
         {
             "command": "workbench.action.terminal.sendSequence",
             "args": {
-            "text": "GNOME_TERMINAL_SCREEN='' gnome-terminal -- bash -c 'cd ${fileDirname} && vim ${fileBasename} -c \"call cursor(${lineNumber}, 0)\"; exec bash'\n" // cd ${fileDirname} && vim ${filename}\n"
+            "text": "GNOME_TERMINAL_SCREEN='' gnome-terminal -- bash -c 'cd ${fileDirname} && nvim ${fileBasename} -c \"call cursor(${lineNumber}, 0)\"; exec bash'\n" // cd ${fileDirname} && vim ${filename}\n"
             }
         }
         ]
