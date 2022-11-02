@@ -14,11 +14,32 @@
         {
             "command": "workbench.action.terminal.sendSequence",
             "args": {
-            "text": "GNOME_TERMINAL_SCREEN='' gnome-terminal -- bash -c 'cd ${fileDirname} && vim ${fileBasename}; exec bash'\n" // cd ${fileDirname} && vim ${filename}\n"
+            "text": "GNOME_TERMINAL_SCREEN='' gnome-terminal -- bash -c 'cd ${fileDirname} && vim ${fileBasename} -c \"call cursor(${lineNumber}, 0)\"; exec bash'\n" // cd ${fileDirname} && vim ${filename}\n"
             }
         }
         ]
     },
     "when": "editorTextFocus"
     }
+    // {
+    //     "key": "alt+t",       // whatever you want here
+    //     "command": "extension.multiCommand.execute",
+    //     "args": {
+    //         "sequence": [
+    //         {
+    //             "command": "workbench.action.terminal.newWithCwd",
+    //             "args": {
+    //                 "cwd": "/"
+    //             }
+    //         },
+    //         {
+    //             "command": "workbench.action.terminal.sendSequence",
+    //             "args": {
+    //             "text": "echo \"${lineNumber}, ${columnNumber})\" " // cd ${fileDirname} && vim ${filename}\n"
+    //             }
+    //         }
+    //         ]
+    //     },
+    //     "when": "editorTextFocus"
+    //     }
 ]
