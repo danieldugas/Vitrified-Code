@@ -20,6 +20,3 @@ EXAMPLES
     # replace 3 with value from previous command
     # first value is 0, and so on.
     sudo grub-reboot 2 && sudo reboot
-    
-
-
