@@ -196,6 +196,9 @@ bigfiles() {
  find . -type f -exec du -ha {} + | sort -h
 }
 
+git config --global user.name "Daniel Dugas"
+git config --global user.email "daniel@dugas.ch"
+
 ### ------------- COMPUTER SPECIFIC  --------------###
 
 ###     oceanus
