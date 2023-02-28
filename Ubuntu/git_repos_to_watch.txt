@@ -4,30 +4,7 @@
 
 ~/Code/pyniel
 
-~/Code/pepper_ws/src/asl_pepper
-~/Code/pepper_ws/src/naoqi_driver
-~/Code/pepper_ws/src/map_matcher
-~/Code/pepper_ws/src/responsive
-~/Code/pepper_ws/src/pymap2d
-~/Code/pepper_ws/src/interaction_actions_for_navigation
-~/Code/pepper_ws/src/pylidar2d
-
-~/Code/pepper_ws/src/frame_soft
-~/Code/pepper_ws/src/rds
-
-~/Code/pepper_ws/src/navrep
-
 ~/Code/danieldugas.github.io
 
 ~/Code/nori
 ~/Code/fileworld
-
-/home/daniel/Code/cbsim/navrep3d
-/home/daniel/Code/pepper_ws/src/pepper_surrogate
-
-/home/daniel/Code/flowbot_ws/src/flowbot_ros
-/home/daniel/Code/flowbot_ws/src/catkin_crowdbotsim
-
-/home/daniel/Code/cbsim/WaveEnv
-/home/daniel/Code/pydreamer
-

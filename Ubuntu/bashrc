@@ -257,6 +257,23 @@ if [ $MACHINE_NAME = prometheus ]; then
   source ~/uplink/AWS/navrep3d_aws.sh
 fi
 
+### Mythos (mesh office ubuntu 20)
+if [ $MACHINE_NAME = mythos ]; then
+
+  git-watch --quiet 1>/dev/null &
+  git-watch --bad-only --no-fetch
+  alias vim="nvim"
+
+  # TMUX stuff (can be removed if no longer remoting
+  alias tm0="tmux attach-session -t 0"
+  alias tm1="tmux attach-session -t 1"
+  alias tm2="tmux attach-session -t 2"
+  alias tm3="tmux attach-session -t 3"
+  echo ' '
+  echo 'TMUX SESSIONS (tm0 - attach, C-b d - detach):'
+  tmux ls
+fi
+
 ###     Pepper laptop
 if [ $MACHINE_NAME = pepper_laptop ]; then
 # Disable trackpad kinetic scrolling - Moved to .gnomerc

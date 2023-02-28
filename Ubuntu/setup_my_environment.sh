@@ -34,8 +34,11 @@ git clone git@github.com:danieldugas/pyniel.git ~/Code/pyniel
 echo "------- SETTING UP GIT-WATCH ------------"
 sudo apt install -y python-git python3-git
 pip3 install GitPython # for ubuntu 20.04
-git clone https://github.com/danieldugas/git-watch.git ~/Code/git-watch
+git clone git@github.com:danieldugas/git-watch.git ~/Code/git-watch
 ln -s -i ~/Code/Vitrified-Code/Ubuntu/git_repos_to_watch.txt ~/git_repos_to_watch.txt
+git clone git@github.com:danieldugas/danieldugas.github.io ~/Code/danieldugas.github.io
+git clone git@github.com:danieldugas/nori ~/Code/nori
+git clone git@github.com:danieldugas/fileworld ~/Code/fileworld
 
 echo "------- SETTING UP VIM ------------"
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
@@ -60,14 +63,19 @@ mkdir -p ~/.vim/colors
 cp ~/Code/Vitrified-Code/Vim/twilight.vim ~/.vim/colors/
 mkdir -p ~/.config/nvim/colors
 cp ~/Code/Vitrified-Code/Vim/twilight.vim ~/.config/nvim/colors/
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# git clone git@github.com:VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# vim-plug
+sudo apt-get -y install curl
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimv /usr/bin/vimv
 # needed by youcompleteme
 vim +PlugInstall +qall
 sudo snap install cmake --classic
 hash -r # gives snap cmake binary priority
 sudo apt-get install -y g++-8
-cd ~/.vim/bundle/YouCompleteMe
+# cd ~/.vim/bundle/YouCompleteMe
+cd ~/.local/share/nvim/plugged/YouCompleteMe
 CC=gcc-8 CXX=g++-8 python3 install.py --clang-completer --cs-completer
 
 git clone git@github.com:danieldugas/vimcp.git ~/Code/Vitrified-Code/Ubuntu/vimcp
