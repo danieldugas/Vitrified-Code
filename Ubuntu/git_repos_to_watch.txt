@@ -8,3 +8,5 @@
 
 ~/Code/nori
 ~/Code/fileworld
+
+~/catkin_ws/src/*
