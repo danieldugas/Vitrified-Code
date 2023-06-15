@@ -310,6 +310,12 @@ if [ $MACHINE_NAME = mesht480 ]; then
   alias vim="nvim"
   alias woros="source /opt/ros/noetic/setup.bash"
   source ~/uplink/AWS/navrep3d_aws.sh
+
+  # Remote master, uncomment for local master
+  RED='\033[0;31m'
+  NC='\033[0m' # No Color
+  echo -e "-- ${RED}RM${NC} --"
+  export ROS_MASTER_URI="http://192.168.1.13:11311"
 fi
 
 ###     europalaptop
