@@ -33,6 +33,7 @@ git clone git@github.com:danieldugas/pyniel.git ~/Code/pyniel
 
 echo "------- SETTING UP GIT-WATCH ------------"
 sudo apt install -y python-git python3-git
+sudo apt install -y python3-pip # ubuntu 20.04
 pip3 install GitPython # for ubuntu 20.04
 git clone git@github.com:danieldugas/git-watch.git ~/Code/git-watch
 ln -s -i ~/Code/Vitrified-Code/Ubuntu/git_repos_to_watch.txt ~/git_repos_to_watch.txt

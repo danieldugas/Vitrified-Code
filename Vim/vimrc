@@ -93,7 +93,7 @@ if has("gui_running")
 endif
 
 "" SECTION: Automatic Behavior {{{1
-behave xterm
+" behave xterm
 syntax on
 "" Source project .vimrc if in directory
 if filereadable("./.project_vimrc")

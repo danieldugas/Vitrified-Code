@@ -209,7 +209,7 @@ if [ $MACHINE_NAME = oceanus ]; then
   export PATH="$HOME/anaconda2/bin:$PATH"
 fi
 
-###     atlas
+###     atlas (omen RTX 3060)
 if [ $MACHINE_NAME = atlas ]; then
 
   git-watch --quiet 1>/dev/null &
