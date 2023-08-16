@@ -316,6 +316,7 @@ if [ $MACHINE_NAME = mesht480 ]; then
   NC='\033[0m' # No Color
   echo -e "-- ${RED}RM${NC} --"
   export ROS_MASTER_URI="http://192.168.1.13:11311"
+  export ROS_IP="192.168.1.200"
 fi
 
 ###     europalaptop
