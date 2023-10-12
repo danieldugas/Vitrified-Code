@@ -365,8 +365,8 @@ default_floating_border pixel $i3-wm.floatingwindow.border.size
 
 # Specify the distance between windows in pixels. (i3-gaps)
 gaps inner 10
-gaps horizontal 864
-gaps vertical 432
+# gaps horizontal 864
+# gaps vertical 432
 # gaps outer 0
 # small mode for the big screen
 bindsym $mod+g gaps horizontal all toggle 864, gaps vertical all toggle 432
