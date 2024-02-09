@@ -196,6 +196,11 @@ bigfiles() {
  find . -type f -exec du -ha {} + | sort -h
 }
 
+localmaster() {
+  unset ROS_MASTER_URI
+  unset ROS_IP
+}
+
 git config --global user.name "Daniel Dugas"
 git config --global user.email "daniel@dugas.ch"
 
@@ -314,7 +319,7 @@ if [ $MACHINE_NAME = mesht480 ]; then
   # Remote master, uncomment for local master
   RED='\033[0;31m'
   NC='\033[0m' # No Color
-  echo -e "-- ${RED}RM${NC} --"
+  echo -e "-- ${RED}RM${NC} (change: localmaster) --"
   export ROS_MASTER_URI="http://192.168.1.13:11311"
   export ROS_IP="192.168.1.200"
 fi
