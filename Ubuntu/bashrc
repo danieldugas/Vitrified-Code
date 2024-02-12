@@ -63,6 +63,7 @@ alias woros="source /opt/ros/melodic/setup.bash"
 alias wolian="cd ~/Code/LIAN && source ~/cbc3env/bin/activate && source ~/Code/pepper_ws/devel/setup.bash && git status"
 # alias womesh="source ~/Code/mesh_ws/devel/setup.bash && cd ~/Code/mesh_ws/src/mesh_sim"
 alias womesh="source ~/meshenv/bin/activate && source ~/catkin_ws/devel/setup.bash && cd ~/catkin_ws/src/production"
+alias worebotic="source ~/meshenv/bin/activate && source ~/catkin_ws/devel/setup.bash && cd ~/catkin_ws/src/rebotic_operator_interface"
 alias woschema="source ~/meshenv/bin/activate && source ~/catkin_ws/devel/setup.bash && cd ~/catkin_ws/src/schema"
 alias cdpepper="cd ~/Code/pepper_ws/src/asl_pepper/asl_pepper_motion_planning/"
 alias swim="nautilus . &"
@@ -319,8 +320,8 @@ if [ $MACHINE_NAME = mesht480 ]; then
   # Remote master, uncomment for local master
   RED='\033[0;31m'
   NC='\033[0m' # No Color
-  echo -e "-- ${RED}RM${NC} (change: localmaster) --"
-  export ROS_MASTER_URI="http://192.168.1.13:11311"
+#   echo -e "-- ${RED}RM${NC} (change: localmaster) --"
+#   export ROS_MASTER_URI="http://192.168.1.13:11311"
   export ROS_IP="192.168.1.200"
 fi
 
