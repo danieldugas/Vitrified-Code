@@ -266,6 +266,8 @@ noremap <Leader>w <C-W>
 " yank all
 nnoremap <Leader>ya magg"+yG`a
 nnoremap <Leader>va ggvG$
+" yank line of code
+nnoremap yc ^v$hy
 " directory navigation
 nnoremap <Leader><Down> :cd %:p:h<CR>
 nnoremap <Leader><Up> :cd %:p:h:h<CR>

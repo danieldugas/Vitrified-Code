@@ -118,7 +118,7 @@ umedit() {
   if [ -z "$1" ]; then
     echo "no name specified"
   else
-    vim ~/man/"$1.txt";
+    nvim ~/man/"$1.txt";
   fi
 }
 um() { 
@@ -126,7 +126,7 @@ um() {
     echo "Manuals for the following functions are available: "
     ls ~/man | sed -e 's/\.txt//g'
   else
-    vim -R $HOME/man/"$1.txt"
+    nvim -R $HOME/man/"$1.txt"
   fi
 }
 template() {
@@ -134,11 +134,11 @@ template() {
     echo "Available templates: "
     tree ~/templates
   else
-    vim ~/templates/"$1".*
+    nvim ~/templates/"$1".*
   fi
 }
 logbook() {
-  vim ~/logbook/$(date +'%Y%m%d.txt')
+  nvim ~/logbook/$(date +'%Y%m%d.txt')
 }
 
 # Find which wallpaper based on watermark
