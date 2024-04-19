@@ -3,6 +3,8 @@
 shopt -s histappend # set filemode to append (is this needed?)
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND" # "The -a immediately writes the current/new lines to the history file."
 
+alias vim="nvim"
+
 # Better ctrl-r history search
 export HSTR_CONFIG=hicolor       # get more colors
 export HISTCONTROL=ignorespace   # leading space hides commands from history
@@ -204,6 +206,7 @@ localmaster() {
 
 git config --global user.name "Daniel Dugas"
 git config --global user.email "daniel@dugas.ch"
+
 
 ### ------------- COMPUTER SPECIFIC  --------------###
 

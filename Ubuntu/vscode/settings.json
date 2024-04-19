@@ -65,6 +65,7 @@
       "<C-o>": true,
       "<C-i>": true,
       "<C-u>": true,
+      "<C-r>": true,
     },
     "vim.disableExtension": false,
     "extensions.experimental.affinity": {
