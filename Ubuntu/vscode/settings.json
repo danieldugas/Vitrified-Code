@@ -65,6 +65,25 @@
                 }
               ]
       },
+      // ctrl square bracket to go to definition
+      {
+        "before": ["<C-]>"], 
+        "commands": [
+                {
+                  "command": "editor.action.goToDeclaration"
+                }
+              ]
+      },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+      {
+        "before": ["<leader>", "c"],
+        "commands": [
+          {
+            "command": "editor.action.commentLine"
+          }
+        ]
+      }
     ],
     "vim.leader": "<space>",
     "vim.handleKeys": {
@@ -75,6 +94,7 @@
       "<C-i>": true,
       "<C-u>": true,
       "<C-r>": true,
+      "<C-]>": true
     },
     "vim.disableExtension": false,
     "extensions.experimental.affinity": {
