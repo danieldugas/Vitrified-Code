@@ -12,8 +12,28 @@
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
       {
+        "before": ["<C-u>"],
+        "after": ["2", "0", "k"]
+      },
+      {
         "before": ["<leader>", "v", "a"],
         "after": ["g", "g", "V", "G"]
+      },
+      {
+        "before": ["<Tab>"],
+        "commands": [
+          {
+            "command": "workbench.action.nextEditor"
+          }
+        ]
+      },
+      {
+        "before": ["<S-Tab>"],
+        "commands": [
+          {
+            "command": "workbench.action.previousEditor"
+          }
+        ]
       },
       {
         "before": ["<leader>", "y", "a"],
@@ -24,6 +44,7 @@
         "commands": ["lineBreakInsert"],
         "silent": true
       },
+      //
       {
         "before": ["<leader>", "/"], 
         "commands": [
@@ -42,8 +63,10 @@
       "<C-f>": false,
       "<C-p>": false,
       "<C-o>": true,
-      "<C-i>": true
+      "<C-i>": true,
+      "<C-u>": true,
     },
+    "vim.disableExtension": false,
     "extensions.experimental.affinity": {
       "vscodevim.vim": 1
     }

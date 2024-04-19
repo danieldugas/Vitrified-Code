@@ -20,6 +20,10 @@
         ]
     },
     "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+q",
+        "command": "toggleVim"
     }
     // {
     //     "key": "alt+t",       // whatever you want here
