@@ -88,6 +88,7 @@ sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/vimcp/vimrmr /usr/bin/vimrmr
 echo "------- SETTING UP VSCODE ----------"
 mkdir -p ~/.config/Code/User
 ln -s ~/Code/Vitrified-Code/Ubuntu/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+ln -s ~/Code/Vitrified-Code/Ubuntu/vscode/settings.json ~/.config/Code/User/settings.json
 
 echo "------- SETTING UP HSTR ------------"
 # better ctrl-r search

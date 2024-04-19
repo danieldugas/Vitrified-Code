@@ -1,8 +1,8 @@
 {
-    "vim.easymotion": true,
+    "vim.easymotion": false,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
+    "vim.useCtrlKeys": false,
     "vim.hlsearch": true,
     "vim.insertModeKeyBindings": [
       {
@@ -12,23 +12,37 @@
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
       {
-        "before": ["<leader>", "d"],
-        "after": ["d", "d"]
+        "before": ["<leader>", "v", "a"],
+        "after": ["g", "g", "V", "G"]
       },
       {
-        "before": ["<C-n>"],
-        "commands": [":nohl"]
+        "before": ["<leader>", "y", "a"],
+        "after": ["g", "g", "V", "G", "y"]
       },
       {
         "before": ["K"],
         "commands": ["lineBreakInsert"],
         "silent": true
+      },
+      {
+        "before": ["<leader>", "/"], 
+        "commands": [
+                {
+                  "command": "workbench.action.findInFiles",
+                  "args": {
+                    "query": ""
+                  }
+                }
+              ]
       }
     ],
     "vim.leader": "<space>",
     "vim.handleKeys": {
       "<C-a>": false,
-      "<C-f>": false
+      "<C-f>": false,
+      "<C-p>": false,
+      "<C-o>": true,
+      "<C-i>": true
     },
     "extensions.experimental.affinity": {
       "vscodevim.vim": 1
