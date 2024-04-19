@@ -55,7 +55,16 @@
                   }
                 }
               ]
-      }
+      },
+      // leader c to comment
+      {
+        "before": ["<leader>", "c"], 
+        "commands": [
+                {
+                  "command": "editor.action.commentLine"
+                }
+              ]
+      },
     ],
     "vim.leader": "<space>",
     "vim.handleKeys": {
