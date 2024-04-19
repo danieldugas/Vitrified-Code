@@ -44,14 +44,18 @@
         "commands": ["lineBreakInsert"],
         "silent": true
       },
-      //
+      // global search
       {
         "before": ["<leader>", "/"], 
         "commands": [
+                "editor.action.addSelectionToNextFindMatch",
                 {
                   "command": "workbench.action.findInFiles",
                   "args": {
-                    "query": ""
+                    "query": "${selectedText}",
+                    "triggerSearch": true
+                    // "isRegex": true,
+                    // "replaceString": "******",  
                   }
                 }
               ]
