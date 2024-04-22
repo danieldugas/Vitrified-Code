@@ -34,7 +34,7 @@ Plug 'ctrlpvim/ctrlp.vim' " fuzzy file search
 Plug 'tpope/vim-fugitive' " git diff in gutter
 Plug 'vNNi/vim-ripgrep'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' } " good python syntax highlighting
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' } " good python syntax highlighting
 " Plug 'taketwo/vim-ros' " :make builds with catkin
 " All of your Plugins must be added before the following line
 call plug#end()            " required

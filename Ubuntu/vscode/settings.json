@@ -103,5 +103,8 @@
     "vim.disableExtension": false,
     "extensions.experimental.affinity": {
       "vscodevim.vim": 1
-    }
+    },
+    "python.analysis.extraPaths": [
+        "~/catkin_ws/src/schema/python/"
+    ]
 }
