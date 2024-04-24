@@ -11,10 +11,10 @@
       }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
-      {
-        "before": ["<C-u>"],
-        "after": ["2", "0", "k"]
-      },
+      // {
+      //   "before": ["<C-u>"],
+      //   "after": ["2", "0", "k"]
+      // },
       {
         "before": ["<leader>", "v", "a"],
         "after": ["g", "g", "V", "G"]
@@ -98,7 +98,8 @@
       "<C-i>": true,
       "<C-u>": true,
       "<C-r>": true,
-      "<C-]>": true
+      "<C-]>": true,
+      "<C-v>": true
     },
     "vim.disableExtension": false,
     "extensions.experimental.affinity": {

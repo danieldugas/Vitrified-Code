@@ -38,8 +38,8 @@ workondirectory() {
 }
 
 # Default editors
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 
 # Source my personal python packages
 # export PYTHONPATH="$HOME/Code/pyniel:$PYTHONPATH"
