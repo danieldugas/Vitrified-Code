@@ -1,3 +1,5 @@
 rm -r dist/* ; python setup.py sdist
 twine upload dist/*
 
+[login creds]
+find .pypirc in gdrive, put in home dir

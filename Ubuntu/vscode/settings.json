@@ -107,5 +107,6 @@
     },
     "python.analysis.extraPaths": [
         "~/catkin_ws/src/schema/python/"
-    ]
+    ],
+    "editor.autoClosingBrackets": "never"
 }
