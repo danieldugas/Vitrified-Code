@@ -1,17 +1,29 @@
-# on host
+# on host: build and run container
 xhost + # allows docker containers to access Xserver
 docker build -t mesh_production_image --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" .
 docker run --rm --env="DISPLAY" --net=host --name=mesh_prod -it mesh_production_image
 
+# if using the gpu, add --gpus all (requires installing nvidia-docker)
+docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
+
+# check mem & cpu usage
+docker container stats h1test
+
+# list running containers
 docker ps -a
 docker rm mesh_prod 
 # docker rm -f $(docker ps -a -q) # deletes all containers
 
+# open terminal into running container
+docker exec -it h1test bash
+
+# copy file to outside
+docker cp <container>:<src-path> <local-dest-path>
+
+# export/import container
 docker save --output mesh-prod-docker-image.tar mesh_production_image
 docker load --input mesh-prod-docker-image.tar
 
 # clears everything (images, cache)
 # sudo docker system prune -a
 
-# if using the gpu, add --gpus all (requires installing nvidia-docker)
-docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi

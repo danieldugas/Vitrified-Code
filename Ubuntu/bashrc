@@ -73,6 +73,9 @@ alias womesh="source ~/meshenv/bin/activate && source ~/catkin_ws/devel/setup.ba
 alias worebotic="source ~/meshenv/bin/activate && source ~/catkin_ws/devel/setup.bash && cd ~/catkin_ws/src/rebotic_operator_interface"
 alias woschema="source ~/meshenv/bin/activate && source ~/catkin_ws/devel/setup.bash && cd ~/catkin_ws/src/schema"
 alias wodeepmimic="source ~/Code/DeepMimic_mujoco/xenv/bin/activate && export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/daniel/.mujoco/mujoco210/bin:/usr/lib/nvidia && cd ~/Code/DeepMimic_mujoco/src"
+alias woh1="source ~/h1env/bin/activate && source ~/unitree_ros2/setup_local.sh && cd ~/Code/unitree_h1_locomotion/"
+alias coh1="code ~/Code/unitree_h1_locomotion/ && exit"
+# other
 alias cdpepper="cd ~/Code/pepper_ws/src/asl_pepper/asl_pepper_motion_planning/"
 alias swim="nautilus . &"
 alias jpnb="jupyter notebook"

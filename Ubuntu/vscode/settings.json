@@ -108,5 +108,10 @@
     "python.analysis.extraPaths": [
         "~/catkin_ws/src/schema/python/"
     ],
-    "editor.autoClosingBrackets": "never"
+    "diffEditor.maxComputationTime": 0,
+    "editor.autoClosingBrackets": "never",
+    "cmake.showOptionsMovedNotification": false,
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "workbench.colorTheme": "Default Light Modern"
+
 }
