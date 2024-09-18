@@ -38,13 +38,13 @@ CONNECTION=$(LC_ALL=C nmcli -t connection show --active | awk -F ':' '
 END{if (vpn_name) {printf("%s", vpn_name)}  else if(tun_name) {printf("%s", tun_name)}}')
 
 if [[ -z "$CONNECTION" ]]; then
-  #   
-    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\"></span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"></span>" # full text
+  #         🖧  
+    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\"></span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"></span>" # full text
     exit 0
 else
-  #    
+  #     
     LABEL_COLOR="#7B83F4"
     VALUE_COLOR="#7B83F4"
-    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\"></span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$CONNECTION</span>" # full text
+    echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\"></span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$CONNECTION</span>" # full text
 fi
 

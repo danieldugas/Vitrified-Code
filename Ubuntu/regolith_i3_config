@@ -45,11 +45,16 @@ set_from_resource $rofiTheme rofi.theme "regolith-theme"
 
 # rofi app and window launchers
 ## Launch // Application // <Super> Space ##
-bindcode 133 --release exec rofi -show drun -theme $rofiTheme
+# bindcode 133 --release exec rofi -show drun -theme $rofiTheme
+bindcode 133 --release exec ilia
 ## Launch // Command // <Super><Shift> Space ##
 bindsym $mod+Shift+space exec rofi -show run -theme $rofiTheme
 ## Navigate // Window by Name // <Super><Ctrl> Space ##
 bindsym $mod+Mod1+space exec rofi -show window -theme $rofiTheme
+
+# screenshot
+bindsym Print exec gnome-screenshot
+bindsym Shift+Print exec gnome-screenshot -a
 
 ## Navigate // Relative Window // <Super> ↑ ↓ ← →
 # bindsym $mod+Left focus left

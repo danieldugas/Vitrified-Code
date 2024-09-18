@@ -35,7 +35,8 @@ IF="${BLOCK_INSTANCE:-${IF}}"
 # set net icon based on wire or wireless connection
 case "$IF" in
     e*)
-        NIC="" # ${label_icon:-$(xrescat i3xrocks.label.wired )}
+        # 
+        NIC= "" # "" # ${label_icon:-$(xrescat i3xrocks.label.wired )}
         INT_TYPE="C"
     ;;
     w*)

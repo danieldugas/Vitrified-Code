@@ -46,6 +46,7 @@ sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo apt-get update
 sudo apt-get install -y neovim xsel
 sudo apt install -y python3-pip
+# otherwise: "requires vim compiled with python support" error (tags: vimpy, pyvim)
 python3 -m pip install --upgrade pynvim
 mkdir ~/.config/nvim -p
 echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after
@@ -121,10 +122,14 @@ else
   sudo add-apt-repository -y ppa:regolith-linux/release
   sudo apt install -y regolith-desktop
   mkdir -p ~/.config/regolith/i3
+  mkdir -p ~/.config/regolith3/i3
   ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3_config ~/.config/regolith/i3/config
+  ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3_config ~/.config/regolith3/i3/config
 
   mkdir -p ~/.config/regolith/i3xrocks
+  mkdir -p ~/.config/regolith3/i3xrocks
   ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3xrocks_config ~/.config/regolith/i3xrocks/config
+  ln -s -i ~/Code/Vitrified-Code/Ubuntu/regolith_i3xrocks_config ~/.config/regolith3/i3xrocks/config
   sudo mkdir -p /usr/share/i3xrocks
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/batterydaniel /usr/share/i3xrocks/batterydaniel
   sudo ln -s -i ~/Code/Vitrified-Code/Ubuntu/i3xrocks/rofication-statusi3blocks.py /usr/share/i3xrocks/rofication-statusi3blocks.py
