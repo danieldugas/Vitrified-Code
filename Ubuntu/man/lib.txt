@@ -1,0 +1,7 @@
+LD_LIBRARY_PATH
+
+# show library loading
+ldd <executable>
+
+# information about linked libs and runpath
+readelf -d <executable>

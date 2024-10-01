@@ -112,6 +112,13 @@
     "editor.autoClosingBrackets": "never",
     "cmake.showOptionsMovedNotification": false,
     "javascript.updateImportsOnFileMove.enabled": "never",
-    "workbench.colorTheme": "Default Light Modern"
-
+    "remote.SSH.defaultExtensions": [
+        "ms-python.python",
+        "github.copilot"
+    ],
+    "workbench.colorTheme": "Default Light Modern",
+    "cmake.pinnedCommands": [
+      "workbench.action.tasks.configureTaskRunner",
+      "workbench.action.tasks.runTask"
+    ]
 }

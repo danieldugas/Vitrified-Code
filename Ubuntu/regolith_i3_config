@@ -55,6 +55,7 @@ bindsym $mod+Mod1+space exec rofi -show window -theme $rofiTheme
 # screenshot
 bindsym Print exec gnome-screenshot
 bindsym Shift+Print exec gnome-screenshot -a
+bindsym Ctrl+Shift+Print exec gnome-screenshot -acf /tmp/test && cat /tmp/test | xclip -i -selection clipboard -target image/png
 
 ## Navigate // Relative Window // <Super> ↑ ↓ ← →
 # bindsym $mod+Left focus left
