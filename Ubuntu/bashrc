@@ -42,6 +42,52 @@ workondirectory() {
   git status
 }
 
+# function to get directory size and # of files recursively
+dirsize() {
+    local total_cumulative_files=0
+    local total_cumulative_dirs=0
+    local total_cumulative_size=0.0
+
+    # If no arguments, use current directory
+    if [ $# -eq 0 ]; then
+        set -- .
+    fi
+
+    # Header
+    printf "%-40s %10s %10s %10s\n" "Directory" "Files" "Directories" "Size (GB)"
+    printf "%s\n" "$(printf '=%.0s' {1..72})"
+
+    # Process each directory
+    for path in "$@"; do
+        # Resolve full path
+        full_path=$(readlink -f "$path")
+
+        # Count files
+        local dir_files=$(find "$full_path" -type f 2>/dev/null | wc -l)
+
+        # Count directories
+        local dir_dirs=$(find "$full_path" -type d 2>/dev/null | wc -l)
+
+        # Calculate size in GB
+        local dir_size=$(du -sb "$full_path" 2>/dev/null | awk '{printf "%.2f", $1/1024/1024/1024}')
+
+        # Print per-directory stats
+        # printf "%-40s %10d %10d %10.2f\n" "${full_path}" "$dir_files" "$dir_dirs" "$dir_size"
+        printf "${full_path}\n"
+        printf "%-40s %10d %10d %10.2f\n" "" "$dir_files" "$dir_dirs" "$dir_size"
+
+        # Accumulate totals
+        total_cumulative_files=$((total_cumulative_files + dir_files))
+        total_cumulative_dirs=$((total_cumulative_dirs + dir_dirs))
+        total_cumulative_size=$(echo "$total_cumulative_size + $dir_size" | bc)
+    done
+
+    # Print cumulative totals
+    printf "%s\n" "$(printf '=%.0s' {1..72})"
+    printf "%-40s %10s %10s %10s\n" "" "Files" "Directories" "Size (GB)"
+    printf "%-40s %10d %10d %10.2f\n" "TOTAL" "$total_cumulative_files" "$total_cumulative_dirs" "$total_cumulative_size"
+}
+
 # Default editors
 export EDITOR=nvim
 export VISUAL=nvim
