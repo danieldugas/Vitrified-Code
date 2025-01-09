@@ -42,6 +42,28 @@ workondirectory() {
   git status
 }
 
+# function to list tmux sessions and easily attach to one
+tm() {
+  # if no arguments, list sessions
+  if [ $# -eq 0 ]; then
+    echo 'TMUX SESSIONS (tm 0 - attach, C-b d - detach):'
+    tmux ls
+  fi
+  # if an argument is given, attach to that session
+  if [ $# -eq 1 ]; then
+    tmux attach-session -t $1 || echo "tmn to make new session"
+  fi
+}
+
+tmn() {
+  tmux new -s $1
+}
+
+# tmux copy mode
+tmc() {
+  tmux copy-mode
+}
+
 # function to get directory size and # of files recursively
 dirsize() {
     local total_cumulative_files=0
@@ -165,6 +187,7 @@ function parse_ros_ws () {
     # or noetic if /opt/ros/noetic
     # if a '/' is still found, erase everything
 }
+PREV_PS1=$PS1
 PS1='\[\033[01;33m\]$(parse_ros_ws)\[\033[00m\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch)\$ '
 
 # Run this only once if application windows don't get foregrounded when you launch the application:
@@ -431,6 +454,28 @@ if [ $MACHINE_NAME = amazon ]; then
   echo ' '
   echo 'TMUX SESSIONS (tm0 - attach, C-b d - detach):'
   tmux ls
+fi
+
+if [ $MACHINE_NAME = FAIR_H100_2 ]; then
+  export PS1=$PREV_PS1
+  export PS1=${PS1::-3}'$(parse_git_branch)\$ '
+  alias vim=vim
+
+  export WANDB_USERNAME=eai-foundations
+
+  alias gitview="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold          cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)-        %an%C(reset)' --all"
+
+  alias sq="watch squeue --me"
+  alias susage="python ~/cluster_status.py --account cortex"
+  alias sr="srun --account cortex -q cortex_high -t 03:00:00 --gpus 1 --pty /bin/bash"
+
+  alias wodino="conda activate dino_wm && cd ~/Code/dino_wm_init"
+
+  export ACCEL_CORTEX_PATH=/data/home/dud/accel-cortex
+  export DATASET_DIR=/checkpoint/cortex/datasets01/
+  export CORTEX_SHARE_DIR=/checkpoint/cortex/
+  export UNIXNAME=dud
+  export EDITOR=vim
 fi
 # temporary storage for often run commands
 # roslaunch ia_ros ros_ia_node.launch rosbag:=multiagent_sim_iros mapname:=asl mapfolder:=$HOME/Code/pepper_ws/src/interaction_actions/python/maps n_downsampling_passes:=0 localization:=false script_args:="--no-stop"
