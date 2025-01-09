@@ -476,6 +476,35 @@ if [ $MACHINE_NAME = FAIR_H100_2 ]; then
   export CORTEX_SHARE_DIR=/checkpoint/cortex/
   export UNIXNAME=dud
   export EDITOR=vim
+  bind '"\C-r": reverse-search-history'
+fi
+
+if [ $MACHINE_NAME = FAIR_A100 ]; then
+  export PS1=$PREV_PS1
+  export PS1=${PS1::-3}'$(parse_git_branch)\$ '
+  alias vim=vim
+
+  export WANDB_USERNAME=eai-foundations
+  
+  alias gitview="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+  
+  alias sq="watch squeue --me"
+  alias susage="python ~/accel-cortex/scripts/cluster_status.py --account cortex"
+  alias sr="srun --account cortex -q cortex_high -t 03:00:00 --gpus 1 --pty /bin/bash"
+  
+  alias wodino="conda activate dino_wm && cd ~/Code/dino_wm_init"
+  
+  export ACCEL_CORTEX_PATH=/data/home/dud/accel-cortex
+  export DATASET_DIR=/fsx-cortex/dud/dino_wm_robot/datasets
+  export CORTEX_SHARE_DIR=/fsx-cortex
+  export UNIXNAME=dud
+  export EDITOR=vim
+  # conda activate cortex-accel
+  conda activate ada-accel
+
+  bind '"\C-r": reverse-search-history'
+
+  tm
 fi
 # temporary storage for often run commands
 # roslaunch ia_ros ros_ia_node.launch rosbag:=multiagent_sim_iros mapname:=asl mapfolder:=$HOME/Code/pepper_ws/src/interaction_actions/python/maps n_downsampling_passes:=0 localization:=false script_args:="--no-stop"
