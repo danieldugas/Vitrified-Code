@@ -43,21 +43,46 @@ workondirectory() {
 }
 
 # function to list tmux sessions and easily attach to one
+# tm() {
+#   # if no arguments, list sessions
+#   if [ $# -eq 0 ]; then
+#     echo 'TMUX SESSIONS (tm 0 - attach, C-b d - detach):'
+#     tmux ls
+#   fi
+#   # if an argument is given, attach to that session
+#   if [ $# -eq 1 ]; then
+#     tmux attach-session -t $1 || echo "tmn to make new session"
+#   fi
+# }
+
 tm() {
-  # if no arguments, list sessions
-  if [ $# -eq 0 ]; then
-    echo 'TMUX SESSIONS (tm 0 - attach, C-b d - detach):'
-    tmux ls
-  fi
-  # if an argument is given, attach to that session
-  if [ $# -eq 1 ]; then
-    tmux attach-session -t $1 || echo "tmn to make new session"
+  # Check if -n flag is present
+  if [[ "$@" == *"-n"* ]]; then
+    # Remove -n from arguments
+    args=(${@/-n/})
+    
+    # If a session name is provided, create it
+    if [ ${#args[@]} -eq 1 ]; then
+      tmux new -s ${args[0]}
+    else
+      # If no session name is provided, create an unnamed session
+      tmux new
+    fi
+  else
+    # If no arguments are provided, list sessions
+    if [ $# -eq 0 ]; then
+      echo 'TMUX SESSIONS (tm 0 - attach, C-b d - detach):'
+      tmux ls
+    else
+      # If an argument is given, try to attach to the session
+      tmux attach-session -t $1 || echo "Session $1 not found. Use 'tm -n' to create a new session."
+    fi
   fi
 }
 
-tmn() {
-  tmux new -s $1
-}
+# tmn() {
+#   tmux new -s $1
+# }
 
 # tmux copy mode
 tmc() {
@@ -465,7 +490,7 @@ if [ $MACHINE_NAME = FAIR_H100_2 ]; then
 
   alias gitview="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold          cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)-        %an%C(reset)' --all"
 
-  alias sq="watch squeue --me"
+  alias sq="watch -n 10 squeue --me"
   alias susage="python ~/cluster_status.py --account cortex"
   alias sr="srun --account cortex -q cortex_high -t 03:00:00 --gpus 1 --pty /bin/bash"
 
@@ -477,6 +502,11 @@ if [ $MACHINE_NAME = FAIR_H100_2 ]; then
   export UNIXNAME=dud
   export EDITOR=vim
   bind '"\C-r": reverse-search-history'
+
+  # export PATH=/usr/local/cuda-12.4/bin/:$PATH
+  # export LD_LIBRARY_PATH=/usr/local/cuda-12.4/lib64:$LD_LIBRARY_PATH
+  export PATH=$PATH:/usr/local/cuda-12.4/bin/
+  export LD_LIBRARY_PATH=/usr/local/cuda-12.4/lib64
 fi
 
 if [ $MACHINE_NAME = FAIR_A100 ]; then
@@ -488,7 +518,7 @@ if [ $MACHINE_NAME = FAIR_A100 ]; then
   
   alias gitview="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
   
-  alias sq="watch squeue --me"
+  alias sq="watch -n 10 squeue --me"
   alias susage="python ~/accel-cortex/scripts/cluster_status.py --account cortex"
   alias sr="srun --account cortex -q cortex_high -t 03:00:00 --gpus 1 --pty /bin/bash"
   
