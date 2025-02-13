@@ -308,8 +308,8 @@ localmaster() {
   unset ROS_IP
 }
 
-git config --global user.name "Daniel Dugas"
-git config --global user.email "daniel@dugas.ch"
+# git config --global user.name "Daniel Dugas"
+# git config --global user.email "daniel@dugas.ch"
 
 
 ### ------------- COMPUTER SPECIFIC  --------------###
@@ -494,7 +494,7 @@ if [ $MACHINE_NAME = FAIR_H100_2 ]; then
   alias susage="python ~/cluster_status.py --account cortex"
   alias sr="srun --account cortex -q cortex_high -t 03:00:00 --gpus 1 --pty /bin/bash"
 
-  alias wodino="conda activate dino_wm && cd ~/Code/dino_wm_init"
+  alias wodino="conda activate dino_wm && cd ~/Code/robotic-world-models"
 
   export ACCEL_CORTEX_PATH=/data/home/dud/accel-cortex
   export DATASET_DIR=/checkpoint/cortex/datasets01/
@@ -522,7 +522,7 @@ if [ $MACHINE_NAME = FAIR_A100 ]; then
   alias susage="python ~/accel-cortex/scripts/cluster_status.py --account cortex"
   alias sr="srun --account cortex -q cortex_high -t 03:00:00 --gpus 1 --pty /bin/bash"
   
-  alias wodino="conda activate dino_wm && cd ~/Code/dino_wm_init"
+  alias wodino="conda activate dino_wm && cd ~/Code/robotic-world-models"
   
   export ACCEL_CORTEX_PATH=/data/home/dud/accel-cortex
   export DATASET_DIR=/fsx-cortex/dud/dino_wm_robot/datasets
