@@ -495,9 +495,12 @@ if [ $MACHINE_NAME = FAIR_H100_2 ]; then
   alias sr="srun --account cortex -q cortex_high -t 03:00:00 --gpus 1 --pty /bin/bash"
 
   alias wodino="conda activate dino_wm && cd ~/Code/robotic-world-models"
+  alias worwm="conda activate rwm && cd ~/Code/robot_world_models"
 
   export ACCEL_CORTEX_PATH=/data/home/dud/accel-cortex
   export DATASET_DIR=/checkpoint/cortex/datasets01/
+  export JEPA_HOME=~/Code/jepa-internal
+  export DINO_HOME=~/Code/robot_world_models/train_dinowm
   export CORTEX_SHARE_DIR=/checkpoint/cortex/
   export UNIXNAME=dud
   export EDITOR=vim
@@ -523,14 +526,19 @@ if [ $MACHINE_NAME = FAIR_A100 ]; then
   alias sr="srun --account cortex -q cortex_high -t 03:00:00 --gpus 1 --pty /bin/bash"
   
   alias wodino="conda activate dino_wm && cd ~/Code/robotic-world-models"
+  alias wolam3d="conda activate sergio-accel"
+  alias worwm="conda activate rwm && cd ~/Code/robot_world_models"
   
   export ACCEL_CORTEX_PATH=/data/home/dud/accel-cortex
-  export DATASET_DIR=/fsx-cortex/dud/dino_wm_robot/datasets
+  export DATASET_DIR=/fsx-cortex-datacache/shared/datasets
+  export JEPA_HOME=~/Code/jepa-internal
+  export DINO_HOME=~/Code/robot_world_models/train_dinowm
   export CORTEX_SHARE_DIR=/fsx-cortex
   export UNIXNAME=dud
   export EDITOR=vim
-  # conda activate cortex-accel
-  conda activate ada-accel
+
+  export PATH=$PATH:/usr/local/cuda-12.4/bin/
+  export LD_LIBRARY_PATH=/usr/local/cuda-12.4/lib64
 
   bind '"\C-r": reverse-search-history'
 
