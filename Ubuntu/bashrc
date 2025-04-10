@@ -494,13 +494,16 @@ if [ $MACHINE_NAME = FAIR_H100_2 ]; then
   alias susage="python ~/cluster_status.py --account cortex"
   alias sr="srun --account cortex -q cortex_high -t 03:00:00 --gpus 1 --pty /bin/bash"
 
-  alias wodino="conda activate dino_wm && cd ~/Code/robotic-world-models"
+  alias wodino="conda activate rwm && cd ~/Code/robot_world_models/train_dinowm"
   alias worwm="conda activate rwm && cd ~/Code/robot_world_models"
+  alias wonwm="conda activate nwm && cd ~/Code/robot_world_models/train_nwm"
+  alias wost="conda activate rwm && cd ~/Code/robot_world_models/robot-actions"
 
   export ACCEL_CORTEX_PATH=/data/home/dud/accel-cortex
   export DATASET_DIR=/checkpoint/cortex/datasets01/
   export JEPA_HOME=~/Code/jepa-internal
   export DINO_HOME=~/Code/robot_world_models/train_dinowm
+  export COSMOS_HOME=~/Code/Cosmos
   export CORTEX_SHARE_DIR=/checkpoint/cortex/
   export UNIXNAME=dud
   export EDITOR=vim
@@ -525,14 +528,19 @@ if [ $MACHINE_NAME = FAIR_A100 ]; then
   alias susage="python ~/accel-cortex/scripts/cluster_status.py --account cortex"
   alias sr="srun --account cortex -q cortex_high -t 03:00:00 --gpus 1 --pty /bin/bash"
   
-  alias wodino="conda activate dino_wm && cd ~/Code/robotic-world-models"
   alias wolam3d="conda activate sergio-accel"
+
+  alias wodino="conda activate rwm && cd ~/Code/robot_world_models/train_dinowm"
   alias worwm="conda activate rwm && cd ~/Code/robot_world_models"
+  alias wonwm="conda activate nwm && cd ~/Code/robot_world_models/train_nwm"
+  alias wost="conda activate rwm && cd ~/Code/robot_world_models/robot-actions"
+
   
   export ACCEL_CORTEX_PATH=/data/home/dud/accel-cortex
   export DATASET_DIR=/fsx-cortex-datacache/shared/datasets
   export JEPA_HOME=~/Code/jepa-internal
   export DINO_HOME=~/Code/robot_world_models/train_dinowm
+  export COSMOS_HOME=~/Code/Cosmos
   export CORTEX_SHARE_DIR=/fsx-cortex
   export UNIXNAME=dud
   export EDITOR=vim
