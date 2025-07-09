@@ -89,15 +89,91 @@ tmc() {
   tmux copy-mode
 }
 
+# Tree + du
+tree_count() {
+  local depth=3
+  local show_files=false
+  local show_sizes=false
+
+  # Parse arguments
+  while [[ "$1" ]]; do
+    case "$1" in
+      --show-files) show_files=true ;;
+      --show-sizes) show_sizes=true ;;
+      [0-9]*) depth="$1" ;;
+    esac
+    shift
+  done
+
+  local base="./"
+  mapfile -t dirs < <(find "$base" -mindepth 1 -maxdepth "$depth" -type d | sort)
+
+  for i in "${!dirs[@]}"; do
+    dir="${dirs[$i]}"
+    rel="${dir#./}"
+    IFS='/' read -r -a parts <<< "$rel"
+    level=${#parts[@]}
+
+    # ─── Indentation ───
+    prefix=""
+    for ((j = 0; j < level - 1; j++)); do
+      parent=$(IFS=/; echo "${parts[@]:0:j+1}")
+      has_sibling=false
+      for ((k = i + 1; k < ${#dirs[@]}; k++)); do
+        next="${dirs[$k]#./}"
+        [[ "$next" == "$parent/"* ]] || continue
+        IFS='/' read -r -a nparts <<< "$next"
+        (( ${#nparts[@]} == j + 2 )) && has_sibling=true && break
+      done
+      prefix+=$($has_sibling && echo "│   " || echo "    ")
+    done
+
+    # ─── Connector ───
+    this_parent=$(IFS=/; echo "${parts[@]:0:level-1}")
+    is_last=true
+    for ((k = i + 1; k < ${#dirs[@]}; k++)); do
+      next_rel="${dirs[$k]#./}"
+      [[ "$next_rel" == "$this_parent/"* ]] || continue
+      IFS='/' read -r -a nparts <<< "$next_rel"
+      (( ${#nparts[@]} == level )) && is_last=false && break
+    done
+    connector=$($is_last && echo "└──" || echo "├──")
+
+    # ─── Count files and subdirs ───
+    fcount=$(find "$dir" -type f | wc -l)
+    dcount=$(find "$dir" -type d | wc -l)
+
+    # ─── Directory size (optional) ───
+    size=""
+    $show_sizes && size=" ($(du -sh "$dir" 2>/dev/null | cut -f1))"
+
+    echo "${prefix}${connector} 📁 ${parts[-1]} — $fcount files, $((dcount - 1)) subdirs${size}"
+
+    # ─── Immediate file listing ───
+    if $show_files && (( level < depth )); then
+      mapfile -t files < <(find "$dir" -maxdepth 1 -mindepth 1 -type f | sort)
+      for ((fidx=0; fidx<${#files[@]}; fidx++)); do
+        fname=$(basename "${files[$fidx]}")
+        fconn=$([[ $fidx -eq $((${#files[@]} - 1)) ]] && echo "└──" || echo "├──")
+        echo "${prefix}    ${fconn} 📄 $fname"
+      done
+    fi
+  done
+}
+
 # function to get directory size and # of files recursively
+# dirsize
+#   shows size of all dirs in current dir
+# dirsize mydir
+#   shows size for mydir
 dirsize() {
     local total_cumulative_files=0
     local total_cumulative_dirs=0
     local total_cumulative_size=0.0
 
-    # If no arguments, use current directory
+    # If no arguments, show size of all dirs in current dir
     if [ $# -eq 0 ]; then
-        set -- .
+        set -- ./*
     fi
 
     # Header
@@ -526,7 +602,7 @@ if [ $MACHINE_NAME = FAIR_A100 ]; then
   
   alias sq="watch -n 10 squeue --me"
   alias susage="python ~/accel-cortex/scripts/cluster_status.py --account cortex"
-  alias sr="srun --account cortex -q cortex_high -t 03:00:00 --gpus 1 --pty /bin/bash"
+  alias sr="echo srun --account cortex -q cortex_high --nodes=1 --ntasks-per-node=1 --gpus-per-node=1 --cpus-per-task=12 --mem=1024G --time-min=600 --pty /bin/bash"
   
   alias wolam3d="conda activate sergio-accel"
 
