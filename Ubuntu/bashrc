@@ -618,8 +618,8 @@ if [ $MACHINE_NAME = FAIR_SC ]; then
   
   alias sq="watch -n 10 squeue --me --format \'%.18i %.48j %.2t %.10M %.6D %R\'"
   alias sqq="squeue --me --format '%.18i %.48j %.2t %.10M %.6D %R'"
-  alias susage="python ~/accel-cortex/scripts/cluster_status.py --account cortex"
-  alias sr1="srun --account cortex -q cortex_high --nodes=1 --ntasks-per-node=1 --gpus-per-node=1 --cpus-per-task=12 --mem=1024G --time-min=600 --pty /bin/bash"
+  alias susage="python ~/Code/robot_world_models/projects/dud/cluster_status.py --account cortex"
+  alias sr1="srun --account cortex -q cortex_high --nodes=1 --ntasks-per-node=1 --gpus-per-node=1 --cpus-per-task=12 --mem=1024G --time=6000 --pty /bin/bash"
   
   alias worwm="conda activate rwm && cd ~/Code/robot_world_models"
   
