@@ -557,6 +557,15 @@ if [ $MACHINE_NAME = amazon ]; then
   tmux ls
 fi
 
+if [ $MACHINE_NAME = BYTE ]; then
+  source /usr/share/doc/fzf/examples/key-bindings.bash
+  
+  export UNIXNAME=dud
+  export EDITOR=nvim
+
+  tm
+fi
+
 if [ $MACHINE_NAME = FAIR_A100 ]; then
   # better Ctrl-R history search
 #   eval "$(fzf --bash)"
