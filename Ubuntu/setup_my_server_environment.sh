@@ -1,5 +1,5 @@
 set -x # print commands being executed
-sudo echo "------- SETTING UP BASHRC ------------"
+echo "------- SETTING UP BASHRC ------------"
 # bashrc
 ln -s -i ~/Code/Vitrified-Code/Ubuntu/bashrc ~/.bashrc_ext
 if [ -z "$MACHINE_NAME" ]; then
