@@ -1,0 +1,499 @@
+"" Ubuntu Version of Daniel's vimrc
+
+"" Vim settings, rather than Vi settings (must be first)
+set nocompatible
+
+" let has_pynvim = system("pip freeze | grep pynvim -q && echo 1")
+" let has_pyflake8 = system("pip freeze | grep flake8 -q && echo 1")
+" let has_pylint = system("pip freeze | grep pylint -q && echo 1")
+
+"" SECTION: Plugins {{{1
+" VUNDLE STUFF ----------- {{{2
+" HOWTO Guide
+  " After changing plugins in this list, run
+  " :VundleClean
+  " :VundleInstall
+set nocompatible
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+" Plug 'VundleVim/Vundle.vim'
+" Keep Plugin commands between plug#begin/end.
+" plugin on GitHub repo
+Plugin 'Valloric/YouCompleteMe' " fuzzy completion
+Plugin 'vim-syntastic/syntastic' " python syntax checker (ycm doesn't)
+Plugin 'octref/RootIgnore' " skip files in .gitignore
+Plugin 'stephpy/vim-yaml' " syntax highlighting for yaml files
+Plugin 'machakann/vim-columnmove'
+Plugin 'tmhedberg/SimpylFold' " python syntax folding
+Plugin 'sheerun/vim-polyglot' " python syntax highlighting
+Plugin 'vim-airline/vim-airline' " status line
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ctrlpvim/ctrlp.vim' " fuzzy file search
+Plugin 'tpope/vim-fugitive' " git diff in gutter
+Plugin 'vNNi/vim-ripgrep'
+Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plugin 'numirias/semshi', { 'do': ':UpdateRemotePlugins' } " good python syntax highlighting
+" Plug 'taketwo/vim-ros' " :make builds with catkin
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+"" ------- /VUNDLE STUFF -----------
+let g:airline_theme='fruit_punch'
+let g:airline#extensions#tabline#enabled = 1
+
+" YouCompleteMe {{{2
+" if exists(":YcmDiags")
+" Quick HOWTO guide for ROS projects:
+  " catkin config -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+  " cp ~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py [PROJECT_ROOT]
+  " in .ycm_extra_conf.py, set compilation_database_folder to
+  " '/home/USERNAME/YOUR_ROS_WS/build/YOUR_PROJECT_NAME'
+nnoremap <C-]> :YcmCompleter GoTo<CR>
+let g:ycm_warning_symbol='w' " the symbol in the gutter for warnings
+" let g:ycm_confirm_extra_conf=0 " stop asking about .ycm_extra_conf
+
+" Syntastic {{{2
+" Disable everything except python syntax checking
+let g:syntastic_mode_map = {
+    \ "mode": "passive",
+    \ "active_filetypes": ["python"],
+    \ "passive_filetypes": [] }
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_always_populate_loc_list = 1
+function! SyntasticForceFullCheckNow ()
+  let g:syntastic_python_checkers = ['pylint']
+  SyntasticCheck
+  let g:syntastic_python_checkers = ['flake8']
+endfunction
+command! SyntasticForceFullCheckNow call SyntasticForceFullCheckNow()
+
+
+"" SECTION: Unicode Support {{{1
+scriptencoding utf-8
+set encoding=utf-8
+
+"" SECTION: Backups {{{1
+if !isdirectory($HOME . "/vimfiles/backup")
+    call mkdir($HOME . "/vimfiles/backup", "p")
+endif
+set tags=./tags,tags;$HOME
+set backup
+set backupdir=$HOME/vimfiles/backup
+set undofile
+set undodir=$HOME/vimfiles/backup
+set dir=$HOME/vimfiles/backup
+
+"" SECTION: Windows specific {{{1
+if has("gui_running")
+  if getcwd()=="C:\\windows\\System32"
+    cd C:\Users\Daniel
+  endif
+endif
+
+"" SECTION: Automatic Behavior {{{1
+" behave xterm
+syntax on
+"" Source project .vimrc if in directory
+if filereadable("./.project_vimrc")
+  source ./.project_vimrc
+endif
+" backspace over anything
+set backspace=indent,eol,start
+" folding
+set fdm=marker
+" set foldlevel=99 " requires pressing zm 99 times to fold...
+au BufRead * normal zR
+" tabs
+set tabstop=2
+set shiftwidth=2
+set autoindent
+set expandtab
+set linebreak
+" doesn't visually wrap lines (code mode)
+set nowrap
+" let menu cycle
+set wildmenu
+" search as you type, highlight search
+set incsearch
+set hlsearch
+" decide which keys are allowed to wrap to next line when moving
+set whichwrap+=<,>,[,]
+" numbering
+set nu
+" show end of line char and tabs
+set list
+set listchars=trail:·,precedes:«,extends:»,tab:▸\ ,eol:▾
+" display last visible line partially even if it doesn't fit in window
+set display+=lastline
+" don't wrap text automatically, display the soft limit with a color instead
+set wrapmargin=0
+set textwidth=0
+set colorcolumn=100
+autocmd FileType c,cpp,java,scala set colorcolumn=100
+autocmd FileType vim              set colorcolumn=80
+autocmd FileType text             set colorcolumn=0
+autocmd FileType c,cpp,java,scala set foldmethod=syntax
+"" Grey out everything if editing a swap file. {{{2
+function! CurrentFileIsSwap ()
+  if @% =~ "\\.sw.\\>" || @% =~ "\\~"
+    setl syntax=OFF
+    return 1
+  endif
+  return 0
+endfunction
+augroup DisableSyntaxInSwapFiles
+  autocmd BufRead * call CurrentFileIsSwap()
+augroup END
+" }}}2
+"" Warnings and safeties when swapfile is detected {{{2
+"" (from: vim-autoswap plugin)
+augroup AutoSwap
+  autocmd!
+  autocmd SwapExists *  call AS_HandleSwapfile(expand('<afile>:p'), v:swapname)
+augroup END
+" The automatic behaviour...
+function! AS_HandleSwapfile (filename, swapname)
+  " If swapfile is older than file itself, just get rid of it...
+  if getftime(v:swapname) < getftime(a:filename)
+    call AS_DelayedMsg('Old swapfile detected... and deleted')
+    call delete(v:swapname)
+    let v:swapchoice = 'e'
+  " Otherwise, open file read-only...
+  else
+    call AS_DelayedMsg('Swapfile detected, opening read-only')
+    let v:swapchoice = 'o'
+  endif
+endfunction
+" Print a message after the autocommand completes
+" (so you can see it, but don't have to hit <ENTER> to continue)...
+function! AS_DelayedMsg (msg)
+  " A sneaky way of injecting a message when swapping into the new buffer...
+  augroup AutoSwap_Msg
+    autocmd!
+    " Print the message on finally entering the buffer...
+    autocmd BufWinEnter *  echohl WarningMsg
+  exec 'autocmd BufWinEnter *  echon "\r'.printf("%-60s", a:msg).'"'
+    autocmd BufWinEnter *  echohl NONE
+
+    " And then remove these autocmds, so it's a "one-shot" deal...
+    autocmd BufWinEnter *  augroup AutoSwap_Msg
+    autocmd BufWinEnter *  autocmd!
+    autocmd BufWinEnter *  augroup END
+  augroup END
+endfunction " }}}2
+
+"" SECTION: Appearance {{{1
+colorscheme ron
+color twilight
+hi ColorColumn ctermbg=darkgrey guibg=darkgrey
+highlight Folded ctermbg=None ctermfg=blue
+" foldtext
+function! PyFoldText() "{{{2
+"   let line = ' ' . substitute(getline(v:foldstart), '^\s*', '', 'g') . ' '
+  let line = getline(v:foldstart) .' '
+  let line = substitute(line, '{{' . '{[0-9]*\s*$', '', 'g')
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = ' ' . printf("%s", lines_count . '') . ' '
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+"   let foldtextstart_prefix = '+' . repeat(foldchar, (v:foldlevel-1)*2)
+  let foldtextstart_prefix = ''
+  let foldtextstart = strpart(foldtextstart_prefix . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+" }}}2
+set foldtext=PyFoldText()
+if has("gui_running") " {{{2
+color twilight
+set laststatus=2
+set lines=45
+set columns=112
+let g:sessionfontsize=8
+set guioptions=eg
+function! ToggleFullscreen() " {{{3
+  if matchstr(&guioptions,"m")!=""
+    set guioptions -=b
+    set guioptions -=m
+    set guioptions -=r
+    set guioptions -=L
+    return "Fullscreen On"
+  else
+    set guioptions +=b
+    set guioptions +=m
+    set guioptions +=r
+    set guioptions +=L
+    return "Fullscreen Off"
+  endif
+endfunction
+noremap <F11>    :echo ToggleFullscreen()<CR>
+" }}}3
+function! IncrementFontSize() " {{{3
+    let g:sessionfontsize+=1
+    exec "set guifont=Consolas:h" . g:sessionfontsize . ":cANSI"
+endfunction
+function! DecrementFontSize()
+    let g:sessionfontsize-=1
+    exec "set guifont=Consolas:h" . g:sessionfontsize . ":cANSI"
+endfunction
+nnoremap <silent> <M--> :echo DecrementFontSize()<CR>
+nnoremap <silent> <M-=> :echo IncrementFontSize()<CR>
+" }}}3
+" Alt-+ Alt-- zoom in and out TODO: do this better, add L and H support
+nnoremap <silent> <Leader><M-->
+            \ :set guifont=Consolas:h2:cANSI<CR>
+            \:let &columns = &columns*3<CR>:let &lines = 40+(&lines*2)<CR>
+            \:set guioptions+=r<CR>
+            \:nnoremap j 10j<CR>
+            \:nnoremap k 10k<CR>
+nnoremap <silent> <Leader><M-=>
+            \ :let &columns = &columns/3<CR>:let &lines = (&lines-40)/2<CR>
+            \:exec "set guifont=Consolas:h" . g:sessionfontsize . ":cANSI"<CR>
+            \:set guioptions-=r<CR>
+            \:nnoremap j j<CR>
+            \:nnoremap k k<CR>
+endif " }}}2
+
+"" SECTION: Keymaps {{{1
+set clipboard=unnamedplus
+" nnoremap y "+y  # doesn't work (wtf?)
+" vnoremap y "+y
+inoremap jj <Esc>
+let mapleader = "\<Space>"
+noremap <Leader>w <C-W>
+" yank all
+nnoremap <Leader>ya magg"+yG`a
+nnoremap <Leader>va ggvG$
+" yank line of code
+nnoremap yc ^v$hy
+" directory navigation
+nnoremap <Leader><Down> :cd %:p:h<CR>
+nnoremap <Leader><Up> :cd %:p:h:h<CR>
+" Think vertical # remember to use { and }
+function FloatUpOrDown(cmd, stop_on_space)
+    " BUG: for some reason col(".") doesn't return the right value when in
+    " block-visual mode...
+    "
+    " clears the 'virtual' column position of cursor (when at end of line)
+    let w:origin_col=col(".")
+    call cursor(line("."), col("."))
+    while 1
+        execute "norm! " . a:cmd
+        " get beginning of line
+        execute "norm! ^"
+        let w:linebeg_col=col(".")
+        " cancel previous op
+        call cursor(line("."), w:origin_col)
+        " reach end, stop
+        if line(".") <= 1 || line(".") >= line("$")
+          break
+        " past end of line, continue
+        elseif w:origin_col != col(".")
+          continue
+        " before start of line, continue
+        elseif col(".") < w:linebeg_col
+          continue
+        " land on a space, continue
+        elseif getline(".")[col(".") - 1] =~ '\s'
+          continue
+        endif
+        break
+    endwhile
+endfunction
+function FloatUpOrDownVisual(cmd, stop_on_space)
+  normal! gv
+  call FloatUpOrDown(a:cmd, a:stop_on_space)
+endfunction
+nnoremap <Leader>k :call FloatUpOrDown("gk", 1)<CR>
+nnoremap <Leader>j :call FloatUpOrDown("gj", 1)<CR>
+vnoremap <Leader>k :call FloatUpOrDownVisual("gk", 1)<CR>
+vnoremap <Leader>j :call FloatUpOrDownVisual("gj", 1)<CR>
+" unlearn ZZ in favor of ZQ
+nnoremap ZZ <nop>
+" Remove ex mode (accidental triggers)
+nnoremap Q <nop>
+" force yourself to stop using the arrow keys:
+map <up>    <nop>
+map <down>  <nop>
+map <left>  <nop>
+map <right> <nop>
+" harder
+" imap <up>    <nop>
+" imap <down>  <nop>
+" imap <left>  <nop>
+" imap <right> <nop>
+" back and forth through file history
+" let g:ctrlp_map = '<Leader>r'
+" let g:ctrlp_cmd = 'CtrlPMRU'
+nnoremap <Leader>r :CtrlPMRU<CR>
+" Leader-l and L for next and previous error in loclist
+nnoremap <Leader>l :lnext<CR>zz
+nnoremap <Leader>L :lprev<CR>zz
+" Scratchpad
+function! GetCurrentMarkAsQuickfixItem()
+  return expand("%") . ':' . line('.') . ':' . col('.') . ':'
+endfunction
+nnoremap <Leader>s :execute 'call system("echo ''' . GetCurrentMarkAsQuickfixItem() . ''' >> scratchpad.txt")' \| e scratchpad.txt<CR>GA
+" Vim grep in directory shortcuts - Leader-n and N for :cnext :cprev
+nnoremap <Leader>* *N:vim // ./**<CR>
+vnoremap <Leader>/ y/<C-r>0<CR>:vim // ./**<CR>
+function RipgrepifyString(string)
+  let w:string=a:string
+  let w:string=substitute(w:string, '\\[<>]', '\\b', 'g') " \< -> \b
+  let w:string=substitute(w:string, '\([^\\]\)(', '\1\\(', 'g') " naked ( -> \(
+  let w:string=substitute(w:string, '\([^\\]\))', '\1\\)', 'g') " naked ) -> \)
+  return w:string
+endfunction
+nnoremap <Leader>/ :execute 'Rg '. '"' . RipgrepifyString('<C-r>/') . '"'<CR><CR>
+" nnoremap <Leader>/ :vim // ./**<CR>
+nnoremap <Leader>n :cnfile<CR>zz
+nnoremap <Leader>N :cpfile<CR>zz
+" buffers
+nnoremap ZQ :qa!<CR>
+nnoremap <Leader>q :%bd<CR>
+nnoremap <Leader>w :bd<CR>
+nnoremap <Leader>W :%bd\|e#<CR>
+nnoremap <Leader><Tab> :bnext<CR>
+nnoremap <Leader><S-Tab> :bprev<CR>
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
+nnoremap <Leader>h :silent echo SwitchToOrFromHeader()<CR>
+function! SwitchToOrFromHeader() " {{{2
+  if expand('%:t:e') == 'cpp'
+    exec "normal :e ./**/". expand('%:t:r') . ".h*\<TAB>\<CR>"
+  elseif expand('%:t:e') == 'h' || expand('%:t:e') == 'hpp'
+    exec "normal :e ./**/". expand('%:t:r') . ".cpp\<TAB>\<CR>"
+  endif
+endfunction
+noremap <F11>    :echo ToggleFullscreen()<CR>
+" }}}2
+" Tab for Ctrl-N autocomplete - No longer needed since YCM
+"Use TAB to complete when typing words, else inserts TABs as usual.
+"See help completion for source,
+function! Tab_Or_Complete() " {{{2
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+" }}}2
+" inoremap <Tab> <C-R>=Tab_Or_Complete()<CR> " No longer needed since YCM
+" Treat .launch (ROS) files as XML
+autocmd BufEnter *.launch :setlocal filetype=xml
+autocmd BufEnter *.pyx :setlocal filetype=python
+" Commenting blocks of code.
+autocmd FileType c,cpp,java,scala let b:comment_leader = '//'
+autocmd FileType sh,ruby,python   let b:comment_leader = '#'
+autocmd FileType conf,fstab       let b:comment_leader = '#'
+autocmd FileType tex              let b:comment_leader = '%'
+autocmd FileType mail             let b:comment_leader = '>'
+autocmd FileType vim              let b:comment_leader = '"'
+autocmd FileType yaml             let b:comment_leader = '#'
+autocmd FileType xml,html         let b:comment_leader = '<!--'
+autocmd FileType c,cpp,java,scala,sh,ruby,python,conf,fstab,tex,mail,vim,yaml let b:comment_ender = ''
+autocmd FileType xml,html         let b:comment_ender= '-->'
+" first line adds a comment leader and space
+" second line checks if two leader-space are in succession, in which case
+" delete both
+vnoremap <Leader>c :s:^:<C-R>=b:comment_leader<CR> :<CR>
+            \:'<,'>s:$: <C-R>=b:comment_ender<CR>:<CR>
+            \:'<,'>s/\s\+$//e<CR>
+            \:silent!'<,'>s:^<C-R>=b:comment_leader<CR> <C-R>=b:comment_leader<CR> :<CR>
+            \:silent!'<,'>s: <C-R>=b:comment_ender<CR> <C-R>=b:comment_ender<CR>$:<CR>
+            \:noh<CR>`<v`>
+nnoremap <Leader>c V:s:^:<C-R>=b:comment_leader<CR> :<CR>
+            \:'<,'>s:$: <C-R>=b:comment_ender<CR>:<CR>
+            \:'<,'>s/\s\+$//e<CR>
+            \:silent!'<,'>s:^<C-R>=b:comment_leader<CR> <C-R>=b:comment_leader<CR> :<CR>
+            \:silent!'<,'>s: <C-R>=b:comment_ender<CR> <C-R>=b:comment_ender<CR>$:<CR>
+            \:noh<CR>`<
+" Extra Cursor Half-Screen Movement
+nnoremap <silent> H :silent if winline() != 1<CR>
+            \normal! H<CR>else<CR>
+            \exec "normal ".
+            \"zz"<CR>
+            \end<CR><CR>
+nnoremap <silent> L :silent if winline() != winheight(winnr())<CR>
+            \normal! L<CR>else<CR>
+            \exec "normal ".
+            \"zz"<CR>
+            \end<CR><CR>
+" Toggle the document type
+function! ToggleDocType() " {{{2
+  " toggles between code and text document
+  if &l:wrap
+    setl nowrap
+    setl nu
+    setl list
+        setl textwidth=0
+    return "Code Document"
+  else
+    setl wrap
+    setl nonu
+        setl nornu
+    setl nolist
+        setl textwidth=0
+    return "Text Document"
+  endif
+endfunction
+noremap <F2>    :echo ToggleDocType()<CR>
+" }}}2
+" In the help window: Tab and shift-Tab switch between searched topics
+function! NextHelp() " {{{2
+    exec "normal :h\<Up>\<CR>"
+    if !exists("w:count_help")
+        let w:count_help=1
+    endif
+    if !exists("w:origin_help")
+        let w:origin_help="impossiblestring"
+    endif
+    let w:last_help=strpart(@:,1+match(@:," "))
+    if match(w:last_help, w:origin_help)==-1
+        let w:origin_help=w:last_help
+        let w:count_help=1
+    else
+        let w:count_help+=1
+    endif
+    set wcm=<Tab>
+    exec "normal :h ".w:origin_help.repeat("\<Tab>",w:count_help)."\<CR>"
+endfunction
+function! PrevHelp()
+    exec "normal :h\<Up>\<CR>"
+    if !exists("w:count_help")
+        let w:count_help=1
+    endif
+    if !exists("w:origin_help")
+        let w:origin_help="impossiblestring"
+    endif
+    let w:last_help=strpart(@:,1+match(@:," "))
+    if match(w:last_help, w:origin_help)==-1
+        let w:origin_help=w:last_help
+        let w:count_help=1
+    elseif w:count_help>1
+        let w:count_help-=1
+    endif
+    set wcm=<Tab>
+    exec "normal :h ".w:origin_help.repeat("\<Tab>",w:count_help)."\<CR>"
+endfunction
+"" Respective Remaps
+autocmd BufEnter * silent exec "normal :if &bt=='help'\<CR>nnoremap <buffer> <Tab> :silent echo NextHelp()<CR>\<CR>endif\<CR>"
+autocmd BufEnter * silent exec "normal :if &bt=='help'\<CR>nnoremap <buffer> <s-Tab> :silent echo PrevHelp()<CR>\<CR>endif\<CR>"
+" }}}2
+
+"" SECTION: User-defined Commands {{{1
+command RemoveTrailingSpaces %s/\s\+$//e
+command -nargs=1 Numbers put =map(range(1,<args>), 'printf(''%04d'', v:val)')
+command -nargs=1 Files read !ls <args>
+"" copies the command for ipython debugging in the script
+command DebugIPython let @+ = "%run -d -b ". expand("%:p") . ":" . line('.') . " script.py" | echo "'" . @+ . "' copied to Clipboard"
+command ShuffleLines %!shuf
+command Scratchpad cf scratchpad.txt | copen
+command! -nargs=1 -complete=file W write <args> | edit <args>
+
+" }}}1
+
+"" vim: set fdm=marker:
