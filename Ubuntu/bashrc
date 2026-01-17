@@ -566,6 +566,13 @@ if [ $MACHINE_NAME = BYTE ]; then
   tm
 fi
 
+if [ $MACHINE_NAME = TOGETHER_H100 ]; then
+  export UNIXNAME=dud
+  export EDITOR=vim
+
+  tm
+fi
+
 if [ $MACHINE_NAME = FAIR_A100 ]; then
   # better Ctrl-R history search
 #   eval "$(fzf --bash)"
