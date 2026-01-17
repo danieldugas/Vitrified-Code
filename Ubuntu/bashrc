@@ -567,8 +567,17 @@ if [ $MACHINE_NAME = BYTE ]; then
 fi
 
 if [ $MACHINE_NAME = TOGETHER_H100 ]; then
+  export LC_ALL=C.UTF-8
+  export LANG=C.UTF-8
+  source ~/fzf-key-bindings.bash
+
   export UNIXNAME=dud
   export EDITOR=vim
+
+  alias vim=vim
+
+  unset PYTHONPATH
+  conda activate ros2_humble
 
   tm
 fi
