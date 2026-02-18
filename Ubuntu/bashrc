@@ -215,6 +215,10 @@ dirsize() {
 export EDITOR=nvim
 export VISUAL=nvim
 
+# Git identity
+git config --global user.email "exodaniel@gmail.com"
+git config --global user.name "Daniel Dugas"
+
 # Source my personal python packages
 # export PYTHONPATH="$HOME/Code/pyniel:$PYTHONPATH"
 
