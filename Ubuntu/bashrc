@@ -578,7 +578,11 @@ if [ $MACHINE_NAME = TOGETHER_H100 ]; then
   export UNIXNAME=dud
   export EDITOR=vim
 
+  export PATH=~/bin:$PATH
+
   alias vim=vim
+
+  alias sq="squeue --format='%.18i %.9P %.8j %.8u %.2t %.10M %.6C %b'"
 
   unset PYTHONPATH
   conda activate ros2_humble
