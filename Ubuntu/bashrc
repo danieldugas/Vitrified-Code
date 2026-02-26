@@ -580,6 +580,11 @@ if [ $MACHINE_NAME = TOGETHER_H100 ]; then
 
   export PATH=~/bin:$PATH
 
+  # vm train dirs
+  export HYDRA_FULL_ERROR=1
+  export RWM_SHARE_DIR=/home/dud/data/
+  export DATASET_DIR=/home/dud/data/
+
   alias vim=vim
 
   alias sq="squeue --format='%.18i %.9P %.8j %.8u %.2t %.10M %.6C %b'"
