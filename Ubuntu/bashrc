@@ -269,6 +269,14 @@ rm() {
         command rm "$@"
     fi
 }
+alias pynb='f(){ 
+    local nb="$1"; 
+    shift; 
+    local script="${nb%.ipynb}.py"; 
+    python -m nbconvert --to script "$nb" && \
+    python "$script" "$@" && \
+    rm "$script"; 
+}; f'
 
 export PATH="$HOME/Code/simple-sync:$PATH"
 
